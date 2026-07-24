@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>디자인소통 SOTONG DESIGN — 신축 · 대수선 · 상업공간 · 주거공간 · 한옥</title>
-<meta name="description" content="설계 단계의 대화를 도면에, 도면을 그대로 공간에 옮기는 디자인소통. 신축, 대수선, 상업공간, 주거공간, 한옥 리모델링 전문.">
+<title>소통디자인 SOTONG DESIGN — 신축 · 대수선 · 상업공간 · 주거공간 · 한옥</title>
+<meta name="description" content="설계 단계의 대화를 도면에, 도면을 그대로 공간에 옮기는 소통디자인. 신축, 대수선, 상업공간, 주거공간, 한옥 리모델링 전문.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    word-break: keep-all; /* 단어 중간에서 줄바꿈되는 현상 방지 */
+    word-break: keep-all;
   }
   img{ max-width:100%; display:block; }
   a{ color:inherit; text-decoration:none; }
@@ -45,19 +45,22 @@
   .wrap{ max-width: 1180px; margin:0 auto; padding: 0 32px; }
   @media (max-width: 640px){ .wrap{ padding: 0 20px; } }
 
+  /* 소제목/상단 서브 텍스트 크기 확대 및 밸런스 조정 */
   .eyebrow{
     font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.12em;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--sage-deep);
     display:flex;
     align-items:center;
     gap:10px;
+    margin-bottom: 8px;
   }
   .eyebrow::before{
     content:'';
-    width: 22px; height:1px;
+    width: 24px; height:2px;
     background: var(--sage-deep);
     display:inline-block;
   }
@@ -67,47 +70,51 @@
   /* ---------- Header ---------- */
   header{
     position: sticky; top:0; z-index: 100;
-    background: rgba(242,239,230,0.88);
-    backdrop-filter: blur(8px);
+    background: rgba(242,239,230,0.92);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
-    height: 76px;
+    height: 84px;
   }
   .logo{
-    display:flex; align-items:center; gap:10px;
-    font-family: var(--display); font-weight:700; font-size: 19px;
+    display:flex; align-items:center; gap:12px;
+    font-family: var(--display); font-weight:700; font-size: 20px;
     letter-spacing: -0.01em;
   }
-  .logo-mark{ width:30px; height:25px; flex-shrink:0; }
+  /* 첨부하신 로고 이미지 반영 스타일 */
+  .logo-img{
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
   .logo small{
-    display:block; font-family: var(--mono); font-weight:400;
-    font-size: 9px; letter-spacing: 0.1em; color: var(--ink-soft);
-    margin-top:1px;
+    display:block; font-family: var(--mono); font-weight:500;
+    font-size: 10px; letter-spacing: 0.12em; color: var(--ink-soft);
+    margin-top:2px;
   }
   .nav-links{
-    display:flex; gap: 36px; font-size: 14px; font-weight:500;
+    display:flex; gap: 40px; font-size: 15px; font-weight:500;
   }
   .nav-links a{ position:relative; padding: 4px 0; color: var(--ink-soft); transition: color .2s; }
   .nav-links a:hover{ color: var(--ink); }
   .nav-links a::after{
-    content:''; position:absolute; left:0; bottom:-2px; height:1px; width:0;
+    content:''; position:absolute; left:0; bottom:-2px; height:2px; width:0;
     background: var(--sage-deep); transition: width .25s ease;
   }
   .nav-links a:hover::after{ width:100%; }
   .nav-cta{
-    font-size: 13px; font-weight:600; padding: 10px 20px;
+    font-size: 14px; font-weight:600; padding: 11px 22px;
     border: 1px solid var(--ink); border-radius: 100px;
     transition: background .2s, color .2s;
     white-space:nowrap;
   }
   .nav-cta:hover{ background: var(--ink); color: var(--paper); }
-  .nav-toggle{ display:none; }
 
   @media (max-width: 860px){
     .nav-links{ display:none; }
-    .nav-toggle{ display:block; font-family: var(--mono); font-size:12px; border:1px solid var(--ink); padding:8px 14px; border-radius:100px; }
   }
 
   /* ---------- Hero ---------- */
@@ -115,8 +122,8 @@
     position: relative;
     width: 100%;
     height: 82vh;
-    min-height: 460px;
-    max-height: 760px;
+    min-height: 480px;
+    max-height: 780px;
     overflow: hidden;
     background: var(--ink);
   }
@@ -148,7 +155,7 @@
   }
   @media (max-width:640px){ .hf-overlay{ padding:0 20px; bottom:24px; } }
   .hf-label{
-    font-family: var(--display); font-size: 19px; font-weight:600; color: var(--white);
+    font-family: var(--display); font-size: 21px; font-weight:600; color: var(--white);
     max-width: 55%;
     overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
   }
@@ -164,50 +171,52 @@
   .hf-progress-bar.animate{ animation: hfFill 4.8s linear; }
   @keyframes hfFill{ from{ width:0%; } to{ width:100%; } }
   .hf-arrow{
-    font-family: var(--display); font-size: 20px; color: rgba(255,253,248,0.75);
+    font-family: var(--display); font-size: 22px; color: rgba(255,253,248,0.75);
     line-height:1; padding: 2px 4px; transition: color .2s;
   }
   .hf-arrow:hover{ color: var(--white); }
 
-  .hero-full:hover .hf-progress-bar.animate{ animation-play-state: paused; }
-
   /* ---------- Intro copy ---------- */
-  .intro{ padding: 88px 0 72px; }
-  .intro-wrap{ max-width: 640px; }
+  .intro{ padding: 110px 0 90px; }
+  .intro-wrap{ max-width: 680px; }
   .intro h1{
-    font-size: clamp(30px, 4.2vw, 48px);
+    font-size: clamp(32px, 4.4vw, 50px);
     line-height: 1.25;
-    margin: 16px 0 20px;
+    margin: 18px 0 24px;
     word-break: keep-all;
   }
-  .intro h1 span.keep-word{
-    display: inline-block;
-  }
+  .intro h1 span.keep-word{ display: inline-block; }
   .intro h1 em{
     font-style: normal;
     color: var(--sage-deep);
     border-bottom: 2px solid var(--sage);
   }
-  .intro p{ font-size: 16px; color: var(--ink-soft); margin-bottom: 30px; max-width: 480px; word-break: keep-all; }
+  .intro p{ font-size: 17px; color: var(--ink-soft); margin-bottom: 34px; max-width: 520px; word-break: keep-all; line-height: 1.65; }
   .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
-  .hero-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 26px; }
+  .hero-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 32px; }
   .hero-tags span{
-    font-family: var(--mono); font-size:11.5px; color: var(--ink-soft);
-    border:1px solid var(--line); padding: 6px 12px; border-radius:100px;
-    background: rgba(255,253,248,0.6);
+    font-family: var(--mono); font-size:13px; font-weight:500; color: var(--ink-soft);
+    border:1px solid var(--line-strong); padding: 7px 15px; border-radius:100px;
+    background: rgba(255,253,248,0.7);
   }
 
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding: 15px 26px;
+    padding: 16px 28px;
     border-radius: 100px;
-    font-size: 14.5px; font-weight:600;
+    font-size: 15px; font-weight:600;
     transition: transform .2s ease, background .2s, box-shadow .2s;
   }
   .btn-primary{ background: var(--ink); color: var(--paper); }
   .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(35,36,31,0.22); }
   .btn-ghost{ border: 1px solid var(--line-strong); color: var(--ink); }
   .btn-ghost:hover{ border-color: var(--ink); background: var(--white); }
+
+  /* ---------- Section shared (여백 및 헤더 간격 대폭 확대) ---------- */
+  section{ padding: 140px 0; }
+  .section-head{ max-width: 680px; margin-bottom: 64px; }
+  .section-head h2{ font-size: clamp(28px, 3.4vw, 40px); margin-top:16px; margin-bottom: 12px; }
+  .section-head p{ color: var(--ink-soft); font-size:16.5px; line-height: 1.6; }
 
   /* ---------- Services ---------- */
   .services{ background: var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -222,13 +231,13 @@
   @media (max-width: 480px){ .service-grid{ grid-template-columns: 1fr; } }
   .service-item{
     background: var(--paper);
-    padding: 30px 24px;
+    padding: 36px 28px;
     transition: background .2s;
   }
   .service-item:hover{ background: var(--white); }
-  .service-item svg{ width:30px; height:30px; color: var(--sage-deep); margin-bottom:18px; }
-  .service-item h3{ font-size: 16.5px; font-weight:600; margin-bottom:8px; font-family: var(--body); }
-  .service-item p{ font-size: 13px; color: var(--ink-soft); line-height:1.55; }
+  .service-item svg{ width:32px; height:32px; color: var(--sage-deep); margin-bottom:20px; }
+  .service-item h3{ font-size: 18px; font-weight:600; margin-bottom:10px; font-family: var(--body); }
+  .service-item p{ font-size: 14px; color: var(--ink-soft); line-height:1.6; }
 
   .service-cta{
     background: var(--ink);
@@ -238,11 +247,11 @@
   }
   .service-cta:hover{ background: #33342c; }
   .service-cta .sc-label{
-    font-family: var(--mono); font-size:11px; color: var(--sage); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;
+    font-family: var(--mono); font-size:12px; color: var(--sage); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;
   }
-  .service-cta h3{ font-size:18px; font-weight:600; font-family: var(--display); margin-bottom:14px; line-height:1.35; }
+  .service-cta h3{ font-size:19px; font-weight:600; font-family: var(--display); margin-bottom:16px; line-height:1.35; }
   .service-cta .sc-arrow{
-    display:inline-flex; align-items:center; gap:8px; font-size:13.5px; font-weight:600;
+    display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600;
   }
   .service-cta .sc-arrow svg{ width:16px; height:16px; margin:0; transition: transform .2s; }
   .service-cta:hover .sc-arrow svg{ transform: translateX(4px); }
@@ -252,7 +261,7 @@
   .process-item{
     display:grid; grid-template-columns: 90px 1fr 1.3fr;
     gap: 28px;
-    padding: 32px 0;
+    padding: 38px 0;
     border-top: 1px solid var(--line);
     align-items:start;
   }
@@ -261,14 +270,14 @@
     .process-item{ grid-template-columns: 50px 1fr; }
     .process-item .process-desc{ grid-column: 2; }
   }
-  .process-num{ font-family: var(--mono); font-size: 26px; color: var(--line-strong); font-weight:500; }
-  .process-title{ font-size: 19px; font-weight:600; font-family: var(--display); }
-  .process-title span{ display:block; font-family: var(--mono); font-size:11px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-weight:400; }
-  .process-desc{ font-size: 14.5px; color: var(--ink-soft); }
+  .process-num{ font-family: var(--mono); font-size: 28px; color: var(--line-strong); font-weight:500; }
+  .process-title{ font-size: 20px; font-weight:600; font-family: var(--display); }
+  .process-title span{ display:block; font-family: var(--mono); font-size:12px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-weight:500; }
+  .process-desc{ font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
 
   /* ---------- Blueprint dialogue ---------- */
   .dialogue{ background: var(--ink); color: var(--paper); }
-  .dialogue .section-head p{ color: rgba(242,239,230,0.65); }
+  .dialogue .section-head p{ color: rgba(242,239,230,0.75); }
   .dialogue .eyebrow{ color: var(--sage); }
   .dialogue .eyebrow::before{ background: var(--sage); }
 
@@ -289,7 +298,6 @@
   }
   .plan-svg{ position:relative; width:100%; height:auto; display:block; }
   
-  /* 핀 스타일 및 떨림 방지 */
   .pin-group{ outline:none; cursor:pointer; }
   .pin{
     fill: var(--paper);
@@ -306,25 +314,25 @@
     background: rgba(242,239,230,0.06);
     border: 1px solid rgba(242,239,230,0.18);
     border-radius: 14px;
-    padding: 22px 24px;
-    min-height: 108px;
+    padding: 24px 26px;
+    min-height: 110px;
   }
-  .note-tag{ font-family: var(--mono); font-size:11px; color: var(--sage); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
-  .note-line{ font-size: 14.5px; margin-bottom: 8px; display:flex; gap:10px; }
-  .note-line b{ flex-shrink:0; color: var(--sage); font-weight:600; min-width: 78px; }
-  .note-hint{ font-family: var(--mono); font-size:11.5px; color: rgba(242,239,230,0.4); margin-top:14px; }
+  .note-tag{ font-family: var(--mono); font-size:12.5px; font-weight: 500; color: var(--sage); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px; }
+  .note-line{ font-size: 15px; margin-bottom: 8px; display:flex; gap:12px; }
+  .note-line b{ flex-shrink:0; color: var(--sage); font-weight:600; min-width: 82px; }
+  .note-hint{ font-family: var(--mono); font-size:12px; color: rgba(242,239,230,0.5); margin-top:16px; }
 
   /* ---------- Portfolio ---------- */
-  .portfolio-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 34px; }
+  .portfolio-tabs{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom: 40px; }
   .tab{
-    font-size: 13px; font-weight:600; padding: 9px 18px;
+    font-size: 14px; font-weight:600; padding: 10px 20px;
     border:1px solid var(--line-strong); border-radius: 100px; color: var(--ink-soft);
     transition: all .2s;
   }
   .tab.active, .tab:hover{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
   .portfolio-grid{
-    display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
   }
   @media (max-width: 900px){ .portfolio-grid{ grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 560px){ .portfolio-grid{ grid-template-columns: 1fr; } }
@@ -341,47 +349,47 @@
     background-size: cover;
     background-position: center;
   }
-  .pf-body{ padding: 18px 20px 22px; }
-  .pf-cat{ font-family: var(--mono); font-size:10.5px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.06em; }
-  .pf-title{ font-size: 16px; font-weight:600; margin-top:6px; font-family: var(--body); }
-  .pf-desc{ font-size:13px; color: var(--ink-soft); margin-top:6px; }
+  .pf-body{ padding: 20px 22px 24px; }
+  .pf-cat{ font-family: var(--mono); font-size:12px; font-weight: 500; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.06em; }
+  .pf-title{ font-size: 17px; font-weight:600; margin-top:6px; font-family: var(--body); }
+  .pf-desc{ font-size:14px; color: var(--ink-soft); margin-top:6px; line-height: 1.5; }
 
   /* ---------- Testimonial ---------- */
   .testimonial-section{ background: var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .t-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .t-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
   @media (max-width: 900px){ .t-grid{ grid-template-columns: 1fr; } }
-  .t-card{ background: var(--paper); border:1px solid var(--line); border-radius:14px; padding: 26px; }
-  .t-quote{ font-family: var(--display); font-size: 17px; line-height:1.5; margin-bottom:18px; }
-  .t-meta{ font-family: var(--mono); font-size:12px; color: var(--ink-soft); }
+  .t-card{ background: var(--paper); border:1px solid var(--line); border-radius:14px; padding: 30px; }
+  .t-quote{ font-family: var(--display); font-size: 18px; line-height:1.55; margin-bottom:20px; }
+  .t-meta{ font-family: var(--mono); font-size:13px; color: var(--ink-soft); font-weight: 500; }
 
   /* ---------- CTA / Contact ---------- */
   .cta{
     background: var(--sage-deep); color: var(--paper);
     border-radius: 22px;
-    padding: 64px 48px;
-    display:grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    padding: 72px 54px;
+    display:grid; grid-template-columns: 1fr 1fr; gap: 54px;
   }
-  @media (max-width: 860px){ .cta{ grid-template-columns:1fr; padding: 40px 26px; } }
-  .cta h2{ font-size: clamp(24px,3vw,32px); margin-bottom:16px; }
-  .cta p{ opacity:.85; font-size:14.5px; margin-bottom:26px; max-width:420px; }
-  .cta-info{ display:flex; flex-direction:column; gap:10px; font-family: var(--mono); font-size:13.5px; }
-  .cta-info a{ text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width: 860px){ .cta{ grid-template-columns:1fr; padding: 44px 30px; } }
+  .cta h2{ font-size: clamp(26px,3.2vw,34px); margin-bottom:18px; }
+  .cta p{ opacity:.9; font-size:15.5px; margin-bottom:28px; max-width:440px; line-height: 1.6; }
+  .cta-info{ display:flex; flex-direction:column; gap:12px; font-family: var(--mono); font-size:14px; }
+  .cta-info a{ text-decoration:underline; text-underline-offset:4px; }
 
-  .form-field{ margin-bottom: 16px; }
-  .form-field label{ display:block; font-size:12.5px; margin-bottom:6px; opacity:.8; }
+  .form-field{ margin-bottom: 18px; }
+  .form-field label{ display:block; font-size:13.5px; margin-bottom:8px; opacity:.9; font-weight: 500; }
   .form-field input, .form-field select, .form-field textarea{
-    width:100%; padding: 12px 14px; border-radius:8px; border:1px solid rgba(242,239,230,0.3);
-    background: rgba(242,239,230,0.08); color: var(--paper); font-family: var(--body); font-size:14px;
+    width:100%; padding: 13px 16px; border-radius:8px; border:1px solid rgba(242,239,230,0.3);
+    background: rgba(242,239,230,0.08); color: var(--paper); font-family: var(--body); font-size:14.5px;
   }
-  .form-field input::placeholder, .form-field textarea::placeholder{ color: rgba(242,239,230,0.45); }
-  .form-field textarea{ resize:vertical; min-height:80px; }
-  .cta form .btn-primary{ background: var(--paper); color: var(--ink); width:100%; justify-content:center; margin-top:6px; }
+  .form-field input::placeholder, .form-field textarea::placeholder{ color: rgba(242,239,230,0.5); }
+  .form-field textarea{ resize:vertical; min-height:90px; }
+  .cta form .btn-primary{ background: var(--paper); color: var(--ink); width:100%; justify-content:center; margin-top:8px; }
 
   /* ---------- Footer ---------- */
-  footer{ padding: 46px 0 40px; border-top:1px solid var(--line); }
-  .footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
-  .footer-row p{ font-size:12.5px; color: var(--ink-soft); font-family: var(--mono); }
-  .footer-links{ display:flex; gap:20px; font-size:13px; }
+  footer{ padding: 52px 0 44px; border-top:1px solid var(--line); }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; }
+  .footer-row p{ font-size:13px; color: var(--ink-soft); font-family: var(--mono); }
+  .footer-links{ display:flex; gap:24px; font-size:14px; }
 
   .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in{ opacity:1; transform:none; }
@@ -392,12 +400,9 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top">
-      <svg class="logo-mark" viewBox="0 0 100 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="47" y="4" width="6" height="6" transform="rotate(45 50 7)" fill="var(--ink)"/>
-        <path d="M15 66 L48 12 L80 66" stroke="var(--ink)" stroke-width="4.2" stroke-linecap="square"/>
-        <path d="M27 66 L60 12 L92 66" stroke="var(--ink)" stroke-width="4.2" stroke-linecap="square"/>
-      </svg>
-      <span>디자인소통<small>SOTONG&nbsp;DESIGN</small></span>
+      <!-- 첨부하신 로고 사진 반영 (images/logo.png 경로) -->
+      <img src="images/logo.png" alt="소통디자인 로고" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+      <span id="logoFallback" style="display:none;">소통디자인<small>SOTONG&nbsp;DESIGN</small></span>
     </a>
     <nav class="nav-links">
       <a href="#services">전문분야</a>
@@ -440,7 +445,7 @@
     <div class="wrap intro-wrap reveal">
       <div class="eyebrow">ARCHITECTURE &amp; INTERIOR</div>
       <h1>도면 위의 대화가 그대로 <span class="keep-word"><em>공간</em>이</span> 됩니다</h1>
-      <p>디자인소통은 상담에서 오간 대화를 도면에 남기고, 도면을 그대로 공간으로 옮깁니다. 신축부터 대수선, 상업공간, 주거공간, 한옥까지 — 어떤 규모든 같은 방식으로 대화합니다.</p>
+      <p>소통디자인은 상담에서 오간 대화를 도면에 남기고, 도면을 그대로 공간으로 옮깁니다. 신축부터 대수선, 상업공간, 주거공간, 한옥까지 — 어떤 규모든 같은 방식으로 대화합니다.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contact">무료 상담 신청</a>
         <a class="btn btn-ghost" href="#portfolio">포트폴리오 보기</a>
@@ -502,7 +507,7 @@
       <div class="section-head reveal">
         <div class="eyebrow">작업방식</div>
         <h2>완공까지, 다섯 번의 대화</h2>
-        <p>순서가 바뀌면 결과도 바뀝니다. 디자인소통은 이 순서를 지키는 것에서부터 시작합니다.</p>
+        <p>순서가 바뀌면 결과도 바뀝니다. 소통디자인은 이 순서를 지키는 것에서부터 시작합니다.</p>
       </div>
       <div class="process-list">
         <div class="process-item reveal">
@@ -551,7 +556,6 @@
           <line x1="500" y1="40" x2="500" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
           <line x1="60" y1="260" x2="330" y2="260" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
 
-          <!-- 핀 4개 지정 -->
           <g class="pin-group active" data-note="0" tabindex="0">
             <circle class="pin" cx="180" cy="140" r="9"/>
           </g>
@@ -569,7 +573,7 @@
         <div class="note-panel" id="notePanel">
           <div class="note-tag">서교동 미용실 리모델링 — 주방/시술 공간</div>
           <div class="note-line"><b>클라이언트</b><span>"손님이 대기하면서 답답하지 않았으면 좋겠어요."</span></div>
-          <div class="note-line"><b>디자인소통</b><span>대기 공간과 시술 공간 사이 파티션을 낮추고, 창가 쪽으로 대기석을 재배치했습니다.</span></div>
+          <div class="note-line"><b>소통디자인</b><span>대기 공간과 시술 공간 사이 파티션을 낮추고, 창가 쪽으로 대기석을 재배치했습니다.</span></div>
           <div class="note-hint">※ 예시 데이터입니다. 실제 프로젝트별 대화 기록으로 교체해 주세요.</div>
         </div>
       </div>
@@ -676,7 +680,7 @@
     <div class="wrap">
       <div class="cta reveal">
         <div>
-          <div class="eyebrow" style="color:rgba(242,239,230,0.7)">CONTACT</div>
+          <div class="eyebrow" style="color:rgba(242,239,230,0.85)">CONTACT</div>
           <h2>다음 대화는,<br>당신의 공간에 대한 것입니다</h2>
           <p>신축이든 작은 대수선이든, 첫 대화는 언제나 무료입니다. 편하게 문의해 주세요.</p>
           <div class="cta-info">
@@ -718,7 +722,7 @@
 
 <footer>
   <div class="wrap footer-row">
-    <p>© 디자인소통 SOTONG DESIGN. Architecture · New Construction · Major Repair</p>
+    <p>© 소통디자인 SOTONG DESIGN. Architecture · New Construction · Major Repair</p>
     <div class="footer-links">
       <a href="https://blog.naver.com/designsotong79" target="_blank">네이버 블로그</a>
       <a href="#contact">문의하기</a>
@@ -776,34 +780,34 @@
     startAuto();
   })();
 
-  // blueprint dialogue notes (4개 데이터)
+  // blueprint dialogue notes
   const notes = [
     {
       tag: '서교동 미용실 리모델링 — 주방/시술 공간',
       lines: [
         ['클라이언트', '"손님이 대기하면서 답답하지 않았으면 좋겠어요."'],
-        ['디자인소통', '대기 공간과 시술 공간 사이 파티션을 낮추고, 창가 쪽으로 대기석을 재배치했습니다.']
+        ['소통디자인', '대기 공간과 시술 공간 사이 파티션을 낮추고, 창가 쪽으로 대기석을 재배치했습니다.']
       ]
     },
     {
       tag: '동교동 카페 — 홀 공간',
       lines: [
         ['클라이언트', '"로스팅하는 모습도 손님들에게 보여주고 싶어요."'],
-        ['디자인소통', '로스팅 공간을 유리 파티션으로 분리해 시야는 열되 소음은 차단했습니다.']
+        ['소통디자인', '로스팅 공간을 유리 파티션으로 분리해 시야는 열되 소음은 차단했습니다.']
       ]
     },
     {
       tag: '한옥 주택 — 마당/거실',
       lines: [
         ['클라이언트', '"마당의 나무는 꼭 남기고 싶어요."'],
-        ['디자인소통', '거실 창의 위치를 조정해 기존 나무가 정면으로 보이도록 배치했습니다.']
+        ['소통디자인', '거실 창의 위치를 조정해 기존 나무가 정면으로 보이도록 배치했습니다.']
       ]
     },
     {
       tag: '구산동 아파트 — 거실/조명',
       lines: [
         ['클라이언트', '"저녁에 너무 밝지 않고 따뜻한 분위기였으면 좋겠습니다."'],
-        ['디자인소통', '메인 등 대신 우물천장 간접 조명과 등기구 레이아웃을 다변화해 따뜻한 무드를 연출했습니다.']
+        ['소통디자인', '메인 등 대신 우물천장 간접 조명과 등기구 레이아웃을 다변화해 따뜻한 무드를 연출했습니다.']
       ]
     }
   ];
