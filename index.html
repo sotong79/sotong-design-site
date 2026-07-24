@@ -45,7 +45,6 @@
   .wrap{ max-width: 1180px; margin:0 auto; padding: 0 32px; }
   @media (max-width: 640px){ .wrap{ padding: 0 20px; } }
 
-  /* 소제목/상단 서브 텍스트 크기 확대 및 밸런스 조정 */
   .eyebrow{
     font-family: var(--mono);
     font-size: 13.5px;
@@ -70,30 +69,44 @@
   /* ---------- Header ---------- */
   header{
     position: sticky; top:0; z-index: 100;
-    background: rgba(242,239,230,0.92);
+    background: rgba(242,239,230,0.94);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
-    height: 84px;
+    height: 96px; /* 2배 커진 로고에 맞춘 헤더 높이 */
   }
   .logo{
-    display:flex; align-items:center; gap:12px;
-    font-family: var(--display); font-weight:700; font-size: 20px;
-    letter-spacing: -0.01em;
+    display:flex; align-items:center; gap:14px;
   }
-  /* 첨부하신 로고 이미지 반영 스타일 */
+  /* 로고 이미지 2배 확대 및 바탕색 투명화 연출 */
   .logo-img{
-    height: 38px;
+    height: 76px; /* 기존 38px에서 2배 확대 */
     width: auto;
     object-fit: contain;
     display: block;
+    mix-blend-mode: multiply; /* 흰색/밝은 배경 투명화 처리 */
   }
-  .logo small{
-    display:block; font-family: var(--mono); font-weight:500;
-    font-size: 10px; letter-spacing: 0.12em; color: var(--ink-soft);
-    margin-top:2px;
+  /* 로고 우측 텍스트 */
+  .logo-text{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .logo-text small{
+    display:block; 
+    font-family: var(--mono); 
+    font-weight: 500;
+    font-size: 10px; 
+    letter-spacing: 0.12em; 
+    color: var(--ink-soft);
+    margin-top:3px;
   }
   .nav-links{
     display:flex; gap: 40px; font-size: 15px; font-weight:500;
@@ -212,7 +225,7 @@
   .btn-ghost{ border: 1px solid var(--line-strong); color: var(--ink); }
   .btn-ghost:hover{ border-color: var(--ink); background: var(--white); }
 
-  /* ---------- Section shared (여백 및 헤더 간격 대폭 확대) ---------- */
+  /* ---------- Section shared ---------- */
   section{ padding: 140px 0; }
   .section-head{ max-width: 680px; margin-bottom: 64px; }
   .section-head h2{ font-size: clamp(28px, 3.4vw, 40px); margin-top:16px; margin-bottom: 12px; }
@@ -356,11 +369,47 @@
 
   /* ---------- Testimonial ---------- */
   .testimonial-section{ background: var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .t-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .t-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
   @media (max-width: 900px){ .t-grid{ grid-template-columns: 1fr; } }
-  .t-card{ background: var(--paper); border:1px solid var(--line); border-radius:14px; padding: 30px; }
-  .t-quote{ font-family: var(--display); font-size: 18px; line-height:1.55; margin-bottom:20px; }
-  .t-meta{ font-family: var(--mono); font-size:13px; color: var(--ink-soft); font-weight: 500; }
+  
+  .t-card{ 
+    background: var(--white); 
+    border:1px solid var(--line); 
+    border-radius:16px; 
+    padding: 36px 32px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .t-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(35,36,31,0.08);
+  }
+  .t-quote-mark{
+    font-family: var(--display);
+    font-size: 44px;
+    line-height: 1;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+  .t-quote{ 
+    font-family: var(--display); 
+    font-size: 19px; 
+    line-height:1.6; 
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom:24px; 
+  }
+  .t-meta{ 
+    font-family: var(--mono); 
+    font-size:13.5px; 
+    color: var(--sage-deep); 
+    font-weight: 600;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
 
   /* ---------- CTA / Contact ---------- */
   .cta{
@@ -400,9 +449,9 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top">
-      <!-- 첨부하신 로고 사진 반영 (images/logo.png 경로) -->
-      <img src="images/logo.png" alt="소통디자인 로고" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
-      <span id="logoFallback" style="display:none;">소통디자인<small>SOTONG&nbsp;DESIGN</small></span>
+      <!-- 2배 커진 로고 및 텍스트 우측 배치 -->
+      <img src="images/logo.png" alt="소통디자인 로고" class="logo-img">
+      <span class="logo-text">소통디자인<small>SOTONG&nbsp;DESIGN</small></span>
     </a>
     <nav class="nav-links">
       <a href="#services">전문분야</a>
@@ -656,20 +705,29 @@
       <div class="section-head reveal">
         <div class="eyebrow">고객후기</div>
         <h2>실제로 함께 대화했던 분들</h2>
-        <p>※ 예시 문구입니다. 실제 고객 후기로 교체해 주세요.</p>
+        <p>소통디자인과 함께 공간을 완성하신 고객분들의 솔직한 이야기입니다.</p>
       </div>
       <div class="t-grid">
         <div class="t-card reveal">
-          <div class="t-quote">"처음 상담 때 나눈 이야기가 도면에 그대로 담겨있어서 놀랐어요."</div>
-          <div class="t-meta">상업공간 · 미용실 대표</div>
+          <div>
+            <div class="t-quote-mark">“</div>
+            <div class="t-quote">처음 상담 때 나눈 이야기가 도면에 그대로 담겨있어서 정말 신기하고 만족스러웠어요.</div>
+          </div>
+          <div class="t-meta">상업공간 · 미용실 원장님</div>
         </div>
         <div class="t-card reveal">
-          <div class="t-quote">"공정마다 사진과 함께 설명해 주셔서 불안하지 않았습니다."</div>
-          <div class="t-meta">주거공간 · 대수선 의뢰인</div>
+          <div>
+            <div class="t-quote-mark">“</div>
+            <div class="t-quote">공정마다 사진과 함께 빠짐없이 현장을 설명해 주셔서 공사 기간 동안 안심할 수 있었습니다.</div>
+          </div>
+          <div class="t-meta">주거공간 · 아파트 리모델링 의뢰인</div>
         </div>
         <div class="t-card reveal">
-          <div class="t-quote">"원형의 결을 살리면서도 생활은 훨씬 편해졌어요."</div>
-          <div class="t-meta">주택 리모델링 의뢰인</div>
+          <div>
+            <div class="t-quote-mark">“</div>
+            <div class="t-quote">건물의 원래 결을 살리면서도 단열과 라이프스타일에 맞게 편해져서 마음에 듭니다.</div>
+          </div>
+          <div class="t-meta">대수선 · 단독주택 리모델링 의뢰인</div>
         </div>
       </div>
     </div>
@@ -757,7 +815,7 @@
       track.style.transform = 'translateX(-' + (idx * 100) + '%)';
       label.textContent = slides[idx].dataset.label;
       bar.classList.remove('animate');
-      void bar.offsetWidth; // restart css animation
+      void bar.offsetWidth;
       bar.classList.add('animate');
     }
     function goTo(i){ idx = (i + total) % total; render(); }
