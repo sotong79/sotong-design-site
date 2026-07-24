@@ -35,6 +35,7 @@
     color: var(--ink);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    word-break: keep-all; /* 단어 중간에서 줄바꿈되는 현상 방지 */
   }
   img{ max-width:100%; display:block; }
   a{ color:inherit; text-decoration:none; }
@@ -61,7 +62,7 @@
     display:inline-block;
   }
 
-  h1,h2,h3{ font-family: var(--display); font-weight:600; letter-spacing:-0.01em; }
+  h1,h2,h3{ font-family: var(--display); font-weight:600; letter-spacing:-0.01em; word-break: keep-all; }
 
   /* ---------- Header ---------- */
   header{
@@ -109,7 +110,7 @@
     .nav-toggle{ display:block; font-family: var(--mono); font-size:12px; border:1px solid var(--ink); padding:8px 14px; border-radius:100px; }
   }
 
-  /* ---------- Hero: full-bleed photo carousel ---------- */
+  /* ---------- Hero ---------- */
   .hero-full{
     position: relative;
     width: 100%;
@@ -170,20 +171,24 @@
 
   .hero-full:hover .hf-progress-bar.animate{ animation-play-state: paused; }
 
-  /* ---------- Intro copy strip ---------- */
+  /* ---------- Intro copy ---------- */
   .intro{ padding: 88px 0 72px; }
   .intro-wrap{ max-width: 640px; }
   .intro h1{
     font-size: clamp(30px, 4.2vw, 48px);
-    line-height: 1.2;
+    line-height: 1.25;
     margin: 16px 0 20px;
+    word-break: keep-all;
+  }
+  .intro h1 span.keep-word{
+    display: inline-block;
   }
   .intro h1 em{
     font-style: normal;
     color: var(--sage-deep);
     border-bottom: 2px solid var(--sage);
   }
-  .intro p{ font-size: 16px; color: var(--ink-soft); margin-bottom: 30px; max-width: 480px; }
+  .intro p{ font-size: 16px; color: var(--ink-soft); margin-bottom: 30px; max-width: 480px; word-break: keep-all; }
   .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
   .hero-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 26px; }
   .hero-tags span{
@@ -283,16 +288,17 @@
     background-size: 28px 28px;
   }
   .plan-svg{ position:relative; width:100%; height:auto; display:block; }
+  
+  /* 핀 스타일 및 떨림 방지 */
+  .pin-group{ outline:none; cursor:pointer; }
   .pin{
     fill: var(--paper);
     stroke: var(--ink);
     stroke-width: 1.5;
-    cursor:pointer;
-    transition: transform .2s ease;
-    transform-origin: center;
+    transition: r .2s ease, fill .2s ease;
   }
-  .pin-group:hover .pin{ transform: scale(1.25); }
-  .pin-group.active .pin{ fill: var(--sage); }
+  .pin-group:hover .pin, .pin-group:focus .pin{ r: 12; }
+  .pin-group.active .pin{ fill: var(--sage); stroke: var(--white); stroke-width: 2; }
 
   .note-panel{
     position: relative;
@@ -433,7 +439,7 @@
   <section class="intro">
     <div class="wrap intro-wrap reveal">
       <div class="eyebrow">ARCHITECTURE &amp; INTERIOR</div>
-      <h1>도면 위의 대화가 그대로 <em>공간</em>이 됩니다</h1>
+      <h1>도면 위의 대화가 그대로 <span class="keep-word"><em>공간</em>이</span> 됩니다</h1>
       <p>디자인소통은 상담에서 오간 대화를 도면에 남기고, 도면을 그대로 공간으로 옮깁니다. 신축부터 대수선, 상업공간, 주거공간, 한옥까지 — 어떤 규모든 같은 방식으로 대화합니다.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contact">무료 상담 신청</a>
@@ -545,6 +551,7 @@
           <line x1="500" y1="40" x2="500" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
           <line x1="60" y1="260" x2="330" y2="260" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
 
+          <!-- 핀 4개 지정 -->
           <g class="pin-group active" data-note="0" tabindex="0">
             <circle class="pin" cx="180" cy="140" r="9"/>
           </g>
@@ -553,6 +560,9 @@
           </g>
           <g class="pin-group" data-note="2" tabindex="0">
             <circle class="pin" cx="600" cy="290" r="9"/>
+          </g>
+          <g class="pin-group" data-note="3" tabindex="0">
+            <circle class="pin" cx="620" cy="110" r="9"/>
           </g>
         </svg>
 
@@ -766,7 +776,7 @@
     startAuto();
   })();
 
-  // blueprint dialogue notes
+  // blueprint dialogue notes (4개 데이터)
   const notes = [
     {
       tag: '서교동 미용실 리모델링 — 주방/시술 공간',
@@ -787,6 +797,13 @@
       lines: [
         ['클라이언트', '"마당의 나무는 꼭 남기고 싶어요."'],
         ['디자인소통', '거실 창의 위치를 조정해 기존 나무가 정면으로 보이도록 배치했습니다.']
+      ]
+    },
+    {
+      tag: '구산동 아파트 — 거실/조명',
+      lines: [
+        ['클라이언트', '"저녁에 너무 밝지 않고 따뜻한 분위기였으면 좋겠습니다."'],
+        ['디자인소통', '메인 등 대신 우물천장 간접 조명과 등기구 레이아웃을 다변화해 따뜻한 무드를 연출했습니다.']
       ]
     }
   ];
