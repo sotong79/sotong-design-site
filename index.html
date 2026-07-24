@@ -109,7 +109,7 @@
     .nav-toggle{ display:block; font-family: var(--mono); font-size:12px; border:1px solid var(--ink); padding:8px 14px; border-radius:100px; }
   }
 
-  /* ---------- Hero: full-bleed photo carousel (DARAN-style) ---------- */
+  /* ---------- Hero: full-bleed photo carousel ---------- */
   .hero-full{
     position: relative;
     width: 100%;
@@ -123,7 +123,12 @@
     display:flex; width:100%; height:100%;
     transition: transform .7s cubic-bezier(.65,0,.35,1);
   }
-  .hf-slide{ flex:0 0 100%; height:100%; background-size:cover; background-position:center; position:relative; }
+  .hf-slide{ 
+    flex:0 0 100%; height:100%; 
+    background-size:cover; 
+    background-position:center; 
+    position:relative; 
+  }
   .hf-slide::after{
     content:''; position:absolute; inset:0;
     background: linear-gradient(180deg, rgba(35,36,31,0) 55%, rgba(35,36,31,0.55) 100%);
@@ -165,7 +170,7 @@
 
   .hero-full:hover .hf-progress-bar.animate{ animation-play-state: paused; }
 
-  /* ---------- Intro copy strip (below hero photo) ---------- */
+  /* ---------- Intro copy strip ---------- */
   .intro{ padding: 88px 0 72px; }
   .intro-wrap{ max-width: 640px; }
   .intro h1{
@@ -198,12 +203,6 @@
   .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(35,36,31,0.22); }
   .btn-ghost{ border: 1px solid var(--line-strong); color: var(--ink); }
   .btn-ghost:hover{ border-color: var(--ink); background: var(--white); }
-
-  /* ---------- Section shared ---------- */
-  section{ padding: 96px 0; }
-  .section-head{ max-width: 620px; margin-bottom: 56px; }
-  .section-head h2{ font-size: clamp(26px, 3.2vw, 36px); margin-top:14px; }
-  .section-head p{ color: var(--ink-soft); margin-top: 14px; font-size:15.5px; }
 
   /* ---------- Services ---------- */
   .services{ background: var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -262,7 +261,7 @@
   .process-title span{ display:block; font-family: var(--mono); font-size:11px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-weight:400; }
   .process-desc{ font-size: 14.5px; color: var(--ink-soft); }
 
-  /* ---------- Blueprint dialogue (signature) ---------- */
+  /* ---------- Blueprint dialogue ---------- */
   .dialogue{ background: var(--ink); color: var(--paper); }
   .dialogue .section-head p{ color: rgba(242,239,230,0.65); }
   .dialogue .eyebrow{ color: var(--sage); }
@@ -333,12 +332,9 @@
   .pf-thumb{
     aspect-ratio: 4/3;
     position:relative;
-    display:flex; align-items:center; justify-content:center;
-    color: rgba(255,253,248,0.7);
-    font-family: var(--mono); font-size: 12px; text-align:center; padding: 20px;
+    background-size: cover;
+    background-position: center;
   }
-  .pf-thumb span{ position:relative; }
-  .pf-thumb::after{ content:'실제 시공 사진으로 교체'; position:absolute; bottom:12px; left:0; right:0; text-align:center; font-size:10px; opacity:.6; }
   .pf-body{ padding: 18px 20px 22px; }
   .pf-cat{ font-family: var(--mono); font-size:10.5px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.06em; }
   .pf-title{ font-size: 16px; font-weight:600; margin-top:6px; font-family: var(--body); }
@@ -409,24 +405,22 @@
 
 <main id="top">
 
-  <!-- HERO : full-bleed photo carousel, DARAN-style minimal overlay -->
-  <!-- 각 hf-slide의 background는 자리표시자입니다. 실제 시공 사진으로 교체하려면
-       style="background-image:url('사진경로.jpg'); background-size:cover; background-position:center;" 로 바꿔주세요 -->
+  <!-- HERO : full-bleed photo carousel -->
   <section class="hero-full" id="heroFull">
     <div class="hf-track" id="hfTrack">
-      <div class="hf-slide" data-label="서교동 근린생활시설 신축" style="background:#7b8567;"></div>
-      <div class="hf-slide" data-label="태국 레스토랑 인테리어" style="background:#2c4257;"></div>
-      <div class="hf-slide" data-label="서교동 미용실 인테리어" style="background:#4f5940;"></div>
-      <div class="hf-slide" data-label="한옥 주택 대수선" style="background:#8a7a5c;"></div>
-      <div class="hf-slide" data-label="동교동 카페 '뉴노멀 커피 로스터스'" style="background:#5b6b8a;"></div>
-      <div class="hf-slide" data-label="가평 신축 주택" style="background:#6b5b4f;"></div>
+      <div class="hf-slide" data-label="병원 로비 인테리어" style="background-image:url('1.png');"></div>
+      <div class="hf-slide" data-label="노량진 아파트 리모델링" style="background-image:url('2.png');"></div>
+      <div class="hf-slide" data-label="마포 상가 신축 공사" style="background-image:url('3.png');"></div>
+      <div class="hf-slide" data-label="미용실 리모델링" style="background-image:url('4.png');"></div>
+      <div class="hf-slide" data-label="구산동 아파트 리모델링" style="background-image:url('5.png');"></div>
+      <div class="hf-slide" data-label="단독주택 대수선 공사" style="background-image:url('6.png');"></div>
     </div>
 
     <button class="hf-edge hf-edge-l" id="hfPrevZone" aria-label="이전 프로젝트"></button>
     <button class="hf-edge hf-edge-r" id="hfNextZone" aria-label="다음 프로젝트"></button>
 
     <div class="hf-overlay">
-      <div class="hf-label" id="hfLabel">서교동 근린생활시설 신축</div>
+      <div class="hf-label" id="hfLabel">병원 로비 인테리어</div>
       <div class="hf-controls">
         <div class="hf-progress"><div class="hf-progress-bar" id="hfBar"></div></div>
         <button class="hf-arrow" id="hfPrev" aria-label="이전">‹</button>
@@ -587,57 +581,55 @@
         <button class="tab" data-filter="대수선">대수선</button>
         <button class="tab" data-filter="상업공간">상업공간</button>
         <button class="tab" data-filter="주거공간">주거공간</button>
-        <button class="tab" data-filter="한옥">한옥</button>
       </div>
 
       <div class="portfolio-grid" id="portfolioGrid">
-        <!-- data-cms="portfolio-item" 로 표시된 카드는 Decap CMS 연동 시 컬렉션 항목 하나에 대응됩니다 -->
-        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="신축">
-          <div class="pf-thumb" style="background:#7b8567;"><span>서교동 신축</span></div>
-          <div class="pf-body">
-            <div class="pf-cat">신축</div>
-            <div class="pf-title">서교동 근린생활시설 신축</div>
-            <div class="pf-desc">대지 조사부터 준공까지 전 과정 진행</div>
-          </div>
-        </div>
         <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
-          <div class="pf-thumb" style="background:#2c4257;"><span>태국 레스토랑</span></div>
+          <div class="pf-thumb" style="background-image:url('1.png');"></div>
           <div class="pf-body">
             <div class="pf-cat">상업공간</div>
-            <div class="pf-title">태국 레스토랑 인테리어</div>
-            <div class="pf-desc">브랜드 정체성을 살린 홀 공간 구성</div>
-          </div>
-        </div>
-        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
-          <div class="pf-thumb" style="background:#4f5940;"><span>서교동 미용실</span></div>
-          <div class="pf-body">
-            <div class="pf-cat">상업공간</div>
-            <div class="pf-title">서교동 미용실 인테리어</div>
-            <div class="pf-desc">고객 동선을 고려한 시술 공간 재배치</div>
-          </div>
-        </div>
-        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="대수선">
-          <div class="pf-thumb" style="background:#8a7a5c;"><span>한옥 주택</span></div>
-          <div class="pf-body">
-            <div class="pf-cat">대수선</div>
-            <div class="pf-title">한옥 주택 대수선</div>
-            <div class="pf-desc">원형을 보존하며 생활 동선을 보완</div>
-          </div>
-        </div>
-        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
-          <div class="pf-thumb" style="background:#5b6b8a;"><span>동교동 카페</span></div>
-          <div class="pf-body">
-            <div class="pf-cat">상업공간</div>
-            <div class="pf-title">동교동 카페 '뉴노멀 커피 로스터스'</div>
-            <div class="pf-desc">로스팅 공간과 홀을 분리한 동선 설계</div>
+            <div class="pf-title">병원 로비 인테리어</div>
+            <div class="pf-desc">세련되고 개방감 있는 로비 공간 구성</div>
           </div>
         </div>
         <div class="pf-card reveal" data-cms="portfolio-item" data-cat="주거공간">
-          <div class="pf-thumb" style="background:#6b5b4f;"><span>가평 주택</span></div>
+          <div class="pf-thumb" style="background-image:url('2.png');"></div>
           <div class="pf-body">
             <div class="pf-cat">주거공간</div>
-            <div class="pf-title">가평 신축 주택</div>
-            <div class="pf-desc">전원주택 라이프스타일에 맞춘 설계</div>
+            <div class="pf-title">노량진 아파트 리모델링</div>
+            <div class="pf-desc">아일랜드 주방 중심의 트렌디한 공간 연출</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="신축">
+          <div class="pf-thumb" style="background-image:url('3.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">신축</div>
+            <div class="pf-title">마포 상가 신축 공사</div>
+            <div class="pf-desc">모던한 외관과 효율적인 동선 설계</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
+          <div class="pf-thumb" style="background-image:url('4.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">상업공간</div>
+            <div class="pf-title">미용실 리모델링</div>
+            <div class="pf-desc">동선을 고려한 세련된 시술 공간 조율</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="주거공간">
+          <div class="pf-thumb" style="background-image:url('5.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">주거공간</div>
+            <div class="pf-title">구산동 아파트 리모델링</div>
+            <div class="pf-desc">간접 조명과 따뜻한 무드의 거실 리모델링</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="대수선">
+          <div class="pf-thumb" style="background-image:url('6.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">대수선</div>
+            <div class="pf-title">단독주택 대수선 공사</div>
+            <div class="pf-desc">구조 보강부터 야간 조명까지 완성한 주택</div>
           </div>
         </div>
       </div>
@@ -662,8 +654,8 @@
           <div class="t-meta">주거공간 · 대수선 의뢰인</div>
         </div>
         <div class="t-card reveal">
-          <div class="t-quote">"한옥의 결을 살리면서도 생활은 훨씬 편해졌어요."</div>
-          <div class="t-meta">한옥 리모델링 의뢰인</div>
+          <div class="t-quote">"원형의 결을 살리면서도 생활은 훨씬 편해졌어요."</div>
+          <div class="t-meta">주택 리모델링 의뢰인</div>
         </div>
       </div>
     </div>
@@ -732,7 +724,7 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el=> io.observe(el));
 
-  // hero full-bleed carousel (DARAN-style)
+  // hero full-bleed carousel
   (function(){
     const track = document.getElementById('hfTrack');
     if(!track) return;
