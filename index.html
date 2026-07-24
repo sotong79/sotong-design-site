@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디자인소통 SOTONG DESIGN — 신축 · 대수선 · 상업공간 · 주거공간 · 한옥</title>
+<meta name="description" content="설계 단계의 대화를 도면에, 도면을 그대로 공간에 옮기는 디자인소통. 신축, 대수선, 상업공간, 주거공간, 한옥 리모델링 전문.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #23241f;
+    --ink-soft: #4a4c43;
+    --paper: #f2efe6;
+    --paper-deep: #e8e3d3;
+    --sage: #7b8567;
+    --sage-deep: #4f5940;
+    --blueprint: #2c4257;
+    --blueprint-light: #3d5a73;
+    --line: #d3ccb8;
+    --line-strong: #b9b19a;
+    --white: #fffdf8;
+
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  button{ font-family: inherit; cursor:pointer; border:none; background:none; }
+
+  .wrap{ max-width: 1180px; margin:0 auto; padding: 0 32px; }
+  @media (max-width: 640px){ .wrap{ padding: 0 20px; } }
+
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width: 22px; height:1px;
+    background: var(--sage-deep);
+    display:inline-block;
+  }
+
+  h1,h2,h3{ font-family: var(--display); font-weight:600; letter-spacing:-0.01em; }
+
+  /* ---------- Header ---------- */
+  header{
+    position: sticky; top:0; z-index: 100;
+    background: rgba(242,239,230,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 76px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family: var(--display); font-weight:700; font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  .logo-mark{ width:30px; height:25px; flex-shrink:0; }
+  .logo small{
+    display:block; font-family: var(--mono); font-weight:400;
+    font-size: 9px; letter-spacing: 0.1em; color: var(--ink-soft);
+    margin-top:1px;
+  }
+  .nav-links{
+    display:flex; gap: 36px; font-size: 14px; font-weight:500;
+  }
+  .nav-links a{ position:relative; padding: 4px 0; color: var(--ink-soft); transition: color .2s; }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; height:1px; width:0;
+    background: var(--sage-deep); transition: width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    font-size: 13px; font-weight:600; padding: 10px 20px;
+    border: 1px solid var(--ink); border-radius: 100px;
+    transition: background .2s, color .2s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{ background: var(--ink); color: var(--paper); }
+  .nav-toggle{ display:none; }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:block; font-family: var(--mono); font-size:12px; border:1px solid var(--ink); padding:8px 14px; border-radius:100px; }
+  }
+
+  /* ---------- Hero: full-bleed photo carousel (DARAN-style) ---------- */
+  .hero-full{
+    position: relative;
+    width: 100%;
+    height: 82vh;
+    min-height: 460px;
+    max-height: 760px;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hf-track{
+    display:flex; width:100%; height:100%;
+    transition: transform .7s cubic-bezier(.65,0,.35,1);
+  }
+  .hf-slide{ flex:0 0 100%; height:100%; background-size:cover; background-position:center; position:relative; }
+  .hf-slide::after{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(35,36,31,0) 55%, rgba(35,36,31,0.55) 100%);
+  }
+  .hf-edge{
+    position:absolute; top:0; bottom:0; width:50%; z-index:2;
+    background:transparent;
+  }
+  .hf-edge-l{ left:0; cursor: w-resize; }
+  .hf-edge-r{ right:0; cursor: e-resize; }
+
+  .hf-overlay{
+    position:absolute; left:0; right:0; bottom:36px; z-index:3;
+    padding: 0 32px;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:22px;
+  }
+  @media (max-width:640px){ .hf-overlay{ padding:0 20px; bottom:24px; } }
+  .hf-label{
+    font-family: var(--display); font-size: 19px; font-weight:600; color: var(--white);
+    max-width: 55%;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  }
+  .hf-controls{ display:flex; align-items:center; gap:14px; flex-shrink:0; }
+  .hf-progress{
+    width: 130px; height:1px; background: rgba(255,253,248,0.28);
+    position:relative; overflow:hidden;
+  }
+  .hf-progress-bar{
+    position:absolute; left:0; top:0; bottom:0; width:0%;
+    background: var(--white);
+  }
+  .hf-progress-bar.animate{ animation: hfFill 4.8s linear; }
+  @keyframes hfFill{ from{ width:0%; } to{ width:100%; } }
+  .hf-arrow{
+    font-family: var(--display); font-size: 20px; color: rgba(255,253,248,0.75);
+    line-height:1; padding: 2px 4px; transition: color .2s;
+  }
+  .hf-arrow:hover{ color: var(--white); }
+
+  .hero-full:hover .hf-progress-bar.animate{ animation-play-state: paused; }
+
+  /* ---------- Intro copy strip (below hero photo) ---------- */
+  .intro{ padding: 88px 0 72px; }
+  .intro-wrap{ max-width: 640px; }
+  .intro h1{
+    font-size: clamp(30px, 4.2vw, 48px);
+    line-height: 1.2;
+    margin: 16px 0 20px;
+  }
+  .intro h1 em{
+    font-style: normal;
+    color: var(--sage-deep);
+    border-bottom: 2px solid var(--sage);
+  }
+  .intro p{ font-size: 16px; color: var(--ink-soft); margin-bottom: 30px; max-width: 480px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 26px; }
+  .hero-tags span{
+    font-family: var(--mono); font-size:11.5px; color: var(--ink-soft);
+    border:1px solid var(--line); padding: 6px 12px; border-radius:100px;
+    background: rgba(255,253,248,0.6);
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 15px 26px;
+    border-radius: 100px;
+    font-size: 14.5px; font-weight:600;
+    transition: transform .2s ease, background .2s, box-shadow .2s;
+  }
+  .btn-primary{ background: var(--ink); color: var(--paper); }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(35,36,31,0.22); }
+  .btn-ghost{ border: 1px solid var(--line-strong); color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--ink); background: var(--white); }
+
+  /* ---------- Section shared ---------- */
+  section{ padding: 96px 0; }
+  .section-head{ max-width: 620px; margin-bottom: 56px; }
+  .section-head h2{ font-size: clamp(26px, 3.2vw, 36px); margin-top:14px; }
+  .section-head p{ color: var(--ink-soft); margin-top: 14px; font-size:15.5px; }
+
+  /* ---------- Services ---------- */
+  .services{ background: var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .service-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:1px;
+    background: var(--line-strong);
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    overflow:hidden;
+  }
+  @media (max-width: 780px){ .service-grid{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px){ .service-grid{ grid-template-columns: 1fr; } }
+  .service-item{
+    background: var(--paper);
+    padding: 30px 24px;
+    transition: background .2s;
+  }
+  .service-item:hover{ background: var(--white); }
+  .service-item svg{ width:30px; height:30px; color: var(--sage-deep); margin-bottom:18px; }
+  .service-item h3{ font-size: 16.5px; font-weight:600; margin-bottom:8px; font-family: var(--body); }
+  .service-item p{ font-size: 13px; color: var(--ink-soft); line-height:1.55; }
+
+  .service-cta{
+    background: var(--ink);
+    color: var(--paper);
+    display:flex; flex-direction:column; justify-content:center;
+    transition: background .2s;
+  }
+  .service-cta:hover{ background: #33342c; }
+  .service-cta .sc-label{
+    font-family: var(--mono); font-size:11px; color: var(--sage); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;
+  }
+  .service-cta h3{ font-size:18px; font-weight:600; font-family: var(--display); margin-bottom:14px; line-height:1.35; }
+  .service-cta .sc-arrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:13.5px; font-weight:600;
+  }
+  .service-cta .sc-arrow svg{ width:16px; height:16px; margin:0; transition: transform .2s; }
+  .service-cta:hover .sc-arrow svg{ transform: translateX(4px); }
+
+  /* ---------- Process ---------- */
+  .process-list{ display:flex; flex-direction:column; }
+  .process-item{
+    display:grid; grid-template-columns: 90px 1fr 1.3fr;
+    gap: 28px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    align-items:start;
+  }
+  .process-item:last-child{ border-bottom: 1px solid var(--line); }
+  @media (max-width: 760px){
+    .process-item{ grid-template-columns: 50px 1fr; }
+    .process-item .process-desc{ grid-column: 2; }
+  }
+  .process-num{ font-family: var(--mono); font-size: 26px; color: var(--line-strong); font-weight:500; }
+  .process-title{ font-size: 19px; font-weight:600; font-family: var(--display); }
+  .process-title span{ display:block; font-family: var(--mono); font-size:11px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-weight:400; }
+  .process-desc{ font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- Blueprint dialogue (signature) ---------- */
+  .dialogue{ background: var(--ink); color: var(--paper); }
+  .dialogue .section-head p{ color: rgba(242,239,230,0.65); }
+  .dialogue .eyebrow{ color: var(--sage); }
+  .dialogue .eyebrow::before{ background: var(--sage); }
+
+  .plan-wrap{
+    position: relative;
+    background: var(--blueprint);
+    border-radius: 18px;
+    padding: 40px;
+    overflow: hidden;
+  }
+  .plan-wrap::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .plan-svg{ position:relative; width:100%; height:auto; display:block; }
+  .pin{
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 1.5;
+    cursor:pointer;
+    transition: transform .2s ease;
+    transform-origin: center;
+  }
+  .pin-group:hover .pin{ transform: scale(1.25); }
+  .pin-group.active .pin{ fill: var(--sage); }
+
+  .note-panel{
+    position: relative;
+    margin-top: 26px;
+    background: rgba(242,239,230,0.06);
+    border: 1px solid rgba(242,239,230,0.18);
+    border-radius: 14px;
+    padding: 22px 24px;
+    min-height: 108px;
+  }
+  .note-tag{ font-family: var(--mono); font-size:11px; color: var(--sage); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
+  .note-line{ font-size: 14.5px; margin-bottom: 8px; display:flex; gap:10px; }
+  .note-line b{ flex-shrink:0; color: var(--sage); font-weight:600; min-width: 78px; }
+  .note-hint{ font-family: var(--mono); font-size:11.5px; color: rgba(242,239,230,0.4); margin-top:14px; }
+
+  /* ---------- Portfolio ---------- */
+  .portfolio-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 34px; }
+  .tab{
+    font-size: 13px; font-weight:600; padding: 9px 18px;
+    border:1px solid var(--line-strong); border-radius: 100px; color: var(--ink-soft);
+    transition: all .2s;
+  }
+  .tab.active, .tab:hover{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .portfolio-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  @media (max-width: 900px){ .portfolio-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .portfolio-grid{ grid-template-columns: 1fr; } }
+
+  .pf-card{
+    border-radius: 14px; overflow:hidden; background: var(--white);
+    border: 1px solid var(--line);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .pf-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(35,36,31,0.1); }
+  .pf-thumb{
+    aspect-ratio: 4/3;
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    color: rgba(255,253,248,0.7);
+    font-family: var(--mono); font-size: 12px; text-align:center; padding: 20px;
+  }
+  .pf-thumb span{ position:relative; }
+  .pf-thumb::after{ content:'실제 시공 사진으로 교체'; position:absolute; bottom:12px; left:0; right:0; text-align:center; font-size:10px; opacity:.6; }
+  .pf-body{ padding: 18px 20px 22px; }
+  .pf-cat{ font-family: var(--mono); font-size:10.5px; color: var(--sage-deep); text-transform:uppercase; letter-spacing:0.06em; }
+  .pf-title{ font-size: 16px; font-weight:600; margin-top:6px; font-family: var(--body); }
+  .pf-desc{ font-size:13px; color: var(--ink-soft); margin-top:6px; }
+
+  /* ---------- Testimonial ---------- */
+  .testimonial-section{ background: var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .t-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 900px){ .t-grid{ grid-template-columns: 1fr; } }
+  .t-card{ background: var(--paper); border:1px solid var(--line); border-radius:14px; padding: 26px; }
+  .t-quote{ font-family: var(--display); font-size: 17px; line-height:1.5; margin-bottom:18px; }
+  .t-meta{ font-family: var(--mono); font-size:12px; color: var(--ink-soft); }
+
+  /* ---------- CTA / Contact ---------- */
+  .cta{
+    background: var(--sage-deep); color: var(--paper);
+    border-radius: 22px;
+    padding: 64px 48px;
+    display:grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+  @media (max-width: 860px){ .cta{ grid-template-columns:1fr; padding: 40px 26px; } }
+  .cta h2{ font-size: clamp(24px,3vw,32px); margin-bottom:16px; }
+  .cta p{ opacity:.85; font-size:14.5px; margin-bottom:26px; max-width:420px; }
+  .cta-info{ display:flex; flex-direction:column; gap:10px; font-family: var(--mono); font-size:13.5px; }
+  .cta-info a{ text-decoration:underline; text-underline-offset:3px; }
+
+  .form-field{ margin-bottom: 16px; }
+  .form-field label{ display:block; font-size:12.5px; margin-bottom:6px; opacity:.8; }
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%; padding: 12px 14px; border-radius:8px; border:1px solid rgba(242,239,230,0.3);
+    background: rgba(242,239,230,0.08); color: var(--paper); font-family: var(--body); font-size:14px;
+  }
+  .form-field input::placeholder, .form-field textarea::placeholder{ color: rgba(242,239,230,0.45); }
+  .form-field textarea{ resize:vertical; min-height:80px; }
+  .cta form .btn-primary{ background: var(--paper); color: var(--ink); width:100%; justify-content:center; margin-top:6px; }
+
+  /* ---------- Footer ---------- */
+  footer{ padding: 46px 0 40px; border-top:1px solid var(--line); }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .footer-row p{ font-size:12.5px; color: var(--ink-soft); font-family: var(--mono); }
+  .footer-links{ display:flex; gap:20px; font-size:13px; }
+
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <svg class="logo-mark" viewBox="0 0 100 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="47" y="4" width="6" height="6" transform="rotate(45 50 7)" fill="var(--ink)"/>
+        <path d="M15 66 L48 12 L80 66" stroke="var(--ink)" stroke-width="4.2" stroke-linecap="square"/>
+        <path d="M27 66 L60 12 L92 66" stroke="var(--ink)" stroke-width="4.2" stroke-linecap="square"/>
+      </svg>
+      <span>디자인소통<small>SOTONG&nbsp;DESIGN</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">전문분야</a>
+      <a href="#process">작업방식</a>
+      <a href="#portfolio">포트폴리오</a>
+      <a href="#reviews">고객후기</a>
+    </nav>
+    <a class="nav-cta" href="#contact">무료 상담 신청</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO : full-bleed photo carousel, DARAN-style minimal overlay -->
+  <!-- 각 hf-slide의 background는 자리표시자입니다. 실제 시공 사진으로 교체하려면
+       style="background-image:url('사진경로.jpg'); background-size:cover; background-position:center;" 로 바꿔주세요 -->
+  <section class="hero-full" id="heroFull">
+    <div class="hf-track" id="hfTrack">
+      <div class="hf-slide" data-label="서교동 근린생활시설 신축" style="background:#7b8567;"></div>
+      <div class="hf-slide" data-label="태국 레스토랑 인테리어" style="background:#2c4257;"></div>
+      <div class="hf-slide" data-label="서교동 미용실 인테리어" style="background:#4f5940;"></div>
+      <div class="hf-slide" data-label="한옥 주택 대수선" style="background:#8a7a5c;"></div>
+      <div class="hf-slide" data-label="동교동 카페 '뉴노멀 커피 로스터스'" style="background:#5b6b8a;"></div>
+      <div class="hf-slide" data-label="가평 신축 주택" style="background:#6b5b4f;"></div>
+    </div>
+
+    <button class="hf-edge hf-edge-l" id="hfPrevZone" aria-label="이전 프로젝트"></button>
+    <button class="hf-edge hf-edge-r" id="hfNextZone" aria-label="다음 프로젝트"></button>
+
+    <div class="hf-overlay">
+      <div class="hf-label" id="hfLabel">서교동 근린생활시설 신축</div>
+      <div class="hf-controls">
+        <div class="hf-progress"><div class="hf-progress-bar" id="hfBar"></div></div>
+        <button class="hf-arrow" id="hfPrev" aria-label="이전">‹</button>
+        <button class="hf-arrow" id="hfNext" aria-label="다음">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO COPY -->
+  <section class="intro">
+    <div class="wrap intro-wrap reveal">
+      <div class="eyebrow">ARCHITECTURE &amp; INTERIOR</div>
+      <h1>도면 위의 대화가 그대로 <em>공간</em>이 됩니다</h1>
+      <p>디자인소통은 상담에서 오간 대화를 도면에 남기고, 도면을 그대로 공간으로 옮깁니다. 신축부터 대수선, 상업공간, 주거공간, 한옥까지 — 어떤 규모든 같은 방식으로 대화합니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">무료 상담 신청</a>
+        <a class="btn btn-ghost" href="#portfolio">포트폴리오 보기</a>
+      </div>
+      <div class="hero-tags">
+        <span>신축</span><span>대수선</span><span>상업공간</span><span>주거공간</span><span>한옥·전통건축</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">전문분야</div>
+        <h2>5가지 영역, 하나의 소통 방식</h2>
+        <p>규모와 용도는 다르지만, 상담 → 도면 → 시공으로 이어지는 대화의 방식은 동일합니다.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          <h3>신축</h3>
+          <p>대지 조사부터 준공까지, 설계와 시공을 하나의 흐름으로 관리합니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg>
+          <h3>대수선</h3>
+          <p>기존 골조를 살리면서 구조와 동선을 다시 짜는 리모델링입니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M9 21V12h6v9"/></svg>
+          <h3>상업공간</h3>
+          <p>카페, 미용실, 레스토랑 — 브랜드의 인상을 공간으로 완성합니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m6 0h3a1 1 0 001-1V10m-10 11v-6h4v6"/></svg>
+          <h3>주거공간</h3>
+          <p>거주자의 생활 방식을 먼저 듣고, 그에 맞는 동선과 마감을 제안합니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+          <h3>한옥 · 전통건축</h3>
+          <p>원형의 결을 존중하면서 현대적인 생활 방식이 가능하도록 보완합니다.</p>
+        </div>
+        <a class="service-item service-cta reveal" href="#contact">
+          <div class="sc-label">기타 문의</div>
+          <h3>어디에 해당하는지<br>애매하신가요?</h3>
+          <span class="sc-arrow">무료 상담으로 확인하기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">작업방식</div>
+        <h2>완공까지, 다섯 번의 대화</h2>
+        <p>순서가 바뀌면 결과도 바뀝니다. 디자인소통은 이 순서를 지키는 것에서부터 시작합니다.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal">
+          <div class="process-num">01</div>
+          <div class="process-title"><span>Consulting</span>첫 대화</div>
+          <div class="process-desc">공간을 어떻게 쓰고 싶은지, 예산과 일정은 어떤지 먼저 듣습니다. 이 대화가 이후 모든 도면의 기준이 됩니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">02</div>
+          <div class="process-title"><span>Design</span>도면 스케치</div>
+          <div class="process-desc">첫 대화의 내용을 평면도와 입면도로 옮깁니다. 이 단계에서 여러 번 스케치를 주고받으며 조정합니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">03</div>
+          <div class="process-title"><span>Estimate</span>소통 확정</div>
+          <div class="process-desc">확정된 도면을 기준으로 상세 견적을 안내하고, 마감재와 예산 범위를 함께 조율합니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">04</div>
+          <div class="process-title"><span>Construction</span>시공</div>
+          <div class="process-desc">주요 공정마다 진행 상황을 공유합니다. 현장에서 생기는 변수도 그때그때 대화로 조율합니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">05</div>
+          <div class="process-title"><span>Aftercare</span>사후 소통</div>
+          <div class="process-desc">준공 이후에도 하자보수와 사용 중 불편사항을 함께 확인합니다. 대화는 완공 후에도 이어집니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE: BLUEPRINT DIALOGUE -->
+  <section class="dialogue" id="dialogue">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">소통의 기록</div>
+        <h2>도면 위에 남은 실제 대화</h2>
+        <p>핀을 눌러보세요. 실제 프로젝트에서 오간 대화가 어떻게 도면에, 그리고 공간에 반영되었는지 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="plan-wrap reveal">
+        <svg class="plan-svg" viewBox="0 0 800 380" fill="none">
+          <rect x="60" y="40" width="680" height="300" stroke="#f2efe6" stroke-width="1.4" opacity="0.7"/>
+          <line x1="330" y1="40" x2="330" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+          <line x1="330" y1="220" x2="740" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+          <line x1="500" y1="40" x2="500" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+          <line x1="60" y1="260" x2="330" y2="260" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+
+          <g class="pin-group active" data-note="0" tabindex="0">
+            <circle class="pin" cx="180" cy="140" r="9"/>
+          </g>
+          <g class="pin-group" data-note="1" tabindex="0">
+            <circle class="pin" cx="410" cy="120" r="9"/>
+          </g>
+          <g class="pin-group" data-note="2" tabindex="0">
+            <circle class="pin" cx="600" cy="290" r="9"/>
+          </g>
+        </svg>
+
+        <div class="note-panel" id="notePanel">
+          <div class="note-tag">서교동 미용실 리모델링 — 주방/시술 공간</div>
+          <div class="note-line"><b>클라이언트</b><span>"손님이 대기하면서 답답하지 않았으면 좋겠어요."</span></div>
+          <div class="note-line"><b>디자인소통</b><span>대기 공간과 시술 공간 사이 파티션을 낮추고, 창가 쪽으로 대기석을 재배치했습니다.</span></div>
+          <div class="note-hint">※ 예시 데이터입니다. 실제 프로젝트별 대화 기록으로 교체해 주세요.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">포트폴리오</div>
+        <h2>대화가 공간이 된 사례들</h2>
+        <p>일부 프로젝트만 소개합니다. 더 많은 시공 사례는 상담을 통해 안내해 드립니다.</p>
+      </div>
+
+      <div class="portfolio-tabs reveal">
+        <button class="tab active" data-filter="all">전체</button>
+        <button class="tab" data-filter="신축">신축</button>
+        <button class="tab" data-filter="대수선">대수선</button>
+        <button class="tab" data-filter="상업공간">상업공간</button>
+        <button class="tab" data-filter="주거공간">주거공간</button>
+        <button class="tab" data-filter="한옥">한옥</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- data-cms="portfolio-item" 로 표시된 카드는 Decap CMS 연동 시 컬렉션 항목 하나에 대응됩니다 -->
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="신축">
+          <div class="pf-thumb" style="background:#7b8567;"><span>서교동 신축</span></div>
+          <div class="pf-body">
+            <div class="pf-cat">신축</div>
+            <div class="pf-title">서교동 근린생활시설 신축</div>
+            <div class="pf-desc">대지 조사부터 준공까지 전 과정 진행</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
+          <div class="pf-thumb" style="background:#2c4257;"><span>태국 레스토랑</span></div>
+          <div class="pf-body">
+            <div class="pf-cat">상업공간</div>
+            <div class="pf-title">태국 레스토랑 인테리어</div>
+            <div class="pf-desc">브랜드 정체성을 살린 홀 공간 구성</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
+          <div class="pf-thumb" style="background:#4f5940;"><span>서교동 미용실</span></div>
+          <div class="pf-body">
+            <div class="pf-cat">상업공간</div>
+            <div class="pf-title">서교동 미용실 인테리어</div>
+            <div class="pf-desc">고객 동선을 고려한 시술 공간 재배치</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="대수선">
+          <div class="pf-thumb" style="background:#8a7a5c;"><span>한옥 주택</span></div>
+          <div class="pf-body">
+            <div class="pf-cat">대수선</div>
+            <div class="pf-title">한옥 주택 대수선</div>
+            <div class="pf-desc">원형을 보존하며 생활 동선을 보완</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="상업공간">
+          <div class="pf-thumb" style="background:#5b6b8a;"><span>동교동 카페</span></div>
+          <div class="pf-body">
+            <div class="pf-cat">상업공간</div>
+            <div class="pf-title">동교동 카페 '뉴노멀 커피 로스터스'</div>
+            <div class="pf-desc">로스팅 공간과 홀을 분리한 동선 설계</div>
+          </div>
+        </div>
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="주거공간">
+          <div class="pf-thumb" style="background:#6b5b4f;"><span>가평 주택</span></div>
+          <div class="pf-body">
+            <div class="pf-cat">주거공간</div>
+            <div class="pf-title">가평 신축 주택</div>
+            <div class="pf-desc">전원주택 라이프스타일에 맞춘 설계</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonial-section" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">고객후기</div>
+        <h2>실제로 함께 대화했던 분들</h2>
+        <p>※ 예시 문구입니다. 실제 고객 후기로 교체해 주세요.</p>
+      </div>
+      <div class="t-grid">
+        <div class="t-card reveal">
+          <div class="t-quote">"처음 상담 때 나눈 이야기가 도면에 그대로 담겨있어서 놀랐어요."</div>
+          <div class="t-meta">상업공간 · 미용실 대표</div>
+        </div>
+        <div class="t-card reveal">
+          <div class="t-quote">"공정마다 사진과 함께 설명해 주셔서 불안하지 않았습니다."</div>
+          <div class="t-meta">주거공간 · 대수선 의뢰인</div>
+        </div>
+        <div class="t-card reveal">
+          <div class="t-quote">"한옥의 결을 살리면서도 생활은 훨씬 편해졌어요."</div>
+          <div class="t-meta">한옥 리모델링 의뢰인</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div>
+          <div class="eyebrow" style="color:rgba(242,239,230,0.7)">CONTACT</div>
+          <h2>다음 대화는,<br>당신의 공간에 대한 것입니다</h2>
+          <p>신축이든 작은 대수선이든, 첫 대화는 언제나 무료입니다. 편하게 문의해 주세요.</p>
+          <div class="cta-info">
+            <span>TEL. <a href="tel:0231443325">02.3144.3325</a></span>
+            <span>MAIL. <a href="mailto:designsotong79@naver.com">designsotong79@naver.com</a></span>
+            <span>BLOG. <a href="https://blog.naver.com/designsotong79" target="_blank">blog.naver.com/designsotong79</a></span>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='접수되었습니다. 곧 연락드리겠습니다.';">
+          <div class="form-field">
+            <label>이름</label>
+            <input type="text" placeholder="성함을 입력해 주세요" required>
+          </div>
+          <div class="form-field">
+            <label>연락처</label>
+            <input type="tel" placeholder="010-0000-0000" required>
+          </div>
+          <div class="form-field">
+            <label>관심 분야</label>
+            <select>
+              <option>신축</option>
+              <option>대수선</option>
+              <option>상업공간</option>
+              <option>주거공간</option>
+              <option>한옥·전통건축</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>공간에 대해 간단히 알려주세요</label>
+            <textarea placeholder="예: 20평 상가 카페 인테리어를 고려 중입니다"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">무료 상담 신청하기</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© 디자인소통 SOTONG DESIGN. Architecture · New Construction · Major Repair</p>
+    <div class="footer-links">
+      <a href="https://blog.naver.com/designsotong79" target="_blank">네이버 블로그</a>
+      <a href="#contact">문의하기</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el=> io.observe(el));
+
+  // hero full-bleed carousel (DARAN-style)
+  (function(){
+    const track = document.getElementById('hfTrack');
+    if(!track) return;
+    const slides = track.querySelectorAll('.hf-slide');
+    const label = document.getElementById('hfLabel');
+    const bar = document.getElementById('hfBar');
+    const prevBtn = document.getElementById('hfPrev');
+    const nextBtn = document.getElementById('hfNext');
+    const prevZone = document.getElementById('hfPrevZone');
+    const nextZone = document.getElementById('hfNextZone');
+    const total = slides.length;
+    let idx = 0, timer = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function render(){
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      label.textContent = slides[idx].dataset.label;
+      bar.classList.remove('animate');
+      void bar.offsetWidth; // restart css animation
+      bar.classList.add('animate');
+    }
+    function goTo(i){ idx = (i + total) % total; render(); }
+    function next(){ goTo(idx + 1); }
+    function prev(){ goTo(idx - 1); }
+
+    function startAuto(){ if(reduceMotion) return; stopAuto(); timer = setInterval(next, 4800); }
+    function stopAuto(){ if(timer) clearInterval(timer); }
+
+    nextBtn.addEventListener('click', ()=>{ next(); startAuto(); });
+    prevBtn.addEventListener('click', ()=>{ prev(); startAuto(); });
+    nextZone.addEventListener('click', ()=>{ next(); startAuto(); });
+    prevZone.addEventListener('click', ()=>{ prev(); startAuto(); });
+
+    const heroFull = document.getElementById('heroFull');
+    heroFull.addEventListener('mouseenter', stopAuto);
+    heroFull.addEventListener('mouseleave', startAuto);
+
+    render();
+    startAuto();
+  })();
+
+  // blueprint dialogue notes
+  const notes = [
+    {
+      tag: '서교동 미용실 리모델링 — 주방/시술 공간',
+      lines: [
+        ['클라이언트', '"손님이 대기하면서 답답하지 않았으면 좋겠어요."'],
+        ['디자인소통', '대기 공간과 시술 공간 사이 파티션을 낮추고, 창가 쪽으로 대기석을 재배치했습니다.']
+      ]
+    },
+    {
+      tag: '동교동 카페 — 홀 공간',
+      lines: [
+        ['클라이언트', '"로스팅하는 모습도 손님들에게 보여주고 싶어요."'],
+        ['디자인소통', '로스팅 공간을 유리 파티션으로 분리해 시야는 열되 소음은 차단했습니다.']
+      ]
+    },
+    {
+      tag: '한옥 주택 — 마당/거실',
+      lines: [
+        ['클라이언트', '"마당의 나무는 꼭 남기고 싶어요."'],
+        ['디자인소통', '거실 창의 위치를 조정해 기존 나무가 정면으로 보이도록 배치했습니다.']
+      ]
+    }
+  ];
+
+  const pinGroups = document.querySelectorAll('.pin-group');
+  const notePanel = document.getElementById('notePanel');
+
+  function renderNote(idx){
+    const n = notes[idx];
+    notePanel.innerHTML =
+      '<div class="note-tag">' + n.tag + '</div>' +
+      n.lines.map(l => '<div class="note-line"><b>'+l[0]+'</b><span>'+l[1]+'</span></div>').join('') +
+      '<div class="note-hint">※ 예시 데이터입니다. 실제 프로젝트별 대화 기록으로 교체해 주세요.</div>';
+  }
+
+  pinGroups.forEach(g=>{
+    g.addEventListener('click', ()=>{
+      pinGroups.forEach(p=>p.classList.remove('active'));
+      g.classList.add('active');
+      renderNote(parseInt(g.dataset.note));
+    });
+    g.addEventListener('keypress', (e)=>{ if(e.key==='Enter') g.click(); });
+  });
+
+  // portfolio filter
+  const tabs = document.querySelectorAll('.tab');
+  const cards = document.querySelectorAll('#portfolioGrid .pf-card');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const f = tab.dataset.filter;
+      cards.forEach(c=>{
+        c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
