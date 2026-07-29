@@ -251,7 +251,7 @@
   .btn-ghost:hover{ border-color: var(--ink); background: var(--white); }
 
   /* ---------- Section shared ---------- */
-  section{ padding: 140px 0; }
+  section:not(.hero-full){ padding: 140px 0; }
   .section-head{ max-width: 680px; margin-bottom: 64px; }
   .section-head h2{ font-size: clamp(28px, 3.4vw, 40px); margin-top:16px; margin-bottom: 12px; }
   .section-head p{ color: var(--ink-soft); font-size:16.5px; line-height: 1.6; }
