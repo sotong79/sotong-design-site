@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상담 신청 완료 | 소통디자인</title>
+  <meta name="description" content="소통디자인 상담 신청이 정상적으로 접수되었습니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#23241f;
+      --paper:#f2efe6;
+      --sage:#4f5940;
+      --line:#d3ccb8;
+      --display:'Fraunces',serif;
+      --body:'Inter',sans-serif;
+      --mono:'IBM Plex Mono',monospace;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:var(--body);
+    }
+    .complete{
+      width:min(760px,100%);
+      padding:76px 48px;
+      border-radius:24px;
+      background:var(--sage);
+      color:var(--paper);
+      text-align:center;
+      box-shadow:0 24px 60px rgba(35,36,31,.12);
+    }
+    .eyebrow{
+      margin-bottom:22px;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.14em;
+    }
+    h1{
+      margin-bottom:20px;
+      font-family:var(--display);
+      font-size:clamp(38px,7vw,64px);
+      line-height:1.15;
+    }
+    p{
+      margin:0 auto 36px;
+      max-width:520px;
+      color:rgba(242,239,230,.82);
+      line-height:1.8;
+    }
+    a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border-radius:100px;
+      background:var(--paper);
+      color:var(--ink);
+      font-weight:600;
+      text-decoration:none;
+    }
+    @media(max-width:560px){
+      .complete{padding:56px 24px}
+    }
+  </style>
+</head>
+<body>
+  <main class="complete">
+    <div class="eyebrow">SOTONG DESIGN</div>
+    <h1>상담 신청이<br>접수되었습니다.</h1>
+    <p>내용을 확인한 후 입력하신 연락처로 연락드리겠습니다.<br>소통디자인에 문의해 주셔서 감사합니다.</p>
+    <a href="/">홈페이지로 돌아가기</a>
+  </main>
+</body>
+</html>
