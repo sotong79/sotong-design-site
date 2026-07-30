@@ -182,7 +182,7 @@ header {
 .hero h1 {
     margin-bottom: 22px;
 
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(32px, 4.5vw, 56px);
     line-height: 1.12;
     letter-spacing: -0.025em;
 
