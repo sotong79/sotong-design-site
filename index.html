@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>소통디자인 SOTONG DESIGN — 주거·상업공간 리모델링 및 디자인</title>
+<meta name="description" content="10년 이상의 경험과 300건 이상의 프로젝트를 바탕으로 주거·상업공간 리모델링과 디자인을 진행하는 소통디자인. 설계부터 시공, 준공까지 통합 관리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  /*
+    목동 대수선 대표 프로젝트 카드
+    - 메인 배너용 images/4.png를 그대로 사용
+    - 카드 안에서는 약간 축소해 다른 프로젝트와 크기감을 맞춤
+  */
+  .pf-thumb--mokdong {
+    background-color: #d8d5cd;
+    background-size: 92% auto !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+
+  @media (max-width: 820px) {
+    .pf-thumb--mokdong {
+      background-size: 94% auto !important;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <!-- 2배 커진 로고 및 텍스트 우측 배치 -->
+      <img src="images/logo.png" alt="소통디자인 로고" class="logo-img">
+      <span class="logo-text">소통디자인<small>SOTONG&nbsp;DESIGN</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#portfolio">포트폴리오</a>
+      <a href="#services">전문분야</a>
+      <a href="#process">프로세스</a>
+      <a href="#contact">문의하기</a>
+    </nav>
+    <a class="nav-cta" href="#contact">무료 상담 신청</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO : full-bleed photo carousel -->
+  <section class="hero-full" id="heroFull">
+    <div class="hf-track" id="hfTrack">
+      <div class="hf-slide" data-category="상업공간" data-label="병원 로비 디자인" style="background-image:url('images/1.png');"></div>
+      <div class="hf-slide" data-category="주거공간" data-label="광진구 아파트 리모델링" style="background-image:url('images/2.png');"></div>
+      <div class="hf-slide" data-category="신축" data-label="마포 상가 신축 공사" style="background-image:url('images/3.png');"></div>
+      <div class="hf-slide" data-category="주거공간" data-label="신길동 아파트 리모델링" style="background-image:url('images/5.png');"></div>
+      <div class="hf-slide" data-category="상업공간" data-label="목동 대수선 공사" style="background-image:url('images/4.png');"></div>
+      <div class="hf-slide" data-category="대수선" data-label="단독주택 대수선 공사" style="background-image:url('images/6.png');"></div>
+    </div>
+
+    <button class="hf-edge hf-edge-l" id="hfPrevZone" aria-label="이전 프로젝트"></button>
+    <button class="hf-edge hf-edge-r" id="hfNextZone" aria-label="다음 프로젝트"></button>
+
+    <div class="hf-overlay">
+      <div class="hf-label" id="hfLabel"><span class="hf-category">상업공간</span><span class="hf-title">병원 로비 디자인</span><span class="hf-project">PROJECT 01 / 06</span></div>
+      <div class="hf-controls">
+        <div class="hf-progress"><div class="hf-progress-bar" id="hfBar"></div></div>
+        <button class="hf-arrow" id="hfPrev" aria-label="이전">‹</button>
+        <button class="hf-arrow" id="hfNext" aria-label="다음">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO COPY -->
+  <section class="intro">
+    <div class="wrap intro-wrap reveal">
+      <div class="eyebrow">ARCHITECTURE &amp; INTERIOR</div>
+      <h1>생활을 디자인하고,<br><span class="keep-word"><em>공간의 가치</em>를</span> 완성합니다</h1>
+      <p>소통디자인은 10년 이상의 경험과 300건 이상의 시공 프로젝트를 바탕으로 아파트, 단독주택, 병원, 카페와 상업공간까지 상담부터 설계, 시공, 준공까지 하나의 기준으로 완성합니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">무료 상담 신청</a>
+        <a class="btn btn-ghost" href="#portfolio">포트폴리오 보기</a>
+      </div>
+      <div class="hero-tags">
+        <span>주거공간</span><span>상업공간</span><span>신축</span><span>대수선</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="trust-stats" aria-label="소통디자인 주요 실적">
+    <div class="wrap">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="stat-kicker">PROJECTS</div>
+          <div class="stat-value">300+</div>
+          <div class="stat-title">누적 시공 프로젝트</div>
+          <div class="stat-desc">주거·상업공간을 아우르는 다양한 프로젝트 경험</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-kicker">YEARS</div>
+          <div class="stat-value">10+</div>
+          <div class="stat-title">공간을 만들어 온 시간</div>
+          <div class="stat-desc">현장 경험을 바탕으로 축적한 설계와 시공 노하우</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-kicker">RESIDENTIAL &amp; COMMERCIAL</div>
+          <div class="stat-value">SPACE</div>
+          <div class="stat-title">주거·상업공간 전문</div>
+          <div class="stat-desc">아파트, 단독주택, 병원, 카페와 상가 리모델링</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-kicker">DESIGN × BUILD</div>
+          <div class="stat-value">ONE</div>
+          <div class="stat-title">설계·시공 통합 관리</div>
+          <div class="stat-desc">상담부터 설계, 시공, 준공까지 일관된 기준으로 관리</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">전문분야</div>
+        <h2>4가지 영역, 하나의 소통 방식</h2>
+        <p>규모와 용도는 다르지만, 상담 → 도면 → 시공으로 이어지는 대화의 방식은 동일합니다.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          <h3>신축</h3>
+          <p>대지 검토부터 설계, 인허가, 시공, 준공까지 전 과정을 하나의 흐름으로 관리합니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg>
+          <h3>대수선</h3>
+          <p>기존 건물의 구조와 가능성을 살리면서 안전성과 공간 활용도를 함께 높이는 리모델링을 진행합니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M9 21V12h6v9"/></svg>
+          <h3>상업공간</h3>
+          <p>병원, 카페, 사무실과 상가 등 브랜드 이미지와 실제 운영 동선을 고려해 설계하고 시공합니다.</p>
+        </div>
+        <div class="service-item reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m6 0h3a1 1 0 001-1V10m-10 11v-6h4v6"/></svg>
+          <h3>주거공간</h3>
+          <p>아파트와 단독주택을 중심으로 생활 패턴, 수납, 동선과 취향을 반영한 맞춤형 공간을 제안합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">작업방식</div>
+        <h2>완공까지, 다섯 번의 대화</h2>
+        <p>순서가 바뀌면 결과도 바뀝니다. 소통디자인은 이 순서를 지키는 것에서부터 시작합니다.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal">
+          <div class="process-num">01</div>
+          <div class="process-title"><span>Consulting</span>첫 대화</div>
+          <div class="process-desc">공간을 어떻게 쓰고 싶은지, 예산과 일정은 어떤지 먼저 듣습니다. 이 대화가 이후 모든 도면의 기준이 됩니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">02</div>
+          <div class="process-title"><span>Design</span>도면 스케치</div>
+          <div class="process-desc">첫 대화의 내용을 평면도와 입면도로 옮깁니다. 이 단계에서 여러 번 스케치를 주고받으며 조정합니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">03</div>
+          <div class="process-title"><span>Estimate</span>소통 확정</div>
+          <div class="process-desc">확정된 도면을 기준으로 상세 견적을 안내하고, 마감재와 예산 범위를 함께 조율합니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">04</div>
+          <div class="process-title"><span>Construction</span>시공</div>
+          <div class="process-desc">주요 공정마다 진행 상황을 공유합니다. 현장에서 생기는 변수도 그때그때 대화로 조율합니다.</div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">05</div>
+          <div class="process-title"><span>Aftercare</span>사후 소통</div>
+          <div class="process-desc">준공 이후에도 하자보수와 사용 중 불편사항을 함께 확인합니다. 대화는 완공 후에도 이어집니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE: BLUEPRINT DIALOGUE -->
+  <section class="dialogue" id="dialogue">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">소통의 기록</div>
+        <h2>도면 위에 남은 실제 대화</h2>
+        <p>핀을 눌러보세요. 실제 프로젝트에서 오간 대화가 어떻게 도면에, 그리고 공간에 반영되었는지 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="plan-wrap reveal">
+        <svg class="plan-svg" viewBox="0 0 800 380" fill="none">
+          <rect x="60" y="40" width="680" height="300" stroke="#f2efe6" stroke-width="1.4" opacity="0.7"/>
+          <line x1="330" y1="40" x2="330" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+          <line x1="330" y1="220" x2="740" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+          <line x1="500" y1="40" x2="500" y2="220" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+          <line x1="60" y1="260" x2="330" y2="260" stroke="#f2efe6" stroke-width="1" stroke-dasharray="5 5" opacity="0.45"/>
+
+          <g class="pin-group active" data-note="0" tabindex="0">
+            <circle class="pin" cx="180" cy="140" r="9"/>
+          </g>
+          <g class="pin-group" data-note="1" tabindex="0">
+            <circle class="pin" cx="410" cy="120" r="9"/>
+          </g>
+          <g class="pin-group" data-note="2" tabindex="0">
+            <circle class="pin" cx="600" cy="290" r="9"/>
+          </g>
+          <g class="pin-group" data-note="3" tabindex="0">
+            <circle class="pin" cx="620" cy="110" r="9"/>
+          </g>
+        </svg>
+
+        <div class="note-panel" id="notePanel">
+          <div class="note-tag">목동 대수선 공사 — 단열/설비/디자인</div>
+          <div class="note-line"><b>클라이언트</b><span>"오래된 상가주택도 요즘 건축하는 건물처럼 완전히 새롭게 바꿀 수 있을까요?"</span></div>
+          <div class="note-line"><b>소통디자인</b><span>물론입니다. 건물의 현재 상태를 정확하게 확인한 후 설비, 단열, 창호와 외관 디자인을 함께 계획하여 오래된 건물의 기능과 가치를 높이는 방법을 제안합니다.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <div class="eyebrow">대표 프로젝트</div>
+        <h2>소통디자인의 대표 프로젝트를 소개합니다.</h2>
+        <p>
+          엄선한 대표 사례를 통해 소통디자인의 공간 구성과
+          설계 방향을 확인하실 수 있습니다.
+        </p>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <a
+          class="pf-card reveal"
+          data-cms="portfolio-item"
+          data-cat="상업공간"
+          href="projects/hospital-lobby-design.html"
+          aria-label="병원 로비 디자인 프로젝트 자세히 보기"
+        >
+          <div class="pf-thumb" style="background-image:url('images/1.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">상업공간</div>
+            <div class="pf-title">병원 로비 디자인</div>
+            <div class="pf-desc">세련되고 개방감 있는 로비 공간 구성</div>
+          </div>
+        </a>
+
+        <a
+          class="pf-card reveal"
+          data-cms="portfolio-item"
+          data-cat="주거공간"
+          href="projects/gwangjin-apartment-remodeling.html"
+          aria-label="광진구 아파트 리모델링 프로젝트 자세히 보기"
+        >
+          <div
+            class="pf-thumb"
+            style="background-image:url('images/2.png');"
+          ></div>
+
+          <div class="pf-body">
+            <div class="pf-cat">
+              주거공간
+            </div>
+
+            <div class="pf-title">
+              광진구 아파트 리모델링
+            </div>
+
+            <div class="pf-desc">
+              웨인스코팅과 비앙코 타일이 어우러진 45평 리모델링
+            </div>
+          </div>
+        </a>
+
+        <a
+          class="pf-card reveal"
+          data-cms="portfolio-item"
+          data-cat="신축"
+          href="projects/mapo-commercial-building.html"
+          aria-label="마포 상가 신축 프로젝트 자세히 보기"
+        >
+          <div class="pf-thumb" style="background-image:url('project-images/mapo-commercial-building/cover.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">신축</div>
+            <div class="pf-title">마포 상가 신축</div>
+            <div class="pf-desc">챔퍼 디테일과 포세린 타일로 완성한 근린생활시설 신축 프로젝트</div>
+          </div>
+        </a>
+
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="주거공간">
+          <div class="pf-thumb" style="background-image:url('images/5.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">주거공간</div>
+            <div class="pf-title">신길동 아파트 리모델링</div>
+            <div class="pf-desc">간접 조명과 따뜻한 무드의 거실 리모델링</div>
+          </div>
+        </div>
+
+        <a
+          class="pf-card reveal"
+          data-cms="portfolio-item"
+          data-cat="대수선"
+          href="projects/mokdong-major-repair.html"
+          aria-label="목동 대수선 공사 프로젝트 자세히 보기"
+        >
+          <div
+            class="pf-thumb pf-thumb--mokdong"
+            style="background-image:url('images/4.png');"
+          ></div>
+          <div class="pf-body">
+            <div class="pf-cat">대수선</div>
+            <div class="pf-title">목동 대수선 공사</div>
+            <div class="pf-desc">단열·설비·창호 개선과 롱브릭 외장으로 새롭게 완성한 상가주택</div>
+          </div>
+        </a>
+        
+        <div class="pf-card reveal" data-cms="portfolio-item" data-cat="대수선">
+          <div class="pf-thumb" style="background-image:url('images/6.png');"></div>
+          <div class="pf-body">
+            <div class="pf-cat">대수선</div>
+            <div class="pf-title">단독주택 대수선 공사</div>
+            <div class="pf-desc">구조 보강부터 야간 조명까지 완성한 주택</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a
+        class="project-archive reveal"
+        href="https://blog.naver.com/designsotong79"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="네이버 블로그에서 300건 이상의 프로젝트 아카이브 보기"
+      >
+        <div class="archive-number">300+</div>
+
+        <div class="archive-content">
+          <div class="archive-label">PROJECT ARCHIVE</div>
+          <h3>더 많은 공간의 기록을 확인해 보세요.</h3>
+          <p>
+            대표 프로젝트 외에도 주거공간, 상업공간,
+            신축과 대수선 등 다양한 시공 사례를
+            네이버 블로그에서 확인하실 수 있습니다.
+          </p>
+        </div>
+
+        <div class="archive-action">
+          View Archive
+          <span aria-hidden="true">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonial-section" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">고객후기</div>
+        <h2>실제로 함께 대화했던 분들</h2>
+        <p>소통디자인과 함께 공간을 완성하신 고객분들의 솔직한 이야기입니다.</p>
+      </div>
+      <div class="t-grid">
+        <div class="t-card reveal">
+          <div>
+            <div class="t-quote-mark">“</div>
+            <div class="t-quote">노후된 건물이 정말 이렇게 달라질 수 있을까 걱정했는데, 디자인부터 시공, 마감까지 기대 이상으로 완성되어 정말 만족합니다.</div>
+          </div>
+          <div class="t-meta">대수선 · 목동 리모델링 의뢰인</div>
+        </div>
+        <div class="t-card reveal">
+          <div>
+            <div class="t-quote-mark">“</div>
+            <div class="t-quote">공정마다 사진과 함께 빠짐없이 현장을 설명해 주셔서 공사 기간 동안 안심할 수 있었습니다.</div>
+          </div>
+          <div class="t-meta">주거공간 · 아파트 리모델링 의뢰인</div>
+        </div>
+        <div class="t-card reveal">
+          <div>
+            <div class="t-quote-mark">“</div>
+            <div class="t-quote">건물의 원래 결을 살리면서도 단열과 라이프스타일에 맞게 편해져서 마음에 듭니다.</div>
+          </div>
+          <div class="t-meta">대수선 · 단독주택 리모델링 의뢰인</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div>
+          <div class="eyebrow" style="color:rgba(242,239,230,0.85)">CONTACT</div>
+          <h2>다음 대화는,<br>당신의 공간에 대한 것입니다</h2>
+          <p>신축이든 작은 대수선이든, 첫 대화는 언제나 무료입니다. 편하게 문의해 주세요.</p>
+          <div class="cta-info">
+            <span>TEL. <a href="tel:0231443325">02.3144.3325</a></span>
+            <span>MAIL. <a href="mailto:designsotong79@naver.com">designsotong79@naver.com</a></span>
+            <span>BLOG. <a href="https://blog.naver.com/designsotong79" target="_blank">blog.naver.com/designsotong79</a></span>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='접수되었습니다. 곧 연락드리겠습니다.';">
+          <div class="form-field">
+            <label>이름</label>
+            <input type="text" placeholder="성함을 입력해 주세요" required>
+          </div>
+          <div class="form-field">
+            <label>연락처</label>
+            <input type="tel" placeholder="010-0000-0000" required>
+          </div>
+          <div class="form-field">
+            <label>관심 분야</label>
+            <select>
+              <option>신축</option>
+              <option>대수선</option>
+              <option>상업공간</option>
+              <option>주거공간</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>공간에 대해 간단히 알려주세요</label>
+            <textarea placeholder="예: 경기도 일산 20평 아파트 인테리어를 고려 중입니다."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">무료 상담 신청하기</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© 소통디자인 SOTONG DESIGN. Architecture · New Construction · Major Repair</p>
+    <div class="footer-links">
+      <a href="https://blog.naver.com/designsotong79" target="_blank">네이버 블로그</a>
+      <a href="#contact">문의하기</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
