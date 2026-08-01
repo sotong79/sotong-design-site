@@ -91,7 +91,7 @@
     notePanel.innerHTML =
       '<div class="note-tag">' + n.tag + '</div>' +
       n.lines.map(l => '<div class="note-line"><b>'+l[0]+'</b><span>'+l[1]+'</span></div>').join('') +
-      '<div class="note-hint">※ 예시 데이터입니다. 실제 프로젝트별 대화 기록으로 교체해 주세요.</div>';
+      '<div class="note-hint"></div>';
   }
 
   pinGroups.forEach(g=>{
