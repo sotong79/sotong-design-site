@@ -777,3 +777,18 @@ footer {
     }
 
 }
+/* Portfolio Notice */
+.portfolio-note {
+    max-width: 1080px;
+    margin: 28px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.portfolio-note p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(0,0,0,.45);
+    text-align: center;
+}
