@@ -1509,3 +1509,38 @@ footer{
   }
 
 }
+/* ---------- Mobile Dialogue Text ---------- */
+
+@media (max-width: 640px){
+
+  .plan-wrap{
+    padding: 24px 18px;
+  }
+
+  .plan-svg{
+    max-height: 230px;
+  }
+
+  .note-panel{
+    padding: 20px 18px;
+  }
+
+  .note-line{
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .note-line b{
+    display: block;
+    min-width: 0;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .note-line span{
+    display: block;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+}
