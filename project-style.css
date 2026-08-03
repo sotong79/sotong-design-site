@@ -792,3 +792,7 @@ footer {
     color: rgba(0,0,0,.45);
     text-align: center;
 }
+/* Portfolio Notice */
+.portfolio-note p {
+    white-space: pre-line;
+}
