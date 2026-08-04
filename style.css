@@ -1431,8 +1431,8 @@ footer{
 /* ---------- Reveal animation ---------- */
 
 .reveal{
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 1;
+  transform: none;
   transition: opacity .7s ease, transform .7s ease;
 }
 
