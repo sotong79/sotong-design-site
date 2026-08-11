@@ -1,0 +1,21 @@
+SOTONG DESIGN RELEASE CHECKLIST
+================================
+
+SEO / domain files created:
+- index.html: canonical + OG + Twitter metadata
+- 6 project HTML files: individual canonical + OG + Twitter metadata
+- Company name standardized: 소통디자인 -> 디자인소통 in project pages
+- robots.txt created
+- sitemap.xml created
+- CSS/JS paths preserved
+- Existing project image paths preserved
+
+Manual content placeholders still requiring confirmation (not guessed):
+- projects/detached-house-major-repair.html: ○○ at line(s) 265
+- projects/gwangjin-apartment-remodeling.html: 20XX at line(s) 225
+- projects/hospital-lobby-design.html: ○○ at line(s) 151, 161
+- projects/hospital-lobby-design.html: 20XX at line(s) 166
+- projects/mapo-commercial-building.html: ○○ at line(s) 180
+- projects/mapo-commercial-building.html: 20XX at line(s) 185
+- projects/singil-apartment-remodeling.html: ○○ at line(s) 227, 237
+- projects/singil-apartment-remodeling.html: 20XX at line(s) 242

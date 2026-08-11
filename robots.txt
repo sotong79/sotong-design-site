@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://designsotong.com/sitemap.xml
