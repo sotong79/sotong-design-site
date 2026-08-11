@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>단독주택 대수선 | 디자인소통</title>
+  <meta
+    name="description"
+    content="노후된 2층 단독주택의 외관과 내부 공간을 재구성해 출판사 사옥으로 완성한 단독주택 대수선 및 업무공간 리모델링 프로젝트입니다."
+  >
+
+  
+<!-- SEO / Social -->
+<link rel="canonical" href="https://designsotong.com/projects/detached-house-major-repair.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="디자인소통">
+<meta property="og:title" content="단독주택 대수선 | 디자인소통">
+<meta property="og:description" content="노후된 2층 단독주택의 외관과 내부 공간을 재구성해 출판사 사옥으로 완성한 단독주택 대수선 및 업무공간 리모델링 프로젝트입니다.">
+<meta property="og:url" content="https://designsotong.com/projects/detached-house-major-repair.html">
+<meta property="og:image" content="https://designsotong.com/project-images/detached-house-major-repair/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="단독주택 대수선 | 디자인소통">
+<meta name="twitter:description" content="노후된 2층 단독주택의 외관과 내부 공간을 재구성해 출판사 사옥으로 완성한 단독주택 대수선 및 업무공간 리모델링 프로젝트입니다.">
+<meta name="twitter:image" content="https://designsotong.com/project-images/detached-house-major-repair/cover.png">
+<!-- /SEO / Social -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../project-style.css">
+
+  <style>
+    .hero {
+      min-height: auto;
+      align-items: center;
+      padding-top: 56px;
+      padding-bottom: 42px;
+    }
+
+    .section-head,
+    .story-copy {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .story-copy {
+      max-width: 920px;
+      margin-top: 34px;
+      margin-bottom: 0;
+    }
+
+    .story-copy p,
+    .section-head p {
+      max-width: 900px;
+    }
+
+    .section-image-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-image-stack.two-column {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .image-card {
+      min-width: 0;
+    }
+
+    .image-caption {
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(33, 33, 33, 0.62);
+    }
+
+    .process-label {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      border: 1px solid rgba(33, 33, 33, 0.15);
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    .single-feature {
+      max-width: 1080px;
+    }
+
+    .single-feature .media {
+      width: 100%;
+    }
+
+    .single-feature .media img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 1080px;
+    }
+
+    .before-after .image-card {
+      min-width: 0;
+    }
+
+    .before-after .media {
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .before-after .media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .completion-feature {
+      max-width: 1240px;
+    }
+
+    .completion-feature .media {
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: auto;
+      overflow: hidden;
+    }
+
+    .completion-feature .media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Project data : 2 columns × 3 rows */
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid rgba(33, 33, 33, 0.16);
+      border-radius: 18px;
+    }
+
+    .hero-meta .meta {
+      min-width: 0;
+      min-height: 118px;
+      padding: 24px 22px;
+      border: 0 !important;
+      box-sizing: border-box;
+    }
+
+    .hero-meta .meta:nth-child(odd) {
+      border-right: 1px solid rgba(33, 33, 33, 0.16) !important;
+    }
+
+    .hero-meta .meta:nth-child(-n+4) {
+      border-bottom: 1px solid rgba(33, 33, 33, 0.16) !important;
+    }
+
+    .hero-meta .ml {
+      margin-bottom: 10px;
+    }
+
+    .hero-meta .mv {
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    @media (max-width: 820px) {
+      .section-image-stack.two-column,
+      .before-after {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta .meta {
+        min-height: auto;
+      }
+
+      .hero-meta .meta:nth-child(odd) {
+        border-right: 0 !important;
+      }
+
+      .hero-meta .meta:nth-child(-n+5) {
+        border-bottom: 1px solid rgba(33, 33, 33, 0.16) !important;
+      }
+
+      .hero-meta .meta:nth-child(6) {
+        border-bottom: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <img src="../images/logo.png" alt="디자인소통 로고">
+
+      <span>
+        디자인소통
+        <small>SOTONG DESIGN</small>
+      </span>
+    </a>
+
+    <a class="back" href="../index.html#portfolio">
+      ← 포트폴리오
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 프로젝트 상단 정보 -->
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <div class="eyebrow">ARCHITECTURE RENOVATION</div>
+
+      <h1>단독주택 대수선</h1>
+
+      <p>
+        노후된 2층 단독주택의 외관과 내부 동선을 재구성해
+        출판사 사옥으로 완성한 업무공간 리모델링
+      </p>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta">
+        <div class="ml">LOCATION</div>
+        <div class="mv">서울시 마포구</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">TYPE</div>
+        <div class="mv">
+          단독주택 대수선 · 출판사 사옥 리모델링
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">AREA</div>
+        <div class="mv">○○㎡ / ○○평</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">PERIOD</div>
+        <div class="mv">2018. 04. 20 – 2018. 11. 20</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">SCOPE</div>
+        <div class="mv">
+          외관 · 창호 · 금속 테라스 · 사무공간 · 회의실 ·
+          탕비실 · 계단 · 맞춤 가구
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">ROLE</div>
+        <div class="mv">설계 · 시공</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 공사 전후 비교 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">PROJECT OVERVIEW</div>
+
+        <h2>
+          오래된 주택을 출판사의 새로운 업무공간으로 바꾸었습니다
+        </h2>
+
+        <p>
+          이번 프로젝트는 노후된 2층 단독주택을 출판사 사옥으로
+          전환한 대수선 및 리모델링 공사입니다.
+          주거용으로 구성되어 있던 기존 공간을 사무실의 업무 방식에 맞춰
+          재구성하고, 외관부터 현관, 사무공간, 회의실과 탕비실,
+          계단, 2층 업무공간까지 하나의 흐름으로 정리했습니다.
+        </p>
+
+        <p>
+          건물을 가리고 있던 과실나무를 정리하고 담장을 철거해
+          외부 시야를 넓혔습니다.
+          넓은 블랙 창호와 2층 금속 테라스, 외벽 직부등을 적용해
+          출판사의 개성과 안정감이 함께 느껴지는 사옥의 인상을 완성했습니다.
+        </p>
+      </div>
+
+      <div class="before-after">
+
+        <div class="image-card">
+          <div class="process-label">BEFORE</div>
+
+          <div class="media">
+            <img
+              src="../project-images/detached-house-major-repair/1.png"
+              alt="대수선 공사 전 노후 단독주택 외관"
+            >
+          </div>
+
+          <div class="image-caption">
+            과실나무와 담장에 가려져 있던 공사 전 단독주택 외관
+          </div>
+        </div>
+
+        <div class="image-card">
+          <div class="process-label">AFTER</div>
+
+          <div class="media">
+            <img
+              src="../project-images/detached-house-major-repair/2.png"
+              alt="출판사 사옥으로 리모델링한 단독주택 외관"
+            >
+          </div>
+
+          <div class="image-caption">
+            담장을 걷어내고 블랙 창호와 금속 테라스로
+            새롭게 완성한 사옥 외관
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 현관 -->
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">ENTRANCE</div>
+
+        <h2>
+          사옥의 첫인상을 결정하는 현관을 정돈했습니다
+        </h2>
+
+        <p>
+          기존 현관은 어두운 체리색 신발장과 중문, 바닥 마감으로 인해
+          좁고 무거운 인상이 강했습니다.
+          불필요한 요소를 철거한 뒤 단열 방화문과 낙엽송 마감 문틀을
+          적용해 출입 공간의 기능성과 디자인을 함께 개선했습니다.
+        </p>
+
+        <p>
+          바닥은 에폭시로 깔끔하게 정리하고 조명을 더해
+          소재의 질감이 자연스럽게 드러나도록 구성했습니다.
+          외부에서 내부 사무공간으로 이어지는 첫 장면이
+          단정하고 신뢰감 있게 보이도록 마감의 연결과 비례를
+          세심하게 조정했습니다.
+        </p>
+      </div>
+
+      <div class="single-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/3.png"
+            alt="내부에서 바라본 출판사 사옥 현관"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          단열 방화문과 낙엽송 문틀, 에폭시 바닥과 조명으로 완성한 현관
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1층 사무공간 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FIRST FLOOR OFFICE</div>
+
+        <h2>
+          거실과 작은방을 연결해 개방적인 사무공간을 만들었습니다
+        </h2>
+
+        <p>
+          현관을 기준으로 우측의 거실과 인접한 작은방은
+          직원들이 함께 사용하는 1층 사무공간으로 재구성했습니다.
+          주거 공간의 분절된 구조를 정리해 시야와 이동 동선을 넓히고,
+          여러 명이 함께 일하기 편한 개방형 업무공간으로 전환했습니다.
+        </p>
+
+        <p>
+          실내는 화이트 톤 도장으로 마감해
+          기존의 어둡고 답답한 분위기를 덜어냈습니다.
+          자연광과 조명이 공간 전체에 고르게 퍼지도록 구성해
+          업무 집중도와 쾌적함을 함께 고려했습니다.
+        </p>
+      </div>
+
+      <div class="single-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/4.png"
+            alt="화이트 톤으로 완성한 출판사 사옥 1층 사무공간"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          거실과 작은방을 통합해 넓고 밝게 구성한
+          1층 직원 사무공간
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 회의실 및 탕비실 -->
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">MEETING ROOM &amp; PANTRY</div>
+
+        <h2>
+          기존 주방을 회의와 휴식을 위한 복합공간으로 재구성했습니다
+        </h2>
+
+        <p>
+          기존 주방이 있던 자리는 회의실과 탕비실로 새롭게 계획했습니다.
+          탕비 공간은 백색 유광 면취 타일과 레일 펜던트 조명을 적용해
+          관리가 편하면서도 밝고 정돈된 분위기가 유지되도록 마감했습니다.
+        </p>
+
+        <p>
+          회의실과 탕비실 사이에는 접이식 이동형 수납 파티션을
+          맞춤 제작했습니다.
+          많은 책을 보관해야 하는 출판사의 특성을 반영해
+          수납과 공간 분리 기능을 동시에 확보했습니다.
+          회의실 한쪽 벽은 블루 계열로 도장해
+          업무공간에 산뜻한 포인트를 더했습니다.
+        </p>
+      </div>
+
+      <div class="single-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/5.png"
+            alt="회의실과 탕비실로 리모델링한 출판사 사옥 1층 공간"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          백색 타일과 레일 조명, 이동형 수납 파티션을 적용한
+          회의실과 탕비실
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 화장실 및 책장 파티션 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">RESTROOM &amp; BOOK PARTITION</div>
+
+        <h2>
+          업무 동선 속에 기능 공간과 수납을 자연스럽게 배치했습니다
+        </h2>
+
+        <p>
+          1층에는 두 곳의 화장실을 유지해
+          다수의 직원이 사용하는 사옥의 편의성을 확보했습니다.
+          사진 속 화장실은 타공 도어를 적용해 주변 벽면과 조화를 이루면서도
+          공간의 위치가 명확하게 구분되도록 했습니다.
+        </p>
+
+        <p>
+          기존 안방 출입문은 철거하고,
+          외부 사무공간과의 경계를 도서관형 책장 파티션으로
+          새롭게 구성했습니다.
+          벽을 세워 공간을 완전히 막기보다 출판사에 필요한
+          도서 수납 기능을 더해 개방감과 영역 구분을 함께 해결했습니다.
+        </p>
+      </div>
+
+      <div class="single-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/6.png"
+            alt="타공 도어 화장실과 책장형 파티션을 적용한 1층 사무공간"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          타공 도어와 책장형 파티션으로 기능성과
+          공간 구분을 함께 확보한 1층
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 계단 및 전시공간 -->
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">STAIRCASE &amp; DISPLAY WALL</div>
+
+        <h2>
+          이동 공간을 출판사의 정체성을 보여주는
+          전시공간으로 바꾸었습니다
+        </h2>
+
+        <p>
+          2층으로 이어지는 기존 원목 계단은 기본 틀을 활용하면서
+          미장과 에폭시 마감으로 표면을 새롭게 정리했습니다.
+          계단 난간은 군더더기 없는 금속 디자인으로 교체하고
+          블랙 도장을 적용해 공간 전체의 인상을 선명하게 잡았습니다.
+        </p>
+
+        <p>
+          계단 정면 벽에는 출판사의 대표 도서를 전시할 수 있는
+          전시 패널을 제작하고 간접조명을 더했습니다.
+          단순히 층을 연결하는 통로가 아니라 방문객에게
+          출판사의 콘텐츠와 브랜드를 자연스럽게 소개하는
+          작은 갤러리로 완성했습니다.
+        </p>
+      </div>
+
+      <div class="single-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/7.png"
+            alt="블랙 금속 난간과 도서 전시 패널을 적용한 내부 계단"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          에폭시 계단과 블랙 금속 난간,
+          간접조명 전시 패널로 완성한 계단 공간
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2층 사무공간 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">SECOND FLOOR OFFICE</div>
+
+        <h2>
+          채광과 수납을 개선한 2층 사무공간
+        </h2>
+
+        <p>
+          2층의 기존 작은방 역시 출판사 직원들이 사용하는
+          사무공간으로 전환했습니다.
+          벽면에는 업무 자료와 책을 효율적으로 보관할 수 있는
+          맞춤 책장을 설치해 제한된 면적을 실용적으로 활용했습니다.
+        </p>
+
+        <p>
+          기존 창은 더 크게 시공해 자연광이 충분히 들어오도록 하고,
+          시야가 확장되어 공간이 실제보다 넓고 쾌적하게 느껴지도록
+          구성했습니다.
+          1층과 동일한 밝은 마감 흐름을 이어가면서
+          층별 공간의 통일감을 유지했습니다.
+        </p>
+      </div>
+
+      <div class="single-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/8.png"
+            alt="맞춤 책장과 넓은 창을 적용한 출판사 사옥 2층 사무공간"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          맞춤 책장과 확장된 창으로 수납력과 개방감을 높인
+          2층 사무공간
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 최종 완공 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">PROJECT COMPLETION</div>
+
+        <h2>
+          노후 단독주택, 출판사의 새로운 사옥으로 완성되었습니다
+        </h2>
+
+        <p>
+          주택의 흔적은 존중하되 업무공간에 맞지 않는 구조와 마감은
+          과감하게 정리했습니다.
+          열린 외관과 밝은 사무공간, 책을 위한 맞춤 수납,
+          브랜드를 보여주는 전시 요소가 하나의 흐름으로 이어지도록
+          계획했습니다.
+        </p>
+
+        <p>
+          낮에는 넓어진 창호와 정돈된 외관이 건물의 개방감을 보여주고,
+          밤에는 외벽 직부등과 실내 조명이 블랙 창호와
+          금속 테라스의 선을 강조해 출판사 사옥만의 인상을
+          더욱 선명하게 드러냅니다.
+        </p>
+      </div>
+
+      <div class="completion-feature">
+        <div class="media">
+          <img
+            src="../project-images/detached-house-major-repair/cover.png"
+            alt="단독주택 대수선 및 출판사 사옥 리모델링 야간 완공 전경"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="image-caption">
+          블랙 창호와 금속 테라스, 외벽 조명이 조화를 이루는
+          출판사 사옥의 야간 전경
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 핵심 시공 내용 -->
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">RENOVATION POINT</div>
+
+        <h2>
+          이번 대수선 공사의 핵심
+        </h2>
+      </div>
+
+      <div class="points">
+
+        <div class="point">
+          <b>01 / Exterior Renewal</b>
+
+          <h3>
+            열린 인상으로 바꾼 사옥 외관
+          </h3>
+
+          <p>
+            건물을 가리던 수목과 담장을 정리하고
+            블랙 창호, 금속 테라스, 외벽 조명으로
+            출판사 사옥의 새로운 얼굴을 완성했습니다.
+          </p>
+        </div>
+
+        <div class="point">
+          <b>02 / Office Conversion</b>
+
+          <h3>
+            주거공간을 업무공간으로 재구성
+          </h3>
+
+          <p>
+            거실과 방, 주방을 사무실과 회의실,
+            탕비실로 전환해 직원 중심의 동선과
+            개방적인 업무환경을 만들었습니다.
+          </p>
+        </div>
+
+        <div class="point">
+          <b>03 / Custom Storage</b>
+
+          <h3>
+            출판사에 맞춘 수납과 파티션
+          </h3>
+
+          <p>
+            도서 보관량과 실제 사용방식을 고려해
+            이동형 수납 파티션, 책장형 파티션,
+            맞춤 책장을 제작했습니다.
+          </p>
+        </div>
+
+        <div class="point">
+          <b>04 / Brand Experience</b>
+
+          <h3>
+            공간에 담아낸 출판사의 정체성
+          </h3>
+
+          <p>
+            대표 도서를 전시하는 계단 전시벽과
+            조명 계획을 통해 방문객에게 브랜드를
+            자연스럽게 전달하도록 구성했습니다.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 상담 영역 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <div
+            class="eyebrow"
+            style="color: rgba(242, 239, 230, 0.7);"
+          >
+            SOTONG DESIGN
+          </div>
+
+          <h2>
+            건물의 가능성을 읽고, 새로운 쓰임을 설계합니다.
+          </h2>
+
+          <p>
+            디자인소통은 공간의 목적과 사용방식을 먼저 이해한 뒤
+            디자인, 맞춤 제작, 시공과 마감까지
+            전 과정을 세심하게 관리합니다.
+          </p>
+        </div>
+
+        <div class="actions">
+          <a
+            class="btn light"
+            href="../index.html#contact"
+          >
+            프로젝트 상담
+          </a>
+
+          <a
+            class="btn outline"
+            href="https://blog.naver.com/designsotong79"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            네이버 블로그 보기 ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 포트폴리오 안내 -->
+  <section class="portfolio-note">
+    <div class="wrap">
+      <p>
+        ※ 본 포트폴리오의 이미지는 실제 시공 완료 후 촬영한 사진입니다.
+        일부 이미지는 촬영 환경에 따라 밝기·색감 및 주변 요소를 보정하여 실제 시공 결과를 보다 명확하게 전달하고 있습니다.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 디자인소통 SOTONG DESIGN
+  </div>
+</footer>
+
+</body>
+</html>
