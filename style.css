@@ -902,19 +902,52 @@ main > section:not(.hero-full):not(.intro):not(.trust-stats){
 
 .project-archive{
   margin-top: 34px;
-  min-height: 250px;
-  padding: 42px 46px;
+  min-height: 210px;
+  padding: 40px 46px;
+
   display: grid;
-  grid-template-columns: 150px 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 42px;
+  gap: 48px;
+
   background: var(--ink);
   color: var(--paper);
   border: 1px solid var(--ink);
   border-radius: 18px;
   overflow: hidden;
   position: relative;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.archive-content{
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.archive-content p{
+  max-width: 620px;
+}
+
+.archive-action{
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  width: max-content;
+
+  padding: 13px 20px;
+  border: 1px solid rgba(242,239,230,.42);
+  border-radius: 100px;
+
+  white-space: nowrap;
 }
 
 .project-archive::before{
