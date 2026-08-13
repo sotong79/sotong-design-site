@@ -475,3 +475,29 @@
     if(event.key === '0') resetView();
   });
 })();
+
+// 외부 프로젝트 페이지에서 #contact로 들어왔을 때
+// 페이지 로딩 완료 후 상담 영역 위치를 한 번 더 정확히 보정
+(function () {
+  if (window.location.hash !== '#contact') return;
+
+  const target = document.getElementById('contact');
+  if (!target) return;
+
+  function alignContact() {
+    target.scrollIntoView({
+      behavior: 'auto',
+      block: 'start'
+    });
+  }
+
+  window.addEventListener('load', () => {
+    alignContact();
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        requestAnimationFrame(alignContact);
+      });
+    }
+  });
+})();
