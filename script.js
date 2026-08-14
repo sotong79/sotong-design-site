@@ -477,7 +477,7 @@
 })();
 
 // 외부 프로젝트 페이지에서 #contact로 들어왔을 때
-// 페이지 로딩 완료 후 상담 영역 위치를 한 번 더 정확히 보정
+// 폰트 및 지연 로딩 이미지로 인한 레이아웃 이동까지 보정
 (function () {
   if (window.location.hash !== '#contact') return;
 
@@ -491,13 +491,33 @@
     });
   }
 
-  window.addEventListener('load', () => {
-    alignContact();
+  function realign() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(alignContact);
+    });
+  }
 
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        requestAnimationFrame(alignContact);
-      });
+  // 최초 위치 보정
+  realign();
+
+  // 일반 리소스 로딩 완료 후 보정
+  window.addEventListener('load', realign, { once: true });
+
+  // 웹폰트 로딩 완료 후 보정
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(realign);
+  }
+
+  // contact보다 위에 있는 지연 로딩 이미지가
+  // 뒤늦게 로드되면서 페이지 높이가 변하는 경우 다시 보정
+  const images = Array.from(document.images);
+
+  images.forEach((img) => {
+    if (img.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING) {
+      if (!img.complete) {
+        img.addEventListener('load', realign, { once: true });
+        img.addEventListener('error', realign, { once: true });
+      }
     }
   });
 })();
