@@ -1,0 +1,882 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap");
+
+/* =========================================================
+   SOTONG DESIGN
+   Project Detail Page Style
+========================================================= */
+
+
+/* =========================================================
+   1. Color / Font Variables
+========================================================= */
+
+:root {
+    --ink: #23241f;
+    --soft: #55584d;
+    --paper: #f2efe6;
+    --deep: #e8e3d3;
+    --sage: #4f5940;
+    --line: #d3ccb8;
+    --white: #fffdf8;
+
+    /* Typography system: Korean/body/headings = Pretendard, technical labels = IBM Plex Mono */
+    --sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    --display: var(--sans);
+    --body: var(--sans);
+    --mono: "IBM Plex Mono", "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+
+/* =========================================================
+   2. Reset / Base
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+
+/* =========================================================
+   3. Header / Navigation
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    background: rgba(242, 239, 230, 0.95);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.brand img {
+    width: auto;
+    height: 58px;
+
+    mix-blend-mode: multiply;
+}
+
+.brand small {
+    display: block;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+
+    color: var(--soft);
+}
+
+.back {
+    padding: 10px 18px;
+
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.back:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+
+/* =========================================================
+   4. Common Typography
+========================================================= */
+
+.eyebrow {
+    margin-bottom: 16px;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+
+    color: var(--sage);
+}
+
+.hero h1,
+.section h2,
+.card h3,
+.story-copy h3,
+.point h3,
+.cta h2 {
+    font-family: var(--display);
+    font-weight: 650;
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   5. Hero
+========================================================= */
+
+.hero {
+    min-height: 68vh;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+
+    gap: 48px;
+
+    padding-top: 72px;
+    padding-bottom: 56px;
+}
+
+.hero-copy {
+    max-width: 680px;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   6. Hero Meta Information
+========================================================= */
+
+.hero-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.meta {
+    padding: 22px;
+
+    background: rgba(255, 253, 248, 0.55);
+    border-bottom: 1px solid var(--line);
+}
+
+.meta:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+.meta:nth-last-child(-n + 2) {
+    border-bottom: none;
+}
+
+.ml {
+    margin-bottom: 5px;
+
+    font-family: var(--mono);
+    font-size: 11px;
+
+    color: var(--sage);
+}
+
+.mv {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   7. Cover Image
+========================================================= */
+
+.cover {
+    padding-bottom: 90px;
+}
+
+
+/* =========================================================
+   8. Image / Media
+========================================================= */
+
+.media {
+    position: relative;
+
+    min-height: 320px;
+
+    background: var(--deep);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+.media img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.media.missing::after {
+    content: '이미지를 업로드하면 여기에 표시됩니다';
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: center;
+
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   9. Section Common
+========================================================= */
+
+.section {
+    padding: 110px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-head {
+    max-width: 720px;
+    margin-bottom: 42px;
+}
+
+.section h2 {
+    margin-bottom: 14px;
+
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.section p {
+    color: var(--soft);
+}
+
+.section-head p + p {
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   10. Two Column Cards
+========================================================= */
+
+.two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+}
+
+.card,
+.point {
+    padding: 30px;
+
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   11. Project Story
+========================================================= */
+
+.concept-section {
+    background: rgba(255, 253, 248, 0.35);
+}
+
+.story-media {
+    margin-top: 42px;
+}
+
+.story-copy {
+    max-width: 760px;
+    margin: 36px auto 70px;
+}
+
+.story-copy h3 {
+    margin-bottom: 14px;
+
+    font-size: 28px;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+}
+
+.story-copy p + p {
+    margin-top: 14px;
+}
+
+.story-gallery {
+    margin-top: 42px;
+}
+
+
+/* =========================================================
+   12. Design Points
+========================================================= */
+
+.points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.point b {
+    display: block;
+    margin-bottom: 10px;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+
+    color: var(--sage);
+}
+
+.point h3 {
+    margin: 10px 0 8px;
+
+    font-size: 22px;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   13. Gallery
+========================================================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.gallery .media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+}
+
+.gallery .wide {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   13-1. Project Image Stack
+   사진 개수에 따라 2열 또는 3열로 배치하며,
+   각 사진은 원본 크기와 관계없이 동일한 비율로 표시합니다.
+========================================================= */
+
+.section-image-stack {
+    display: grid;
+    gap: 22px;
+}
+
+.section-image-stack.two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.section-image-stack.three-column {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.section-image-stack .image-card {
+    min-width: 0;
+}
+
+.section-image-stack .media {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.section-image-stack .media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(33, 33, 33, 0.62);
+}
+
+/*
+   외벽 마감 사진 16, 17, 19, 20 전용
+   항상 2 x 2 배열로 표시합니다.
+*/
+.exterior-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.exterior-gallery .media {
+    aspect-ratio: 4 / 5;
+}
+
+/* 세로 사진에서 건물 상단이 잘리지 않도록 위쪽 중심으로 표시 */
+.exterior-gallery .media img {
+    object-position: center top;
+}
+
+@media (max-width: 980px) {
+    .section-image-stack.three-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 820px) {
+    .section-image-stack.two-column,
+    .section-image-stack.three-column,
+    .exterior-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   14. Information Note
+========================================================= */
+
+.note {
+    margin-top: 26px;
+    padding: 18px 20px;
+
+    background: rgba(123, 133, 103, 0.08);
+    border-left: 3px solid #7b8567;
+
+    font-size: 14px;
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   15. CTA
+========================================================= */
+
+.cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+
+    padding: 52px;
+
+    background: var(--sage);
+    color: var(--paper);
+
+    border-radius: 22px;
+}
+
+.cta h2 {
+    margin-bottom: 10px;
+
+    font-size: 34px;
+    line-height: 1.25;
+}
+
+.cta p {
+    color: rgba(242, 239, 230, 0.8);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 22px;
+
+    border-radius: 100px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.light {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.light:hover {
+    background: var(--white);
+}
+
+.outline {
+    border: 1px solid rgba(242, 239, 230, 0.55);
+}
+
+.outline:hover {
+    background: rgba(242, 239, 230, 0.12);
+}
+
+
+/* =========================================================
+   16. Footer
+========================================================= */
+
+footer {
+    padding: 44px 0;
+
+    border-top: 1px solid var(--line);
+
+    font-family: var(--mono);
+    font-size: 12px;
+
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   17. Tablet
+========================================================= */
+
+@media (max-width: 820px) {
+
+    .hero {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        align-items: start;
+
+        padding-top: 56px;
+    }
+
+    .two,
+    .points,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery .wide {
+        grid-column: auto;
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 40px;
+    }
+
+    .story-copy {
+        margin-bottom: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   18. Mobile
+========================================================= */
+
+@media (max-width: 560px) {
+
+    .wrap {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .nav {
+        height: 76px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .brand img {
+        height: 48px;
+    }
+
+    .back {
+        padding: 8px 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        gap: 34px;
+
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .meta,
+    .meta:nth-child(odd) {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .meta:nth-last-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .meta:last-child {
+        border-bottom: none;
+    }
+
+    .cover {
+        padding-bottom: 64px;
+    }
+
+    .media {
+        min-height: 220px;
+        border-radius: 14px;
+    }
+
+    .section {
+        padding: 76px 0;
+    }
+
+    .section-head {
+        margin-bottom: 32px;
+    }
+
+    .section h2 {
+        font-size: 34px;
+    }
+
+    .story-media,
+    .story-gallery {
+        margin-top: 30px;
+    }
+
+    .story-copy {
+        margin-top: 28px;
+        margin-bottom: 48px;
+    }
+
+    .story-copy h3 {
+        font-size: 24px;
+    }
+
+    .card,
+    .point {
+        padding: 24px;
+    }
+
+    .cta {
+        padding: 32px 24px;
+        border-radius: 18px;
+    }
+
+    .cta h2 {
+        font-size: 28px;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+}
+/* Portfolio Notice */
+.portfolio-note {
+    max-width: 1080px;
+    margin: 28px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.portfolio-note p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(0,0,0,.45);
+    text-align: center;
+}
+/* Portfolio Notice */
+.portfolio-note p {
+    white-space: pre-line;
+}
+
+/* =========================================================
+   2026-08-18 TYPOGRAPHY REFINEMENT V2
+   SOTONG DESIGN project detail typography
+   - Hero / section / CTA headlines: Noto Serif KR
+   - Body / navigation / subheads: Pretendard
+   - Technical labels / metadata: IBM Plex Mono
+   ========================================================= */
+
+:root {
+    --editorial: "Noto Serif KR", "AppleMyungjo", "Batang", serif;
+}
+
+/* Brand/navigation and smaller headings stay contemporary. */
+.brand,
+.card h3,
+.story-copy h3,
+.point h3 {
+    font-family: var(--body);
+}
+
+.card h3,
+.story-copy h3,
+.point h3 {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+/* Large project statements use a quieter editorial serif. */
+.hero h1,
+.section h2,
+.cta h2 {
+    font-family: var(--editorial);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+.hero h1 {
+    line-height: 1.2;
+}
+
+.section h2 {
+    font-size: clamp(29px, 3.7vw, 44px);
+    line-height: 1.3;
+}
+
+.cta h2 {
+    line-height: 1.3;
+}
+
+/* Keep paragraphs airy so the project photography remains visually dominant. */
+.section p,
+.hero p {
+    letter-spacing: -0.012em;
+}
+
+/* Metadata values are Korean information, not technical labels. */
+.mv {
+    font-family: var(--body);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+@media (max-width: 560px) {
+    .hero h1 {
+        font-size: 39px;
+        line-height: 1.24;
+    }
+
+    .section h2 {
+        font-size: 32px;
+        line-height: 1.34;
+    }
+}
