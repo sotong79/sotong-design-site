@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://designsotong.com/</loc>
   </url>
+
   <url>
     <loc>https://designsotong.com/projects/mapo-commercial-building.html</loc>
   </url>
+
   <url>
     <loc>https://designsotong.com/projects/mokdong-major-repair.html</loc>
   </url>
+
   <url>
     <loc>https://designsotong.com/projects/detached-house-major-repair.html</loc>
   </url>
+
+  <url>
+    <loc>https://designsotong.com/projects/seogyo-major-repair.html</loc>
+  </url>
+
+  <url>
+    <loc>https://designsotong.com/projects/gapyeong-commercial-interior.html</loc>
+  </url>
+
   <url>
     <loc>https://designsotong.com/projects/hospital-lobby-design.html</loc>
   </url>
+
   <url>
     <loc>https://designsotong.com/projects/gwangjin-apartment-remodeling.html</loc>
   </url>
+
   <url>
     <loc>https://designsotong.com/projects/singil-apartment-remodeling.html</loc>
   </url>
+
 </urlset>
