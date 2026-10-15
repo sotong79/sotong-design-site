@@ -112,3 +112,7 @@
 #journal-selection-title {
   font-size: clamp(28px, 3.4vw, 40px);
 }
+/* 상단 PC·모바일 메뉴의 문의하기 숨기기 */
+.site-header nav a[href$="#contact"] {
+  display: none;
+}
