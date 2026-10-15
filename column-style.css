@@ -108,3 +108,7 @@
 @media(max-width:360px){.site-header .nav-cta{display:none}.journal-article-head h1{font-size:27px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.journal-card-link{transition:none}}
 @media print{body.journal-page{padding-top:0;background:#fff}.journal-page .site-header,.journal-page footer,.journal-toc,.journal-related,.journal-consult,.journal-back{display:none}.journal-reading-layout{display:block}.journal-main .wrap{max-width:none;padding:0}.journal-body-section{break-inside:avoid}.journal-article-head h1{font-size:26pt}.journal-answer{background:#fff;border:1px solid #aaa}.journal-body-section p{font-size:11pt;line-height:1.7}}
+/* 메인 칼럼 제목을 고객후기 제목과 같은 크기로 */
+#journal-selection-title {
+  font-size: clamp(28px, 3.4vw, 40px);
+}
