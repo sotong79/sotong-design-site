@@ -4145,7 +4145,7 @@ h2{
   font-weight:600;
   line-height:1.28;
   letter-spacing:-0.04em;
-  text-wrap:balance;
+  text-wrap:nowrap;
 }
 
 /* ==========================================================
