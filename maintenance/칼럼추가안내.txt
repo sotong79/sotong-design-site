@@ -1,0 +1,50 @@
+칼럼을 계속 늘리는 방법
+
+방법 A: 원고 파일 한 곳을 수정하고 다시 생성 (권장)
+
+1. maintenance/articles.json을 UTF-8로 여세요.
+2. articles 배열의 글 하나를 복사하여 배열 끝에 추가합니다.
+   - original: 새 글은 null로 설정 (이전 초안 연결용 내부 항목)
+   - category: 상단 categories에 등록된 이름과 정확히 일치
+   - slug: 새 주소. 영문 소문자·숫자·하이픈으로 작성하고 기존과 중복 금지
+   - title: 질문형 제목
+   - answer: 짧은 핵심 답변
+   - sections: [소제목, 본문] 쌍의 배열
+   - checklist: 상담 전 확인사항
+3. 저장소 최상위 위치에서 Python 3.10 이상으로 실행합니다.
+   python maintenance/build.py
+   외부 패키지는 필요하지 않습니다.
+4. 변경된 index.html, columns/ 및 sitemap-columns.xml을 업로드합니다.
+
+생성기는 각 글의 상세 HTML, 전체 목록, 카테고리 목록, 메인 대표 글과
+사이트맵을 함께 갱신합니다. 목록은 서버나 관리자 기능 없이 표시되며
+JavaScript를 꺼도 글과 카테고리 링크를 이용할 수 있습니다.
+
+메인에는 각 카테고리에서 배열상 첫 번째 글을 한 편씩 표시합니다.
+상단에는 첫 번째 카테고리의 대표 글을 표시합니다. 대표 글을 바꾸려면
+articles 배열에서 해당 카테고리 글의 순서를 바꾸세요.
+categories에 항목을 추가하면 카테고리 페이지도 생성됩니다.
+
+메인의 다른 내용을 수정하려면 maintenance/home-template.html도 함께
+수정하세요. 생성기는 이 템플릿에 칼럼 영역과 메뉴를 다시 추가합니다.
+index.html을 직접 수정한 뒤 생성기를 실행하면 해당 변경은 덮어씁니다.
+home-template.html의 SERVICES, CTA / CONTACT 주석은 유지해야 합니다.
+HTML/CSS/JS를 수동으로 수정한 경우 변경 내용을 별도로 백업하세요.
+
+삭제한 글의 기존 HTML은 자동 삭제하지 않습니다. 검색엔진·외부 링크를
+고려해 리디렉션 여부를 결정한 다음 직접 정리하세요.
+현재 초안의 예전 3개 주소는 새 글로 이동하게 유지했습니다.
+
+방법 B: Python 없이 HTML 수동 수정
+
+1. columns/의 기존 상세 글을 복사하고 새 파일명으로 저장합니다.
+2. 제목·핵심 답변·목차·본문·상담 전 확인사항·관련 글을 수정합니다.
+3. head의 title, description, canonical, og:*와 Article JSON-LD를
+   새 원고와 새 주소에 맞춥니다.
+4. columns/index.html과 해당 columns/categories/ 페이지에 카드를
+   추가합니다. data-search와 편수 표시, ItemList JSON-LD도 갱신합니다.
+5. sitemap-columns.xml에 새 주소를 추가합니다.
+6. 방법 B로 수정한 내용은 articles.json에도 반영해야 향후 재생성 때 유지됩니다.
+
+별도 서버나 사진 업로드는 필요하지 않습니다. 원고의 법규·수치·사례와
+회사 실적·서비스 범위는 발행 시점에 확인한 내용을 사용하세요.
