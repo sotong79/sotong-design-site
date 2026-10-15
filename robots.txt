@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://designsotong.com/sitemap.xml
+Sitemap: https://designsotong.com/sitemap-columns.xml
