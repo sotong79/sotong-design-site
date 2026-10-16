@@ -1479,5 +1479,57 @@ footer {
   <div class="wrap">© 디자인소통 SOTONG DESIGN</div>
 </footer>
 
+<script>
+  const consultButton =
+    document.querySelector('a[href="#hospital-consult"]');
+
+  if (consultButton) {
+    let moving = false;
+
+    consultButton.addEventListener('click', async function (event) {
+      const target = document.getElementById('hospital-consult');
+      if (!target) return;
+
+      event.preventDefault();
+      if (moving) return;
+
+      moving = true;
+      const originalText = this.textContent;
+      this.textContent = '잠시만 기다려 주세요…';
+
+      try {
+        const imageLoads = [...document.querySelectorAll('main img')]
+          .map(img => {
+            if (img.complete) return Promise.resolve();
+
+            return new Promise(resolve => {
+              img.addEventListener('load', resolve, { once: true });
+              img.addEventListener('error', resolve, { once: true });
+              img.loading = 'eager';
+            });
+          });
+
+        await Promise.all(imageLoads);
+
+        if (document.fonts) {
+          await document.fonts.ready;
+        }
+
+        await new Promise(resolve =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve))
+        );
+
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } finally {
+        this.textContent = originalText;
+        moving = false;
+      }
+    });
+  }
+</script>
+  
 </body>
 </html>
