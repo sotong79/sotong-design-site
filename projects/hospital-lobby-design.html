@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>병원 로비 디자인 | 디자인소통</title>
+  <meta name="description" content="병원 로비·접수대·대기공간 디자인 제안과 리모델링 상담. 공간 구성부터 마감, 공사 범위와 일정 검토까지 디자인소통과 함께 확인하세요.">
+  
+<!-- SEO / Social -->
+<link rel="canonical" href="https://designsotong.com/projects/hospital-lobby-design">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="디자인소통">
+<meta property="og:title" content="병원 로비 디자인 | 디자인소통">
+<meta property="og:description" content="병원 로비·접수대·대기공간 디자인 제안과 리모델링 상담. 공간 구성부터 마감, 공사 범위와 일정 검토까지 디자인소통과 함께 확인하세요.">
+<meta property="og:url" content="https://designsotong.com/projects/hospital-lobby-design">
+<meta property="og:image" content="https://designsotong.com/project-images/hospital-lobby-design/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="병원 로비 디자인 | 디자인소통">
+<meta name="twitter:description" content="병원 로비·접수대·대기공간 디자인 제안과 리모델링 상담. 공간 구성부터 마감, 공사 범위와 일정 검토까지 디자인소통과 함께 확인하세요.">
+<meta name="twitter:image" content="https://designsotong.com/project-images/hospital-lobby-design/cover.png">
+<!-- /SEO / Social -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- 기존 프로젝트 공통 스타일을 포함해 단독 파일로도 확인할 수 있습니다. -->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap");
+
+/* =========================================================
+   SOTONG DESIGN
+   Project Detail Page Style
+========================================================= */
+
+
+/* =========================================================
+   1. Color / Font Variables
+========================================================= */
+
+:root {
+    --ink: #23241f;
+    --soft: #55584d;
+    --paper: #f2efe6;
+    --deep: #e8e3d3;
+    --sage: #4f5940;
+    --line: #d3ccb8;
+    --white: #fffdf8;
+
+    /* Typography system: Korean/body/headings = Pretendard, technical labels = IBM Plex Mono */
+    --sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    --display: var(--sans);
+    --body: var(--sans);
+    --mono: "IBM Plex Mono", "Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+
+/* =========================================================
+   2. Reset / Base
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+
+/* =========================================================
+   3. Header / Navigation
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    background: rgba(242, 239, 230, 0.95);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.brand img {
+    width: auto;
+    height: 58px;
+
+    mix-blend-mode: multiply;
+}
+
+.brand small {
+    display: block;
+
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+
+    color: var(--soft);
+}
+
+.back {
+    padding: 10px 18px;
+
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.back:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+
+/* =========================================================
+   4. Common Typography
+========================================================= */
+
+.eyebrow {
+    margin-bottom: 16px;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+
+    color: var(--sage);
+}
+
+.hero h1,
+.section h2,
+.card h3,
+.story-copy h3,
+.point h3,
+.cta h2 {
+    font-family: var(--display);
+    font-weight: 650;
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   5. Hero
+========================================================= */
+
+.hero {
+    min-height: 68vh;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+
+    gap: 48px;
+
+    padding-top: 72px;
+    padding-bottom: 56px;
+}
+
+.hero-copy {
+    max-width: 680px;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+
+    text-wrap: balance;
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   6. Hero Meta Information
+========================================================= */
+
+.hero-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.meta {
+    padding: 22px;
+
+    background: rgba(255, 253, 248, 0.55);
+    border-bottom: 1px solid var(--line);
+}
+
+.meta:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+.meta:nth-last-child(-n + 2) {
+    border-bottom: none;
+}
+
+.ml {
+    margin-bottom: 5px;
+
+    font-family: var(--mono);
+    font-size: 11px;
+
+    color: var(--sage);
+}
+
+.mv {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   7. Cover Image
+========================================================= */
+
+.cover {
+    padding-bottom: 90px;
+}
+
+
+/* =========================================================
+   8. Image / Media
+========================================================= */
+
+.media {
+    position: relative;
+
+    min-height: 320px;
+
+    background: var(--deep);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+.media img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.media.missing::after {
+    content: '이미지를 업로드하면 여기에 표시됩니다';
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: center;
+
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   9. Section Common
+========================================================= */
+
+.section {
+    padding: 110px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-head {
+    max-width: 720px;
+    margin-bottom: 42px;
+}
+
+.section h2 {
+    margin-bottom: 14px;
+
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.section p {
+    color: var(--soft);
+}
+
+.section-head p + p {
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   10. Two Column Cards
+========================================================= */
+
+.two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+}
+
+.card,
+.point {
+    padding: 30px;
+
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   11. Project Story
+========================================================= */
+
+.concept-section {
+    background: rgba(255, 253, 248, 0.35);
+}
+
+.story-media {
+    margin-top: 42px;
+}
+
+.story-copy {
+    max-width: 760px;
+    margin: 36px auto 70px;
+}
+
+.story-copy h3 {
+    margin-bottom: 14px;
+
+    font-size: 28px;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+}
+
+.story-copy p + p {
+    margin-top: 14px;
+}
+
+.story-gallery {
+    margin-top: 42px;
+}
+
+
+/* =========================================================
+   12. Design Points
+========================================================= */
+
+.points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.point b {
+    display: block;
+    margin-bottom: 10px;
+
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+
+    color: var(--sage);
+}
+
+.point h3 {
+    margin: 10px 0 8px;
+
+    font-size: 22px;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   13. Gallery
+========================================================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.gallery .media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+}
+
+.gallery .wide {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   13-1. Project Image Stack
+   사진 개수에 따라 2열 또는 3열로 배치하며,
+   각 사진은 원본 크기와 관계없이 동일한 비율로 표시합니다.
+========================================================= */
+
+.section-image-stack {
+    display: grid;
+    gap: 22px;
+}
+
+.section-image-stack.two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.section-image-stack.three-column {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.section-image-stack .image-card {
+    min-width: 0;
+}
+
+.section-image-stack .media {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.section-image-stack .media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(33, 33, 33, 0.62);
+}
+
+/*
+   외벽 마감 사진 16, 17, 19, 20 전용
+   항상 2 x 2 배열로 표시합니다.
+*/
+.exterior-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.exterior-gallery .media {
+    aspect-ratio: 4 / 5;
+}
+
+/* 세로 사진에서 건물 상단이 잘리지 않도록 위쪽 중심으로 표시 */
+.exterior-gallery .media img {
+    object-position: center top;
+}
+
+@media (max-width: 980px) {
+    .section-image-stack.three-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 820px) {
+    .section-image-stack.two-column,
+    .section-image-stack.three-column,
+    .exterior-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   14. Information Note
+========================================================= */
+
+.note {
+    margin-top: 26px;
+    padding: 18px 20px;
+
+    background: rgba(123, 133, 103, 0.08);
+    border-left: 3px solid #7b8567;
+
+    font-size: 14px;
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   15. CTA
+========================================================= */
+
+.cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+
+    padding: 52px;
+
+    background: var(--sage);
+    color: var(--paper);
+
+    border-radius: 22px;
+}
+
+.cta h2 {
+    margin-bottom: 10px;
+
+    font-size: 34px;
+    line-height: 1.25;
+}
+
+.cta p {
+    color: rgba(242, 239, 230, 0.8);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 22px;
+
+    border-radius: 100px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.light {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.light:hover {
+    background: var(--white);
+}
+
+.outline {
+    border: 1px solid rgba(242, 239, 230, 0.55);
+}
+
+.outline:hover {
+    background: rgba(242, 239, 230, 0.12);
+}
+
+
+/* =========================================================
+   16. Footer
+========================================================= */
+
+footer {
+    padding: 44px 0;
+
+    border-top: 1px solid var(--line);
+
+    font-family: var(--mono);
+    font-size: 12px;
+
+    color: var(--soft);
+}
+
+
+/* =========================================================
+   17. Tablet
+========================================================= */
+
+@media (max-width: 820px) {
+
+    .hero {
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+        align-items: start;
+
+        padding-top: 56px;
+    }
+
+    .two,
+    .points,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery .wide {
+        grid-column: auto;
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 40px;
+    }
+
+    .story-copy {
+        margin-bottom: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   18. Mobile
+========================================================= */
+
+@media (max-width: 560px) {
+
+    .wrap {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .nav {
+        height: 76px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .brand img {
+        height: 48px;
+    }
+
+    .back {
+        padding: 8px 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        gap: 34px;
+
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .meta,
+    .meta:nth-child(odd) {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .meta:nth-last-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .meta:last-child {
+        border-bottom: none;
+    }
+
+    .cover {
+        padding-bottom: 64px;
+    }
+
+    .media {
+        min-height: 220px;
+        border-radius: 14px;
+    }
+
+    .section {
+        padding: 76px 0;
+    }
+
+    .section-head {
+        margin-bottom: 32px;
+    }
+
+    .section h2 {
+        font-size: 34px;
+    }
+
+    .story-media,
+    .story-gallery {
+        margin-top: 30px;
+    }
+
+    .story-copy {
+        margin-top: 28px;
+        margin-bottom: 48px;
+    }
+
+    .story-copy h3 {
+        font-size: 24px;
+    }
+
+    .card,
+    .point {
+        padding: 24px;
+    }
+
+    .cta {
+        padding: 32px 24px;
+        border-radius: 18px;
+    }
+
+    .cta h2 {
+        font-size: 28px;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+}
+/* Portfolio Notice */
+.portfolio-note {
+    max-width: 1080px;
+    margin: 28px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.portfolio-note p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(0,0,0,.45);
+    text-align: center;
+}
+/* Portfolio Notice */
+.portfolio-note p {
+    white-space: pre-line;
+}
+
+/* =========================================================
+   2026-08-18 TYPOGRAPHY REFINEMENT V2
+   SOTONG DESIGN project detail typography
+   - Hero / section / CTA headlines: Noto Serif KR
+   - Body / navigation / subheads: Pretendard
+   - Technical labels / metadata: IBM Plex Mono
+   ========================================================= */
+
+:root {
+    --editorial: "Noto Serif KR", "AppleMyungjo", "Batang", serif;
+}
+
+/* Brand/navigation and smaller headings stay contemporary. */
+.brand,
+.card h3,
+.story-copy h3,
+.point h3 {
+    font-family: var(--body);
+}
+
+.card h3,
+.story-copy h3,
+.point h3 {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+/* Large project statements use a quieter editorial serif. */
+.hero h1,
+.section h2,
+.cta h2 {
+    font-family: var(--editorial);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+.hero h1 {
+    line-height: 1.2;
+}
+
+.section h2 {
+    font-size: clamp(29px, 3.7vw, 44px);
+    line-height: 1.3;
+}
+
+.cta h2 {
+    line-height: 1.3;
+}
+
+/* Keep paragraphs airy so the project photography remains visually dominant. */
+.section p,
+.hero p {
+    letter-spacing: -0.012em;
+}
+
+/* Metadata values are Korean information, not technical labels. */
+.mv {
+    font-family: var(--body);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
+
+@media (max-width: 560px) {
+    .hero h1 {
+        font-size: 39px;
+        line-height: 1.24;
+    }
+
+    .section h2 {
+        font-size: 32px;
+        line-height: 1.34;
+    }
+}
+
+/* =========================================================
+   2026-08-18 TYPOGRAPHY REFINEMENT V3
+   Project titles and strong subheads use the editorial serif
+   ========================================================= */
+
+/* Project-page brand name follows the same identity as the main header. */
+.brand{
+    font-family:var(--editorial);
+    font-weight:600;
+    letter-spacing:-0.04em;
+}
+
+.brand small{
+    font-family:var(--mono);
+    font-weight:500;
+    letter-spacing:.12em;
+}
+
+/* Project titles and strong explanatory subheads share one editorial voice. */
+.card h3,
+.story-copy h3,
+.point h3{
+    font-family:var(--editorial);
+    font-weight:600;
+    line-height:1.38;
+    letter-spacing:-0.035em;
+    text-wrap:balance;
+}
+
+</style>
+
+  <style>
+    .hero {
+      min-height: auto;
+      align-items: center;
+      padding-top: 56px;
+      padding-bottom: 42px;
+    }
+
+    .cover {
+      padding-bottom: 72px;
+    }
+
+    .section-head,
+    .story-copy {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .story-copy {
+      max-width: 920px;
+      margin-top: 34px;
+      margin-bottom: 0;
+    }
+
+    .story-copy p {
+      max-width: 900px;
+    }
+
+    .section-image-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .section-image-stack.two-column {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Project data : 2 columns × 3 rows */
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: hidden;
+      border: 1px solid rgba(33, 33, 33, 0.16);
+      border-radius: 18px;
+    }
+
+    .hero-meta .meta {
+      min-width: 0;
+      min-height: 118px;
+      padding: 24px 22px;
+      border: 0 !important;
+      box-sizing: border-box;
+    }
+
+    .hero-meta .meta:nth-child(odd) {
+      border-right: 1px solid rgba(33, 33, 33, 0.16) !important;
+    }
+
+    .hero-meta .meta:nth-child(-n+4) {
+      border-bottom: 1px solid rgba(33, 33, 33, 0.16) !important;
+    }
+
+    .hero-meta .ml {
+      margin-bottom: 10px;
+    }
+
+    .hero-meta .mv {
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    @media (max-width: 820px) {
+      .section-image-stack.two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta .meta {
+        min-height: auto;
+      }
+
+      .hero-meta .meta:nth-child(odd) {
+        border-right: 0 !important;
+      }
+
+      .hero-meta .meta:nth-child(-n+5) {
+        border-bottom: 1px solid rgba(33, 33, 33, 0.16) !important;
+      }
+
+      .hero-meta .meta:nth-child(6) {
+        border-bottom: 0 !important;
+      }
+    }
+  </style>
+<style>
+
+    /* Hospital consultation additions: scoped to this project. */
+    [id] { scroll-margin-top: 112px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #8b633b; outline-offset: 5px; }
+    .study-label { display: inline-block; margin-top: 20px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; color: var(--soft); }
+    .hospital-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 26px; }
+    .hospital-primary { background: var(--sage); color: var(--white); }
+    .hospital-primary:hover { background: #3c4530; }
+    .hospital-text-link { font-size: 14px; border-bottom: 1px solid var(--line); padding: 8px 0; }
+    .construction-section { background: var(--deep); }
+    .scope-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+    .scope-card { min-width: 0; padding: 30px 26px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; }
+    .hospital-number { display: block; color: var(--sage); font-family: var(--mono); font-size: 12px; letter-spacing: .04em; }
+    .scope-card h3 { font-size: 21px; margin: 24px 0 12px; letter-spacing: -.025em; }
+    .scope-card p { font-size: 15px; line-height: 1.85; }
+    .review-note { display: grid; grid-template-columns: 180px 1fr; gap: 24px; margin-top: 26px; padding: 26px 6px 0; border-top: 1px solid #c7bea9; }
+    .review-note b { font-size: 16px; }
+    .review-note p { font-size: 15px; }
+    .built-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+    .built-card { display: flex; flex-direction: column; min-width: 0; padding: 32px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); transition: border-color .2s,background .2s; }
+    .built-card:hover { border-color: var(--sage); background: #eeecdf; }
+    .built-topline { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--sage); }
+    .built-card h3 { font-family: var(--editorial); font-size: 27px; font-weight: 600; line-height: 1.45; letter-spacing: -.035em; margin: 28px 0 18px; }
+    .built-card p { font-size: 15px; }
+    .built-focus { display: block; font-size: 12px; color: var(--soft); margin: 24px 0; padding-top: 20px; border-top: 1px solid var(--line); }
+    .built-link { display: block; margin-top: auto; font-size: 14px; font-weight: 600; color: var(--sage); }
+    .hospital-process { list-style: none; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 36px; }
+    .hospital-process li { display: grid; grid-template-columns: 32px minmax(0,1fr); gap: 16px; padding: 28px 0; border-top: 1px solid var(--line); }
+    .hospital-process h3 { font-size: 20px; margin-bottom: 10px; line-height: 1.5; }
+    .hospital-process p { font-size: 15px; }
+    .faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 54px; }
+    .hospital-faq details { border-top: 1px solid var(--line); }
+    .hospital-faq details:last-child { border-bottom: 1px solid var(--line); }
+    .hospital-faq summary { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 23px 2px; cursor: pointer; list-style: none; font-size: 17px; font-weight: 600; }
+    .hospital-faq summary::-webkit-details-marker { display: none; }
+    .hospital-faq summary::after { content: '+'; color: var(--sage); font-size: 22px; font-weight: 400; flex-shrink: 0; }
+    .hospital-faq details[open] summary::after { content: '−'; }
+    .hospital-faq details p { padding: 0 20px 25px 2px; font-size: 15px; line-height: 1.85; }
+    .hospital-contact-section { padding-top: 70px; }
+    .hospital-contact { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; padding: 48px; border-radius: 22px; background: var(--sage); color: var(--paper); }
+    .hospital-contact .eyebrow { color: #dedfcf; font-size: 11px; }
+    .hospital-contact h2 { font-size: clamp(29px,3vw,38px); line-height: 1.4; }
+    .hospital-contact-copy > p { color: #e5e4d7; font-size: 15px; line-height: 1.9; }
+    .hospital-contact .btn { font-size: 14px; padding: 12px 19px; }
+    .hospital-phone { display: inline-block; font-family: var(--mono); font-size: 22px; margin-top: 25px; }
+    .hospital-contact-copy > .contact-footnote { margin-top: 10px; font-size: 12px; color: #dedfcf; }
+    .consult-checklist { background: var(--paper); color: var(--ink); border-radius: 14px; padding: 28px; }
+    .consult-checklist h3 { margin: 14px 0 22px; font-size: 23px; line-height: 1.45; }
+    .consult-checklist ul { list-style: none; }
+    .consult-checklist li { padding: 12px 0; border-top: 1px solid var(--line); }
+    .consult-checklist b, .consult-checklist li span { display: block; }
+    .consult-checklist b { font-size: 14px; }
+    .consult-checklist li span { margin-top: 4px; font-size: 12px; color: var(--soft); }
+    .consult-checklist > p { font-size: 12px; margin-top: 16px; }
+    .portfolio-note { margin-bottom: 36px; }
+    @media(max-width: 980px) {
+      .scope-grid { grid-template-columns: 1fr; }
+      .scope-card h3 { margin-top: 14px; }
+      .hospital-contact { gap: 28px; padding: 32px; }
+    }
+    @media(max-width: 820px) {
+      .built-grid,.hospital-process,.faq-layout,.hospital-contact { grid-template-columns: 1fr; }
+      .faq-layout { gap: 6px; }
+      .review-note { grid-template-columns: 1fr; gap: 10px; }
+      .hospital-contact { padding: 32px; }
+    }
+    @media(max-width: 560px) {
+      [id] { scroll-margin-top: 96px; }
+      .hospital-actions { gap: 12px; }
+      .hospital-text-link { text-align: center; }
+      .hero .hospital-text-link { width: 100%; }
+      .built-card { padding: 26px; }
+      .built-card h3 { font-size: 25px; }
+      .scope-card { padding: 24px; }
+      .hospital-contact { padding: 28px 22px; gap: 28px; }
+      .hospital-contact h2 { font-size: 29px; }
+      .consult-checklist { padding: 23px; }
+      .hospital-process li { grid-template-columns: 26px minmax(0,1fr); gap: 10px; }
+      .hospital-faq summary { font-size: 16px; gap: 12px; }
+      .portfolio-note p { text-align: left; }
+    }
+    @media(prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn,.built-card { transition: none; }
+      .btn:hover { transform: none; }
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://designsotong.com/index.html">
+      <img src="https://designsotong.com/images/logo.png" alt="디자인소통 로고">
+      <span>디자인소통<small>SOTONG DESIGN</small></span>
+    </a>
+    <a class="back" href="https://designsotong.com/index.html#portfolio">← 포트폴리오</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <div class="eyebrow">HOSPITAL LOBBY · DESIGN STUDY</div>
+      <h1>병원 로비 디자인</h1>
+      <p>접수와 대기, 이동의 흐름을 담은 두 가지 디자인 제안.<br>우리 병원에 맞는 로비 리모델링도 함께 상담해 보세요.</p>
+      <div class="study-label">공간 디자인 제안 · 실제 시공 사례 아님</div>
+      <div class="hospital-actions">
+        <a class="btn hospital-primary" href="#hospital-consult">로비 리모델링 상담</a>
+        <a class="hospital-text-link" href="#construction-guide">공사 전 검토사항 보기 ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta">
+        <div class="ml">LOCATION</div>
+        <div class="mv">서울시 마포구</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">TYPE</div>
+        <div class="mv">상업공간 · 병원 로비 디자인</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">DESIGN AREA</div>
+        <div class="mv">병원 로비 · 접수대 · 대기 공간</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">PERIOD</div>
+        <div class="mv">2023. 09 – 2023. 10</div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">SCOPE</div>
+        <div class="mv">
+          콘셉트 · 레이아웃 · 조명 · 마감 · 가구 · 미디어 월 제안
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="ml">ROLE</div>
+        <div class="mv">공간 기획 · 디자인 제안</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cover">
+    <div class="media">
+      <img src="https://designsotong.com/project-images/hospital-lobby-design/cover.png" alt="병원 로비 디자인 제안 대표 시안" fetchpriority="high" onerror="this.parentElement.classList.add('missing'); this.remove();">
+    </div>
+    <p class="image-caption">공간 구성과 마감 방향을 보여주는 디자인 제안 시안입니다.</p>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">PROJECT OVERVIEW</div>
+        <h2>병원의 첫인상을 만드는 로비</h2>
+        <p>
+          병원 로비는 방문객이 가장 먼저 마주하는 공간이자 접수와 대기, 이동이 동시에 이루어지는 공간입니다.
+          이용자의 편안함과 병원의 전문적인 이미지를 함께 담을 수 있도록 서로 다른 두 가지 디자인 방향을 제안했습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">DESIGN CONCEPT 01</div>
+        <h2>밝고 편안한 분위기의 로비</h2>
+        <p>
+          첫 번째 시안에는 밝은 베이지와 아이보리 계열의 대리석 마감을 제안했습니다.
+          전체 공간을 깨끗하고 넓어 보이게 구성하면서도 공간이 지나치게 차갑게 느껴지지 않도록
+          크림색 가구와 밝은 우드 소재를 함께 배치했습니다.
+          대기 가구는 이용자 간 적절한 거리를 확보하면서도 자연스럽게 마주 보고 앉을 수 있도록 구성했습니다.
+        </p>
+      </div>
+
+      <div class="media story-media">
+        <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/1.png" alt="밝고 편안한 병원 로비 디자인 전체 이미지" onerror="this.parentElement.classList.add('missing'); this.remove();">
+      </div>
+
+      <div class="section-image-stack two-column story-gallery">
+        <div class="media">
+          <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/2.png" alt="밝고 편안한 병원 로비 디자인 이미지 2" onerror="this.parentElement.classList.add('missing'); this.remove();">
+        </div>
+        <div class="media">
+          <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/3.png" alt="밝고 편안한 병원 로비 디자인 이미지 3" onerror="this.parentElement.classList.add('missing'); this.remove();">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="story-copy">
+        <h3>대형 LED 스크린을 활용한 공간 연출</h3>
+        <p>
+          병원 홍보 영상이나 안내 콘텐츠를 보여주는 기능뿐만 아니라 자연 풍경과 아트 영상 등을 활용해
+          공간 전체의 분위기를 변화시킬 수 있도록 제안했습니다.
+        </p>
+      </div>
+      
+      <div class="media story-media">
+        <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/4.png" alt="병원 로비 LED 미디어 월 디자인" onerror="this.parentElement.classList.add('missing'); this.remove();">
+      </div>
+
+      <div class="media story-media">
+        <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/5.png" alt="병원 로비 LED 미디어 월 적용 이미지" onerror="this.parentElement.classList.add('missing'); this.remove();">
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">DESIGN CONCEPT 02</div>
+        <h2>세련되고 감각적인 로비</h2>
+        <p>
+          두 번째 시안은 채도가 낮은 그레이톤과 블랙 대리석 마감으로 계획했습니다.
+          밝은 첫 번째 시안과 달리 공간의 중심을 분명하게 잡아주면서 고급스럽고 전문적인 분위기를 전달하도록 구성했습니다.
+          천장과 벽면의 라인 조명은 전체 공간의 선이 자연스럽게 이어지도록 계획해 단정하고 시크한 이미지를 강조했습니다.
+        </p>
+      </div>
+      
+      <div class="media story-media">
+        <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/6.png" alt="병원 로비 라운드 벽면 전시 공간" onerror="this.parentElement.classList.add('missing'); this.remove();">
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="story-copy">
+        <h3>라운드 벽면을 활용한 전시 공간</h3>
+        <p>
+          입구에는 부드러운 곡선 형태의 벽면을 계획해 작은 전시 공간처럼 활용할 수 있도록 구성했습니다.
+          라운드 형태는 공간의 흐름을 부드럽게 연결하고, 각진 구조가 주는 딱딱한 느낌을 완화해 줍니다.
+          병원의 작품이나 안내 콘텐츠, 브랜드 이미지를 전시하면 로비에 더욱 특별한 인상을 줄 수 있습니다.
+        </p>
+      </div>
+
+      <div class="media story-media">
+        <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/7.png" alt="세련되고 감각적인 병원 로비 디자인 전체 이미지" onerror="this.parentElement.classList.add('missing'); this.remove();">
+      </div>
+    </div>
+  </section>
+
+  <section class="section concept-section">
+    <div class="wrap">
+      <div class="story-copy">
+        <h3>짙은 대리석으로 중심을 잡은 리셉션</h3>
+        <p>
+          두 번째 시안의 리셉션에는 채도가 낮은 그레이톤과 블랙 대리석 마감을 제안했습니다.
+          밝은 첫 번째 시안과 달리 공간의 중심을 분명하게 잡아주면서 고급스럽고 전문적인 분위기를 전달합니다.
+          천장과 벽면의 라인 조명은 전체 공간의 선이 자연스럽게 이어지도록 계획해 단정하고 시크한 이미지를 강조했습니다.
+        </p>
+      </div>
+      
+      <div class="section-image-stack two-column">
+        <div class="media">
+          <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/8.png" alt="짙은 대리석을 적용한 병원 리셉션 이미지 1" onerror="this.parentElement.classList.add('missing'); this.remove();">
+        </div>
+        <div class="media">
+          <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/9.png" alt="짙은 대리석을 적용한 병원 리셉션 이미지 2" onerror="this.parentElement.classList.add('missing'); this.remove();">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="story-copy">
+        <h3>벽면 전체를 활용한 미디어 공간</h3>
+        <p>
+          한쪽 벽면에는 대형 LED 스크린을 설치해 병원 안내와 홍보뿐 아니라
+          다양한 영상과 미디어 콘텐츠를 보여줄 수 있도록 제안했습니다.
+          계절이나 시간, 콘텐츠에 따라 로비의 분위기를 유연하게 바꿀 수 있다는 점도
+          대형 미디어 월의 장점입니다.
+        </p>
+      </div>
+      
+      <div class="media story-media">
+        <img loading="lazy" decoding="async" src="https://designsotong.com/project-images/hospital-lobby-design/10.png" alt="병원 로비 디자인 최종 제안 시안" onerror="this.parentElement.classList.add('missing'); this.remove();">
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">DESIGN POINT</div>
+        <h2>핵심 설계 포인트</h2>
+      </div>
+
+      <div class="points">
+        <div class="point">
+          <b>01 / Reception</b>
+          <h3>쉽게 인식되는 리셉션</h3>
+          <p>입구에서 리셉션 위치가 자연스럽게 보이도록 구성해 처음 방문한 이용자도 쉽게 접수 공간을 찾을 수 있도록 했습니다.</p>
+        </div>
+
+        <div class="point">
+          <b>02 / Media Wall</b>
+          <h3>공간을 변화시키는 미디어 월</h3>
+          <p>대형 LED 화면을 안내와 홍보뿐 아니라 영상과 아트 콘텐츠를 보여주는 공간 요소로 제안했습니다.</p>
+        </div>
+
+        <div class="point">
+          <b>03 / Waiting Lounge</b>
+          <h3>편안한 대기 공간</h3>
+          <p>직선형과 곡선형 가구를 조합해 이용자가 편안하게 머물 수 있는 대기 공간을 구성했습니다.</p>
+        </div>
+
+        <div class="point">
+          <b>04 / Lighting</b>
+          <h3>공간의 선을 강조하는 조명</h3>
+          <p>간접조명과 라인 조명을 활용해 청결하면서도 차분한 병원 이미지를 표현했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 디자인을 실제 공사 상담으로 연결하는 검토 안내 -->
+  <section class="section construction-section" id="construction-guide" aria-labelledby="construction-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FROM DESIGN TO YOUR SPACE</div>
+        <h2 id="construction-title">우리 병원에 적용하려면,<br>공사 범위부터 함께 살펴봅니다.</h2>
+        <p>로비 전체를 바꾸는 계획부터 접수대와 대기공간의 부분 개선까지. 현재 공간에서 유지할 것과 바꿀 것을 구분하고, 예산과 일정에 맞는 방향을 검토합니다.</p>
+      </div>
+      <div class="scope-grid">
+        <article class="scope-card">
+          <span class="hospital-number">01 / RECEPTION</span>
+          <h3>접수대와 수납</h3>
+          <p>기존 접수대의 유지·교체 범위와 직원의 작업 동선, 필요한 수납을 살펴봅니다. 형태와 마감은 공간 크기와 사용 방식에 맞춰 검토합니다.</p>
+        </article>
+        <article class="scope-card">
+          <span class="hospital-number">02 / WAITING AREA</span>
+          <h3>대기공간과 이동 동선</h3>
+          <p>좌석 배치와 접수·진료공간으로 이어지는 이동 경로를 확인합니다. 기존 가구를 활용할지, 새롭게 구성할지도 함께 살펴봅니다.</p>
+        </article>
+        <article class="scope-card">
+          <span class="hospital-number">03 / FINISH & LIGHT</span>
+          <h3>마감과 조명</h3>
+          <p>벽·바닥의 기존 상태와 조명 위치를 확인하고, 청소와 유지관리를 고려해 재료를 검토합니다. 예산에 따라 개선 우선순위를 정합니다.</p>
+        </article>
+      </div>
+      <div class="review-note">
+        <b>운영 중인 병원이라면</b>
+        <p>진료 시간과 휴진일, 소음·분진이 발생하는 작업, 공사 구역과 이용자 이동 경로를 먼저 확인합니다. 분할 시공 여부와 필요한 휴진 기간은 현장 조건과 공사 범위를 확인한 뒤 협의합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="construction-records" aria-labelledby="records-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">BUILT PROJECTS</div>
+        <h2 id="records-title">도면에서 현장까지,<br>실제 시공 기록으로 확인하세요.</h2>
+        <p>디자인소통의 공간 구현 방식과 공정 관리 과정을 아래 프로젝트에서 확인할 수 있습니다. 아래는 각각 근린생활시설과 주거공간의 실제 시공 사례입니다.</p>
+      </div>
+      <div class="built-grid">
+        <a class="built-card" href="https://designsotong.com/projects/seogyo-major-repair">
+          <div class="built-topline"><span>근린생활시설 · 실제 시공</span><span aria-hidden="true">↗</span></div>
+          <h3>서교동 용도변경<br>대수선 리모델링</h3>
+          <p>도면과 디자인 시안을 현장에 공유하고, 철거·구조보강부터 설비와 마감까지 공정별로 확인한 기록입니다.</p>
+          <span class="built-focus">확인할 부분 · 도면과 현장의 연결, 공정별 관리</span>
+          <span class="built-link">시공 과정과 완공 보기 →</span>
+        </a>
+        <a class="built-card" href="https://designsotong.com/projects/singil-apartment-remodeling">
+          <div class="built-topline"><span>주거공간 · 실제 시공</span><span aria-hidden="true">↗</span></div>
+          <h3>신길동 복층 아파트<br>리모델링</h3>
+          <p>맞춤 계단과 수납, 몰딩과 주변 마감의 연결을 실제 공간에 구현한 사례입니다. 제작과 마감의 디테일을 확인해 보세요.</p>
+          <span class="built-focus">확인할 부분 · 맞춤 제작, 디테일과 마감 품질</span>
+          <span class="built-link">맞춤 제작과 완공 보기 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section concept-section" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">HOW WE WORK</div>
+        <h2 id="process-title">공사 전에 정하고,<br>진행 중에도 함께 확인합니다.</h2>
+        <p>원하는 분위기뿐 아니라 공사 범위와 비용, 일정의 기준을 함께 정리합니다.</p>
+      </div>
+      <ol class="hospital-process">
+        <li><span class="hospital-number">01</span><div><h3>현재 공간과 요구사항 확인</h3><p>공간 사진·도면과 개선하고 싶은 부분을 확인하고, 현장 확인이 필요한 항목을 정리합니다.</p></div></li>
+        <li><span class="hospital-number">02</span><div><h3>디자인·공사 범위·견적 협의</h3><p>유지할 부분과 변경할 부분을 나누고, 도면과 마감재를 기준으로 견적 및 일정을 협의합니다.</p></div></li>
+        <li><span class="hospital-number">03</span><div><h3>공정 공유와 변경사항 확인</h3><p>주요 공정의 현장 상황을 공유하고, 추가 작업이나 자재 변경은 비용과 일정 영향을 안내한 뒤 협의합니다.</p></div></li>
+        <li><span class="hospital-number">04</span><div><h3>완공 확인과 사후관리 안내</h3><p>협의한 범위를 기준으로 마감과 사용 상태를 확인하고, 사후관리 범위와 접수 방법을 안내합니다.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap faq-layout">
+      <div class="section-head">
+        <div class="eyebrow">BEFORE YOU ASK</div>
+        <h2 id="faq-title">상담 전,<br>궁금한 점부터.</h2>
+      </div>
+      <div class="hospital-faq">
+        <details open><summary>접수대나 대기공간만 상담할 수 있나요?</summary><p>개선하고 싶은 구역을 중심으로 상담할 수 있습니다. 기존 마감과 설비에 연결되는 작업이 있을 수 있어, 실제 시공 범위는 공간 상태를 확인한 뒤 안내합니다.</p></details>
+        <details><summary>사진만으로 견적을 받을 수 있나요?</summary><p>사진과 대략적인 면적이 있으면 공사 방향과 추가로 확인할 항목을 먼저 정리할 수 있습니다. 정확한 견적은 현장 상태와 도면, 자재 및 공사 범위를 확인한 뒤 협의합니다.</p></details>
+        <details><summary>디자인 시안과 같은 자재로 공사해야 하나요?</summary><p>시안은 디자인 방향을 보여주는 제안입니다. 실제 공간과 예산, 관리 편의성에 따라 마감재·조명·가구 구성을 조정하며, 적용할 자재와 제품은 상담 과정에서 정합니다.</p></details>
+        <details><summary>병원을 운영하면서 공사할 수 있나요?</summary><p>작업 종류와 공간 분리 가능 여부, 이용자 이동 경로 등을 확인해야 합니다. 운영 시간 외 작업이나 분할 시공의 가능성을 검토하고, 휴진이 필요한 공정과 기간도 함께 협의합니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hospital-contact-section" id="hospital-consult" aria-labelledby="consult-title">
+    <div class="wrap">
+      <div class="hospital-contact">
+        <div class="hospital-contact-copy">
+          <div class="eyebrow">LET’S TALK ABOUT YOUR LOBBY</div>
+          <h2 id="consult-title">우리 병원 로비,<br>어디부터 바꾸면 좋을까요?</h2>
+          <p>접수대 하나부터 로비 전체까지, 개선하고 싶은 부분을 알려주세요. 현재 공간의 조건을 바탕으로 필요한 공사 범위를 함께 살펴보겠습니다.</p>
+          <div class="hospital-actions">
+            <a class="btn light" href="tel:0231443325">전화로 상담하기</a>
+            <a class="btn outline" href="https://designsotong.com/index.html#contact">상담 연락처 확인 ↗</a>
+          </div>
+          <a class="hospital-phone" href="tel:0231443325">02-3144-3325</a>
+          <p class="contact-footnote">사진·도면이 있다면 상담 시 함께 준비해 주세요.<br>견적은 현장 상태와 공사 범위를 확인한 뒤 협의합니다.</p>
+        </div>
+        <div class="consult-checklist">
+          <span class="hospital-number">상담 전 준비하면 좋은 정보</span>
+          <h3>아는 내용부터<br>편하게 말씀해 주세요.</h3>
+          <ul>
+            <li><b>지역과 대략적인 면적</b><span>병원 위치, 로비 또는 공사 예정 구역</span></li>
+            <li><b>개선하고 싶은 부분</b><span>접수대 · 대기공간 · 조명 · 벽과 바닥 등</span></li>
+            <li><b>운영 여부와 희망 일정</b><span>운영 중 / 개원 준비 중, 가능한 공사 시기</span></li>
+            <li><b>공간 사진이나 도면</b><span>현재 상태를 파악할 수 있는 자료</span></li>
+          </ul>
+          <p>예산이나 세부 계획이 정해지지 않았어도 상담할 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Notice -->
+  <section class="portfolio-note">
+    <div class="wrap">
+      <p>
+        ※ 본 병원 로비 프로젝트의 수행 범위는 공간 기획·디자인 제안입니다. 실제 병원 시공 사례가 아닙니다.
+        이미지는 디자인 방향과 공간 구성을 전달하기 위한 시각화 자료이며, 실제 공사 범위와 사양은 현장 확인 후 별도로 협의합니다.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 디자인소통 SOTONG DESIGN</div>
+</footer>
+
+</body>
+</html>
