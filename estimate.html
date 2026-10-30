@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>아파트 예상 견적 | 디자인소통</title>
+  <meta name="description" content="평형과 공사 항목을 선택해 아파트 리모델링 예상 비용을 확인하세요. 욕실 방수를 포함한 예상 견적과 무료 상담을 안내합니다.">
+  <link rel="canonical" href="https://designsotong.com/estimate.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
+  <link rel="stylesheet" href="style.css?v=20261030-estimate"><link rel="stylesheet" href="estimate.css?v=20261030-footer">
+  <script src="estimate-data.js?v=20261030-mobile-controls" defer></script><script src="estimate.js?v=20261030-mobile-controls" defer></script>
+</head>
+<body class="estimate-page">
+<a class="estimate-skip" href="#estimateForm">견적 입력으로 바로가기</a>
+<header class="site-header" id="siteHeader"><div class="wrap nav">
+  <a class="logo" href="index.html"><img src="images/logo.png" alt="디자인소통 로고" class="logo-img"><span class="logo-text">디자인소통<small>SOTONG DESIGN</small></span></a>
+  <nav class="nav-links sotong-site-navigation" aria-label="주요 메뉴"><a href="index.html#services">전문분야</a><a href="index.html#portfolio">포트폴리오</a><a href="index.html#process">프로세스</a><a href="index.html#company">회사소개</a><a href="columns/index.html">소통 칼럼</a></nav>
+  <details class="sotong-mobile-menu"><summary>메뉴 <span aria-hidden="true">＋</span></summary><nav aria-label="모바일 주요 메뉴"><a href="index.html#services">전문분야</a><a href="index.html#portfolio">포트폴리오</a><a href="index.html#process">프로세스</a><a href="index.html#company">회사소개</a><a href="columns/index.html">소통 칼럼</a><a href="index.html#contact">문의하기</a></nav></details>
+  <div class="sotong-header-actions"><a class="nav-estimate" href="estimate.html" aria-current="page">아파트 예상 견적</a><a class="nav-cta" href="index.html#contact">무료 상담 신청</a></div>
+</div></header>
+<main class="estimate-main">
+  <div class="estimate-intro"><p class="estimate-eyebrow">SOTONG DESIGN · APARTMENT ESTIMATE</p><div class="estimate-title-row"><h1>아파트 리모델링,<br>예산부터 그려보세요.</h1><p>선택한 조건에 맞춰 예상 비용을 안내합니다.<br>공간의 변화가 필요한 만큼, 하나씩 선택해보세요.</p></div>
+    <div class="estimate-scope"><span class="scope-mark" aria-hidden="true">↗</span><p><strong>아파트는 간편 예상 견적으로, 그 밖의 공간은 맞춤 상담으로.</strong><br>신축·대수선·상업공간 및 기타 주택은 <a href="index.html#contact">무료 상담</a>을 통해 개별 견적을 안내합니다.</p></div>
+  </div>
+  <div class="estimate-layout">
+    <div class="estimate-editor">
+      <nav class="estimate-steps" aria-label="견적 입력 단계"><button type="button" data-step="0" aria-controls="estimatePanel0" aria-current="step"><span>01</span> 기본정보</button><button type="button" data-step="1" aria-controls="estimatePanel1"><span>02</span> 마감·욕실</button><button type="button" data-step="2" aria-controls="estimatePanel2"><span>03</span> 주방·창호</button><button type="button" data-step="3" aria-controls="estimatePanel3"><span>04</span> 추가공사</button></nav>
+      <form id="estimateForm" novalidate>
+        <section class="estimate-panel" data-panel="0" id="estimatePanel0" aria-labelledby="stepTitle0"><div class="panel-heading"><span>01 / BASIC INFORMATION</span><h2 id="stepTitle0" tabindex="-1">어떤 집을 준비하고 계신가요?</h2><p>전체 리모델링을 기본으로, 필요한 공정만 선택할 수 있습니다.</p></div>
+          <fieldset class="estimate-field process-selector"><legend>시공할 공정을 선택해주세요</legend><p class="field-hint">공사하지 않을 항목은 해제하세요. 해당 공정 비용과 관련 공통경비가 함께 빠집니다. 욕실을 선택하면 방수도 포함됩니다.</p><div class="process-select-actions"><span id="processSelectionCount">15개 공정 선택</span><div><button type="button" data-process-select="all">전체 선택</button><button type="button" data-process-select="none">전체 해제</button></div></div><div class="process-choices" id="processChoices"></div><p class="field-hint">기본 철거는 욕실·창호 전문 철거를 제외한 별도 공정입니다. 특정 공정만 빼도 기본 철거를 선택한 경우 그 비용은 유지됩니다. 철거가 필요 없는 경우도 함께 해제해주세요.</p></fieldset>
+          <div class="estimate-field"><label for="apartmentName">아파트명 <small>선택</small></label><input id="apartmentName" name="apartmentName" type="text" maxlength="80" autocomplete="off" placeholder="예: ○○아파트"></div>
+          <div class="estimate-field"><label for="area">아파트 평형</label><div class="area-input"><input id="area" name="area" type="number" min="10" max="80" step="0.1" value="34" inputmode="decimal" aria-describedby="areaHint areaError" required><span>평</span></div><p class="field-hint" id="areaHint">분양·공급면적 기준 평형을 입력해주세요. 전용 84㎡와 84평은 다릅니다.</p><p class="field-error" id="areaError" role="alert" hidden>10~80평 사이의 숫자를 입력해주세요. 그 밖의 평형은 별도 상담으로 안내합니다.</p><div class="area-presets" aria-label="자주 선택하는 평형"><button type="button" data-area="24">24평</button><button type="button" data-area="30">30평</button><button type="button" data-area="34" aria-pressed="true">34평</button><button type="button" data-area="40">40평</button><button type="button" data-area="50">50평</button></div></div>
+          <div class="estimate-field"><label for="rooms">방 개수</label><div class="stepper"><button type="button" data-adjust="rooms:-1" aria-label="방 한 개 줄이기">−</button><input id="rooms" name="rooms" type="number" required value="3" min="1" max="6" step="1" aria-label="방 개수"><span>개</span><button type="button" data-adjust="rooms:1" aria-label="방 한 개 늘리기">+</button></div></div>
+          <fieldset class="estimate-field"><legend>기존 발코니 확장 상태</legend><div data-options="expansion" class="choice-grid"></div><p class="field-hint">현재 집의 상태입니다. 새로 진행할 확장 공사는 마지막 단계에서 선택하세요.</p></fieldset>
+        </section>
+        <section class="estimate-panel" data-panel="1" id="estimatePanel1" aria-labelledby="stepTitle1" hidden><div class="panel-heading"><span>02 / FINISHES & BATHROOM</span><h2 id="stepTitle1" tabindex="-1">매일 닿는 공간의 기본을 정해요.</h2><p>기본 자재와 시공비가 함께 반영됩니다.</p></div>
+          <fieldset class="estimate-field" data-process-fields="doFloor"><legend>바닥 마감</legend><div data-options="floor" class="choice-grid material-grid"></div></fieldset>
+          <fieldset class="estimate-field" data-process-fields="doWall"><legend>벽·천장 도배</legend><div data-options="wall" class="choice-grid"></div></fieldset>
+          <div class="estimate-field" data-process-fields="doBath"><label for="baths">공사할 욕실 개수</label><div class="stepper"><button type="button" data-adjust="baths:-1" aria-label="욕실 공사 한 개 줄이기">−</button><input id="baths" name="baths" type="number" required value="2" min="0" max="3" step="1" aria-label="공사할 욕실 개수"><span>개</span><button type="button" data-adjust="baths:1" aria-label="욕실 공사 한 개 늘리기">+</button></div></div>
+          <fieldset class="estimate-field" id="bathGradeField" data-process-fields="doBath"><legend>욕실 구성</legend><div data-options="bathGrade" class="choice-grid two"></div><div class="included-note"><strong>욕실 방수 공사 포함</strong><p>기본 철거·방수·타일·양변기·세면기·수전·천장·환풍기와 설치비가 포함됩니다. 배관 이동·누수 원인 보수는 별도 상담입니다.</p></div></fieldset>
+        </section>
+        <section class="estimate-panel" data-panel="2" id="estimatePanel2" aria-labelledby="stepTitle2" hidden><div class="panel-heading"><span>03 / KITCHEN & WINDOWS</span><h2 id="stepTitle2" tabindex="-1">주방과 창호를 살펴볼까요?</h2><p>기본 주방과 추가 제작 가구를 나누어 계산합니다.</p></div>
+          <fieldset class="estimate-field" data-process-fields="doKitchen"><legend>주방 형태</legend><div data-options="kitchen" class="choice-grid kitchen-grid"></div></fieldset>
+          <div class="estimate-field" data-process-fields="doKitchen"><label for="kitchenLength">주방 가구의 대략적인 길이</label><div class="length-input"><input id="kitchenLength" name="kitchenLength" type="number" required value="3.6" min="2" max="8" step="0.1" inputmode="decimal"><span>m</span></div><p class="field-hint">조리대가 이어지는 길이의 합계입니다. 정확한 길이는 실측으로 확정합니다.</p></div>
+          <div class="included-note" data-process-copy="doKitchen"><strong>기본 주방에 포함돼요</strong><p>기본 PET 상·하부장, 인조대리석 상판, 싱크볼·수전·후드, 제작·설치비. 인덕션·식기세척기 등 가전제품은 제외됩니다.</p></div>
+          <div class="process-inline-control"><label><input type="checkbox" data-process-toggle="doFurniture" checked><span>제작 가구 공사 포함</span></label><p data-process-status="doFurniture">필요한 가구와 붙박이장 길이를 선택해주세요.</p></div>
+          <fieldset class="estimate-field" data-process-fields="doFurniture"><legend>추가 제작 가구</legend><div class="check-grid"><label><input type="checkbox" name="shoe" checked><span>신발장<small>기본 약 1.8m</small></span></label><label><input type="checkbox" name="fridge" checked><span>냉장고장<small>기본 수납 구성</small></span></label><label><input type="checkbox" name="utility" checked><span>발코니장<small>기본 1개소</small></span></label><label><input type="checkbox" name="island"><span>아일랜드<small>기본 약 1.8m</small></span></label></div></fieldset>
+          <div class="estimate-field" data-process-fields="doFurniture"><label for="wardrobe">붙박이장 총길이 <small>없으면 0</small></label><div class="length-input"><input id="wardrobe" name="wardrobe" type="number" required value="0" min="0" max="15" step="0.1" inputmode="decimal"><span>m</span></div></div>
+          <div class="process-inline-control"><label><input type="checkbox" data-process-toggle="doWindow" checked><span>창호 공사 포함</span></label><p data-process-status="doWindow">기존 창호 유지부터 전체 교체까지 선택할 수 있습니다.</p></div>
+          <fieldset class="estimate-field" data-process-fields="doWindow"><legend>창호 공사</legend><div data-options="window" class="choice-grid window-grid"></div><p class="field-hint">창 크기·개수·제품·층수에 따라 금액이 달라집니다. 선택 금액은 예산 확보용 추정치이며 실측 후 확정합니다.</p></fieldset>
+        </section>
+        <section class="estimate-panel" data-panel="3" id="estimatePanel3" aria-labelledby="stepTitle3" hidden><div class="panel-heading"><span>04 / ADDITIONAL WORK</span><h2 id="stepTitle3" tabindex="-1">필요한 공사만 더해보세요.</h2><p>기본 공사 외에 필요한 항목을 선택해주세요.</p></div>
+          <fieldset class="estimate-field"><legend>목공·조명 옵션</legend><div class="check-grid"><label><input type="checkbox" name="middleDoor"><span>현관 중문<small>기본 슬림형</small></span></label><label><input type="checkbox" name="fan"><span>실링팬<small>기본 제품·천장 보강·설치</small></span></label><label><input type="checkbox" name="indirect"><span>거실 간접조명<small>목공·배선·기본 조명</small></span></label></div></fieldset>
+          <fieldset class="estimate-field" id="newExpansionField"><legend>새로 진행할 발코니 확장</legend><div class="check-grid"><label><input type="checkbox" name="livingExtension"><span>거실 확장</span></label><label><input type="checkbox" name="kitchenExtension"><span>주방 확장</span></label></div><label for="roomExtension" class="sub-label">방 확장 개수</label><div class="stepper"><button type="button" data-adjust="roomExtension:-1" aria-label="방 확장 한 개 줄이기">−</button><input id="roomExtension" name="roomExtension" type="number" required value="0" min="0" max="3" step="1" aria-label="새로 확장할 방 개수"><span>개</span><button type="button" data-adjust="roomExtension:1" aria-label="방 확장 한 개 늘리기">+</button></div><p class="field-hint" id="extensionHint">미확장 공간을 새로 확장하는 기준입니다. 기본 단열·난방 연결·미장을 반영하며, 창호·행위허가 등은 별도로 확인합니다.</p></fieldset>
+          <fieldset class="estimate-field"><legend>상담 시 함께 확인할 공사</legend><p class="field-hint">아래 항목은 선택 내역에만 기록되며, 비용은 현재 총액에 포함되지 않습니다.</p><div class="check-grid"><label><input type="checkbox" name="aircon"><span>시스템에어컨<small>제품·대수·설치 조건 확인</small></span></label><label><input type="checkbox" name="pipes"><span>배관 전체 교체<small>급수·난방 배관 범위 확인</small></span></label><label><input type="checkbox" name="structure"><span>구조·벽체 변경<small>가능 여부·공사 범위 확인</small></span></label><label><input type="checkbox" name="leak"><span>누수·특수 단열<small>현장 상태·원인 확인</small></span></label></div></fieldset>
+        </section>
+        <div class="estimate-step-actions"><button type="button" class="estimate-btn quiet" id="previousStep" hidden>← 이전</button><span id="stepCounter">1 / 4</span><button type="button" class="estimate-btn dark" id="nextStep">다음 단계 →</button></div>
+      </form>
+      <noscript><p class="included-note">견적 계산을 사용하려면 브라우저의 JavaScript를 켜주세요. 전화 상담: <a href="tel:0231443325">02-3144-3325</a></p></noscript>
+    </div>
+    <aside class="estimate-summary" id="estimateSummary" aria-labelledby="summaryTitle" tabindex="-1">
+      <div class="summary-heading"><span class="estimate-eyebrow">YOUR ESTIMATE</span><button type="button" id="resetEstimate">처음부터</button></div>
+      <h2 id="summaryTitle">예상 견적은 마지막에 확인해요.</h2>
+      <p class="summary-live" id="liveEstimate" role="status" aria-live="polite" aria-atomic="true">입력 중에는 금액이 표시되지 않습니다.</p>
+      <div id="beforeEstimate" class="before-estimate"><p id="beforeEstimateMessage">공사할 항목을 모두 선택한 뒤, 마지막 단계에서 ‘예상 견적 확인’을 눌러주세요.</p><ol><li>평형과 공사할 공정 선택</li><li>마감·욕실·주방 구성 선택</li><li>추가 공사 확인 후 견적 확인</li></ol><p>이름과 연락처는 상담 신청 시에만 입력합니다.</p></div>
+      <div id="resultContent" hidden>
+        <p class="summary-home" id="summaryHome"></p>
+        <dl class="result-prices"><div class="result-construction"><dt>예상 공사금액 <small>부가세 별도</small></dt><dd id="supplyPrice">—</dd></div><div class="result-vat"><dt>부가세 10%</dt><dd id="vatPrice">—</dd></div></dl>
+        <p class="result-total" id="totalPrice">부가세 포함 합계 —</p>
+        <dl class="selection-summary" id="selectionSummary"></dl>
+        <div class="pending-note" id="pendingNote" hidden><strong>상담으로 확정할 항목</strong><p id="pendingList"></p></div>
+        <details class="cost-details"><summary>공사별 예상 금액 보기 <span>＋</span></summary><div id="costRows"></div></details>
+        <p class="summary-note">실측 전 참고용 예상금액입니다. 현장 상태와 최종 자재·수량에 따라 달라지며, 계약 견적서로 사용할 수 없습니다.</p>
+        <button type="button" class="estimate-btn dark summary-contact" id="estimateContact" disabled>이 내용으로 무료 상담 신청 ↗</button>
+      </div>
+    </aside>
+  </div>
+  <section class="estimate-guide" aria-labelledby="guideTitle"><div><p class="estimate-eyebrow">BEFORE WE BEGIN</p><h2 id="guideTitle">견적의 기준을<br>먼저 확인해주세요.</h2></div><div class="estimate-guide-items"><details open><summary>어떤 공사가 기본으로 포함되나요?</summary><p>선택한 공정의 자재·기본 시공비와 그에 따른 현장관리·공통경비가 반영됩니다. 선택하지 않은 공정은 금액에서 제외됩니다. 욕실 공사를 선택하면 방수도 포함됩니다. 공사별 예상 금액에서 선택 내용을 확인할 수 있습니다. 욕실 철거는 욕실 공사 항목에 포함해 중복 계산하지 않습니다.</p></details><details><summary>추가 비용은 언제 발생하나요?</summary><p>철거 후 발견된 누수·배관·바닥 상태, 특수 단열, 구조 변경, 자재 변경, 운반 조건 및 관리사무소 비용 등에 따라 달라질 수 있습니다. 변경 공사는 범위·금액·일정을 먼저 협의한 후 진행합니다. 별도 상담으로 선택한 공사의 비용은 현재 총액에 포함되지 않습니다.</p></details><details><summary>실제 공사 견적은 어떻게 받나요?</summary><p>선택 내역으로 상담을 신청하면 현장과 공사 범위를 확인합니다. 협력 시공업체의 견적을 바탕으로 자재·수량·포함 범위와 최종 비용을 확정합니다. 이름과 연락처는 상담을 신청할 때만 입력합니다.</p></details></div></section>
+</main>
+<footer class="estimate-footer">
+  <div class="estimate-footer-inner">
+    <address class="estimate-footer-info">
+      <p>디자인소통 · 대표 박치현 · 사업자등록번호 684-04-00562</p>
+      <p>경기 고양시 으뜸로 130 1226호 · <a href="tel:0231443325">02-3144-3325</a></p>
+    </address>
+    <p class="estimate-footer-rights">© 디자인소통 SOTONG DESIGN</p>
+  </div>
+</footer>
+<div class="estimate-mobile-bar"><div><small id="mobilePriceLabel">아파트 예상 견적</small><strong id="mobileTotal">선택을 마친 뒤 확인</strong></div><button type="button" id="mobileSummary">마지막 단계 →</button></div>
+<div class="estimate-toast" id="estimateToast" role="status" aria-live="polite" hidden></div>
+</body></html>

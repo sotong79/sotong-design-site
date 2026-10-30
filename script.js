@@ -1,3 +1,22 @@
+// Carry the estimate into the existing consultation form. Nothing is submitted here.
+(function(){
+  if(new URLSearchParams(location.search).get('estimate')!=='1')return;
+  const form=document.getElementById('contactForm');
+  const message=document.getElementById('contactMessage');
+  if(!form||!message)return;
+  try{
+    const raw=sessionStorage.getItem('sotong-estimate-handoff');
+    if(!raw)return;
+    const data=JSON.parse(raw);
+    if(data.version!==1||typeof data.message!=='string'||data.message.length>16000||!Number.isFinite(data.time)||Date.now()-data.time>7200000)return;
+    message.value=data.message+(message.value.trim()?'\n\n[추가 문의]\n'+message.value:'');
+    const type=document.getElementById('contactType');if(type)type.value='주거공간';
+    const subject=form.querySelector('[name="_subject"]');if(subject)subject.value='[디자인소통] 아파트 예상 견적 상담';
+    const note=document.createElement('p');note.className='estimate-transfer-note';note.setAttribute('role','status');note.textContent='선택하신 예상 견적을 문의 내용에 담았습니다. 추가 요청을 적고 이름·연락처·개인정보 동의를 확인한 후 신청해주세요.';form.prepend(note);
+    sessionStorage.removeItem('sotong-estimate-handoff');
+  }catch(_error){/* The ordinary consultation form remains usable. */}
+})();
+
 // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries)=>{
@@ -537,4 +556,12 @@
   window.addEventListener('keydown', stop);
   window.addEventListener('pagehide', stop);
   start();
+})();
+
+// Close the mobile navigation after choosing a link or leaving the menu.
+(function(){
+  const menu=document.querySelector('.sotong-mobile-menu');if(!menu)return;
+  menu.addEventListener('click',event=>{if(event.target.closest('a'))menu.open=false;});
+  document.addEventListener('click',event=>{if(!menu.contains(event.target))menu.open=false;});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.open){menu.open=false;menu.querySelector('summary').focus();}});
 })();
