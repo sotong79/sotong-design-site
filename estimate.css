@@ -198,3 +198,15 @@
 .portfolio-action-link:hover{color:var(--sage-deep);text-decoration-color:currentColor}
 .portfolio-action-link:focus-visible{outline:2px solid var(--sage-deep);outline-offset:4px}
 @media(max-width:640px){.portfolio-actions{margin-top:32px;gap:26px}.portfolio-action{grid-template-columns:22px minmax(0,1fr);column-gap:12px}.portfolio-action-copy h3{font-size:16px}.portfolio-action-link{grid-column:2;justify-self:start;margin-top:3px}}
+
+/* Header estimate action: outline style. */
+.site-header .sotong-header-actions .nav-estimate{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--ink);
+}
+.site-header .sotong-header-actions .nav-estimate:hover{
+  background:var(--paper-deep);
+  color:var(--ink);
+  border-color:var(--ink);
+}
