@@ -5,12 +5,15 @@
   const $=id=>document.getElementById(id),state=Object.assign({},E.defaults);
   let step=0,latest=null,hasResult=false,toastTimer;
   const escaped=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  
   document.querySelectorAll('[data-options]').forEach(el=>{
     const key=el.dataset.options;
     el.innerHTML=E.options[key].map(([value,label,hint])=>'<label><input type="radio" name="'+key+'" value="'+value+'"'+(state[key]===value?' checked':'')+'><span>'+label+'<small>'+hint+'</small></span></label>').join('');
   });
   $('processChoices').innerHTML=E.processes.map(p=>'<label><input type="checkbox" name="'+p.key+'" checked><span>'+p.label+'</span></label>').join('');
+  
   function toast(message){$('estimateToast').textContent=message;$('estimateToast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('estimateToast').hidden=true,4500);}
+  
   function availability(){
     document.querySelectorAll('[data-process-fields]').forEach(el=>{
       const off=!state[el.dataset.processFields];
@@ -27,11 +30,13 @@
     document.querySelectorAll('[data-process-copy]').forEach(el=>el.hidden=!state[el.dataset.processCopy]);
     $('bathGradeField').querySelector('.included-note').hidden=!state.doBath||Number(form.elements.baths.value)===0;
   }
+  
   function valid(){
     const area=Number($('area').value),good=$('area').value.trim()!==''&&Number.isFinite(area)&&area>=10&&area<=80;
     $('areaError').hidden=good;$('area').setAttribute('aria-invalid',String(!good));
     return good&&form.checkValidity();
   }
+  
   function formView(){
     availability();
     $('processSelectionCount').textContent=E.processes.filter(p=>state[p.key]).length+'개 공정 선택';
@@ -43,6 +48,7 @@
     }
     document.querySelectorAll('[data-area]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.area)===state.area)));
   }
+  
   function syncState(){
     for(const p of E.processes)state[p.key]=form.elements[p.key].checked;
     availability();
@@ -55,17 +61,23 @@
     }
     Object.assign(state,E.normalize(state));formView();return true;
   }
+  
   function invalidate(changed){
     const wasResult=hasResult;hasResult=false;latest=null;
     $('resultContent').hidden=true;$('beforeEstimate').hidden=false;
     $('summaryTitle').textContent='예상 견적은 마지막에 확인해요.';
     $('beforeEstimateMessage').textContent=changed&&wasResult?'선택 조건이 변경되었습니다. 마지막 단계에서 ‘예상 견적 확인’을 다시 눌러주세요.':'공사할 항목을 모두 선택한 뒤, 마지막 단계에서 ‘예상 견적 확인’을 눌러주세요.';
     $('liveEstimate').textContent='입력 중에는 금액이 표시되지 않습니다.';
-    $('mobileTotal').textContent='선택을 마친 뒤 확인';$('mobileSummary').textContent='마지막 단계 →';
+    
+    // 모바일 바 상태 초기화
+    $('mobileTotal').textContent='선택을 마친 뒤 확인';
+    $('mobileSummary').textContent = step === 3 ? '예상 견적 확인' : '다음 단계 →';
     $('mobilePriceLabel').textContent='아파트 예상 견적';
     $('estimateContact').disabled=true;
   }
+  
   function pair(label,value){return '<div><dt>'+label+'</dt><dd>'+escaped(value)+'</dd></div>';}
+  
   function renderResult(){
     const s=latest.state;
     $('summaryTitle').textContent='선택한 공사의 예상 견적';
@@ -83,36 +95,74 @@
     $('beforeEstimate').hidden=true;$('resultContent').hidden=false;
     $('estimateContact').disabled=false;
     $('liveEstimate').textContent='선택하신 조건으로 계산했습니다. 공사금액은 십만원 단위로 절사했습니다.';
-    $('mobileTotal').textContent='공사금액 '+E.money(latest.supply);$('mobileSummary').textContent='견적 확인 ↑';
-    $('mobilePriceLabel').textContent='부가세 별도 · 합계는 결과에서 확인';
+    
+    // 계산 완료 시 모바일 하단 플로팅 바 텍스트 변경
+    $('mobileTotal').textContent='공사금액 '+E.money(latest.supply);
+    $('mobileSummary').textContent='상담 신청 ↗'; // 결과 탭에 맞게 변경
+    $('mobilePriceLabel').textContent='부가세 별도 · 합계는 위에서 확인';
   }
+  
   function focusSummary(){
     $('estimateSummary').focus({preventScroll:true});
     $('estimateSummary').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
   }
+
+  // ★ UX 개선: 탭 전환 시 화면을 부드럽게 위로 끌어올리는 함수
+  function scrollToStepHeader() {
+    const headerOffset = 110; // 상단 헤더 높이에 맞춘 오프셋
+    const stepNav = document.querySelector('.estimate-steps');
+    if(stepNav) {
+      const elementPosition = stepNav.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+         top: offsetPosition,
+         behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
+    }
+  }
+  
   function confirmEstimate(){
     if(!syncState()){form.reportValidity();return;}
     const candidate=E.calculate(state);
     if(!candidate.supply){invalidate(false);$('beforeEstimateMessage').textContent='산정할 공정을 한 개 이상 선택해주세요. 별도 상담 공사만 필요한 경우 상단의 무료 상담을 이용해주세요.';focusSummary();return;}
     latest=candidate;hasResult=true;renderResult();focusSummary();
   }
+  
   function showStep(n,focus){
     if(!syncState()){form.reportValidity();return;}
     step=Math.min(3,Math.max(0,n));
     document.querySelectorAll('[data-panel]').forEach(p=>p.hidden=Number(p.dataset.panel)!==step);
     document.querySelectorAll('[data-step]').forEach(b=>Number(b.dataset.step)===step?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current'));
-    $('previousStep').hidden=step===0;$('nextStep').textContent=step===3?'예상 견적 확인':'다음 단계 →';$('stepCounter').textContent=(step+1)+' / 4';
-    if(focus)$('stepTitle'+step).focus({preventScroll:true});
+    
+    $('previousStep').hidden=step===0;
+    
+    // 버튼 텍스트 다이내믹 변경 로직
+    const nextBtnText = step===3 ? '예상 견적 확인' : '다음 단계 →';
+    $('nextStep').textContent = nextBtnText;
+    $('mobileSummary').textContent = hasResult ? '상담 신청 ↗' : nextBtnText; // 모바일 플로팅 버튼 동기화
+    
+    $('stepCounter').textContent=(step+1)+' / 4';
+    
+    if(focus) {
+      scrollToStepHeader(); // 탭 이동 시 스크롤 위로 이동
+      setTimeout(() => {
+        const titleElement = $('stepTitle' + step);
+        if(titleElement) titleElement.focus({preventScroll: true});
+      }, 100);
+    }
   }
+  
   function summaryText(){
     const s=latest.state;
     return '[디자인소통 아파트 예상 견적]\n'+$('summaryHome').textContent+'\n기존 확장: '+E.label('expansion',s.expansion)+'\n'+Array.from($('selectionSummary').children).map(r=>r.querySelector('dt').textContent+': '+r.querySelector('dd').textContent).join('\n')+'\n\n'+latest.rows.filter(r=>r.amount).map(r=>r.label+': '+E.money(r.amount)).join('\n')+'\n\n공사금액(부가세 별도): '+E.money(latest.supply)+'\n부가세 10%: '+E.money(latest.vat)+'\n합계(VAT 포함): '+E.money(latest.total)+(latest.pending.length?'\n별도 확인/추가 비용: '+latest.pending.join(', '):'')+'\n※ 실측 전 참고용 금액입니다. 현장·자재·수량 확인 후 최종 견적이 확정됩니다.';
   }
+  
   function handleChange(event){
     const key=event&&event.target&&event.target.dataset.processToggle;
     if(key&&E.processes.some(p=>p.key===key))form.elements[key].checked=event.target.checked;
     invalidate(true);syncState();
   }
+  
   form.addEventListener('submit',e=>e.preventDefault());
   form.addEventListener('input',handleChange);form.addEventListener('change',handleChange);
   document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>showStep(Number(b.dataset.step),true)));
@@ -122,15 +172,28 @@
     if(b.closest('fieldset:disabled'))return;
     const [name,delta]=b.dataset.adjust.split(':'),el=form.elements[name];el.value=Math.min(Number(el.max),Math.max(Number(el.min),Number(el.value||0)+Number(delta)));handleChange();
   }));
+  
   $('previousStep').addEventListener('click',()=>showStep(step-1,true));
   $('nextStep').addEventListener('click',()=>step<3?showStep(step+1,true):confirmEstimate());
-  $('mobileSummary').addEventListener('click',()=>hasResult?focusSummary():showStep(3,true));
+  
+  // ★ 모바일 하단 플로팅 버튼 통합 제어
+  $('mobileSummary').addEventListener('click',()=>{
+      if(hasResult) {
+          $('estimateContact').click(); // 결과가 있으면 상담 신청으로 이동
+      } else if(step < 3) {
+          showStep(step+1,true); // 다음 단계로
+      } else {
+          confirmEstimate(); // 4번 탭이면 계산
+      }
+  });
+  
   $('resetEstimate').addEventListener('click',()=>{form.reset();Object.assign(state,E.defaults);invalidate(false);formView();showStep(0,false);toast('기본 조건으로 돌아왔습니다.');});
   $('estimateContact').addEventListener('click',()=>{
     if(!hasResult)return;
     try{sessionStorage.setItem('sotong-estimate-handoff',JSON.stringify({version:1,time:Date.now(),message:summaryText()}));location.href='index.html?estimate=1#contact';}
     catch(_){toast('상담 내역을 전달하지 못했습니다. 홈페이지의 무료 상담을 이용해주세요.');}
   });
+  
   formView();invalidate(false);
 })();
 
