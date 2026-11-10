@@ -4160,3 +4160,7 @@ h2{
   line-height:1.35;
 }
 
+
+/* 2026-11 company simplification: the office gallery now begins the company section. */
+.company-trust .office-story { margin-top:0; padding-top:0; border-top:0; }
+.company-trust { padding-top:clamp(76px,9vw,120px); }
